@@ -247,7 +247,7 @@ a {
 /* ------------------ Блок слайдера ---------------*/
 
 .main-news {
-	margin-bottom: 40px;
+	margin-bottom: 80px;
 }
 
 
@@ -377,6 +377,19 @@ a {
 	text-decoration: none;
 }
 
+/*------------------ Блок баннера ---------------------*/
+
+.b-banner {
+	width: 100%
+	display: flex;
+	justify-content: center;
+	margin-bottom: 80px;
+}
+
+.b-banner img {
+	width: 100%;
+}
+
 /* ---------------- Блок новостей -------------------- */
 .list-news__last-news-main {
 	
@@ -397,7 +410,7 @@ a {
 	border-bottom: 1px solid var(--second);
 }
 .list-news__last-news-main h2 {
-	border-bottom: 4px solid var(--primary);
+	
 }
 
 
@@ -520,5 +533,9 @@ a {
 
 	.list-news__news-card {
 		flex:0 0 100%;
+	}
+
+	.b-banner {
+		display: none;
 	}
 }
