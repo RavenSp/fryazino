@@ -506,6 +506,12 @@ a {
 
 .main-mayor {
 	display: flex;
+	margin-bottom: 40px;
+}
+
+.main-sovet {
+	display: flex;
+	margin-bottom: 40px;
 }
 
 .col-photo {
@@ -528,24 +534,36 @@ a {
 }
 
 .col-info h3 {
-	font-size: 28px;
+	font-size: 32px;
 }
 
 .col-reception {
 	display: flex;
 	flex:1;
-	border-radius: 5px;
-	background-color: var(--primary);
+	border-radius: 10px;
+	background-color: var(--second);
 	background-image: url('../img/mail.svg');
 	background-repeat: no-repeat;
 	background-size: 120%;
-	background-position-x: -80%;
+	background-position-x: -50%;
 	/*background-position-y: 170%;*/
 	color: white;
 	font-size: 30px;
 	padding: 20px;
 	justify-content: center;
 	align-items: center;
+	transition: 0.3s;
+}
+
+.col-reception:hover {
+	background-color: var(--primary);
+	background-position-x: -80%;
+	background-position-y: -100%;
+}
+
+.col-reception:hover a {
+	color: white;
+	text-shadow: #a0a0a0 0 0 2px;
 }
 
 .col-reception span {
@@ -553,7 +571,7 @@ a {
 }
  
 .col-reception a {
-	color: white;
+	color: #444;
 	text-decoration: none;
 	text-align: center;
 
