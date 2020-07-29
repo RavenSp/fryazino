@@ -334,8 +334,18 @@ a {
 	flex: 1;
 }
 
+.more-txt span {
+	color: var(--second);
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
 .more-title {
 	font-size: 1.25em;
+}
+
+.news:hover .more-title {
+	color: var(--primary);
 }
 
 .single-img {
@@ -392,7 +402,7 @@ a {
 
 /* ---------------- Блок новостей -------------------- */
 .list-news__last-news-main {
-	
+	margin-bottom: 80px;
 }
 
 .list-news__last-news-wrap {
@@ -492,6 +502,62 @@ a {
 }
 
 
+/* ------------------------- Блок руководства города ---------------------------- */
+
+.main-mayor {
+	display: flex;
+}
+
+.col-photo {
+	flex:1;
+
+}
+
+.col-photo img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.col-info {
+	flex:3;
+	padding: 20px;
+}
+
+.col-info span {
+	font-size: 18px;
+}
+
+.col-info h3 {
+	font-size: 28px;
+}
+
+.col-reception {
+	display: flex;
+	flex:1;
+	border-radius: 5px;
+	background-color: var(--primary);
+	background-image: url('../img/mail.svg');
+	background-repeat: no-repeat;
+	background-size: 120%;
+	background-position-x: -80%;
+	/*background-position-y: 170%;*/
+	color: white;
+	font-size: 30px;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.col-reception span {
+	text-align: center;
+}
+ 
+.col-reception a {
+	color: white;
+	text-decoration: none;
+	text-align: center;
+
+}
 
 @media screen and (max-width: 1024px) {
 	.wrap {
