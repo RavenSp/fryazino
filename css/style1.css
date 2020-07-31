@@ -685,6 +685,7 @@ a {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap-reverse;
+	margin-bottom: 80px;
 }
 
 
@@ -692,6 +693,76 @@ a {
 	width: 65%;
 }
 
+
+/* ----------------- Блок верхней чати футера ------------------*/
+
+.footer {
+	display: flex;
+	justify-content: space-between;	
+	margin-bottom: 80px;
+	flex-wrap: wrap;
+}
+
+.footer__col {
+	flex:1;
+	padding-right: 40px;
+}
+
+.footer__col::last-child {
+	padding-right: 0px;
+}
+
+.footer .mini-menu {
+
+	list-style: none;
+	padding: 0px;
+
+}
+
+.mini-menu__el {
+	padding-bottom: 15px;
+	font-size: 20px;
+	color: var(--second);
+}
+
+.mini-menu__el a {
+	color: var(--second);
+}
+
+.mini-menu__el a:hover {
+	color: var(--primary);
+}
+
+.footer-social {
+	list-style: none;
+	display: flex;
+	padding-left: 0px;
+	font-size: 30px;
+	justify-content: space-between;
+	padding-right: 30px;
+	margin: 16px 0px;
+}
+
+.footer-social-el {
+	
+
+}
+
+.footer-social-el a {
+	color: var(--second);
+}
+
+.footer-social-el a:hover {
+	color: var(--primary);
+}
+
+/* ----------- Нижняя часть футера -------------- */
+
+.footer-copyright {
+	padding: 40px 0px;
+	margin: 0px;
+	background-color: var(--second);
+}
 
 @media screen and (max-width: 1024px) {
 	.wrap {
