@@ -118,9 +118,20 @@
 			</li>
 			<li class="m-menu-el"><a href="#">Пресс-служба</a></li>
 			<li class="m-menu-el"><a href="#">Интернет-приемная</a></li>
-			<li class="m-menu-el"><a href="#"><i class="fa fa-search"></i></a></li>
+			<li class="m-menu-el"><a href="#" id="searchBtn" onclick="showSearch()"><i class="fa fa-search"></i></a></li>
+			
 		</ul>
+		<div id="search" style='display:none;'>
+				<form action="#">
+					<span><i class="fa fa-search"></i></span>
+					<input type="text" placeholder="Начните вводить слово">
+					<input type="submit" value="Поиск">
+					<button class="searchClose" onclick="hideSearch()"><i class="fa fa-close"></i></button>
+				</form>
+
+			</div>
 	</nav>
+			
 	</div>
 	<div class="container main-news">
 		<div class="wrap">
@@ -632,6 +643,32 @@
   	margin: 15,
   });
 });
+</script>
+
+<script type="text/javascript">
+	function showSearch() {
+		searchForm = document.getElementById("search");
+		searchForm.style.display = '';
+		
+
+		searchBtn = document.getElementById("searchBtn");
+		searchBtn.removeAttribute('onclick');
+		searchBtn.setAttribute('onclick', 'hideSearch()');
+		searchBtn.children[0].classList.remove('fa-search');
+		searchBtn.children[0].classList.add('fa-close');
+	};
+
+	function hideSearch() {
+		searchForm = document.getElementById("search");
+		searchForm.style.display = 'none';
+
+		searchBtn = document.getElementById("searchBtn");
+		searchBtn.removeAttribute('onclick');
+		searchBtn.setAttribute('onclick', 'showSearch()');
+		searchBtn.children[0].classList.remove('fa-close');
+		searchBtn.children[0].classList.add('fa-search');
+	};
+
 </script>
 
 </body>
