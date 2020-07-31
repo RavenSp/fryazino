@@ -619,14 +619,22 @@ a {
 
 /* ---------------- Owl-carusel -------------------------- */
 
-.owl-carousel  a  img {
-	height: 100%;
+.owl-carousel {
+	margin-bottom: 40px;
 }
 
-.owl-carousel  a  {
-	height: 100%;
+/* --------------- Блок госуслуг--------------------------- */
+
+.gosuslugi-bnr {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap-reverse;
 }
 
+
+#widgetPos {
+	width: 65%;
+}
 
 
 @media screen and (max-width: 1024px) {
