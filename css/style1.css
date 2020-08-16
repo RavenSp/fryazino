@@ -277,6 +277,11 @@ a {
 	
 }
 
+#search form input[type='text']:focus {
+	
+	outline: none;
+}
+
 #search form input[type='submit'] {
 	margin-right: 10px;
 	border: 0;
@@ -507,11 +512,20 @@ a {
     background-size: cover;
     background-position: center center;
     background-image: url("../img/back.svg");
+    overflow: hidden;
 }
 
 
 .list-news__news-card-image img {
 	object-fit: cover;
+	display: block;
+	transition: 1s;
+	width: 100%;
+    height: 100%;
+}
+
+.list-news__news-card:hover img {
+	transform: scale(1.2) rotate(2deg);
 }
 
 .list-news__news-card-tags {
@@ -755,6 +769,17 @@ a {
 .footer-social-el a:hover {
 	color: var(--primary);
 }
+
+.footer-contacts {
+	font-size: 14px;
+	color: var(--second);
+}
+
+.footer-contacts ul {
+	list-style: none;
+	padding: 0px;
+}
+
 
 /* ----------- Нижняя часть футера -------------- */
 
