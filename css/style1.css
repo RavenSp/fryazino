@@ -789,6 +789,27 @@ a {
 	background-color: var(--second);
 }
 
+.footer-special {
+	
+}
+
+.footer-special img {
+	width: 100%;
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-special a {
+	margin-top: 30px;
+ 	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-special h3 {
+	flex: 5;
+}
+
 @media screen and (max-width: 1024px) {
 	.wrap {
 		flex-wrap: wrap;
@@ -820,18 +841,3 @@ a {
 
 }
 
-@media screen and (max-width: 480px){
-
-	.single h2 {
-		text-align: center;
-		font-size: 1.125em;
-	}
-
-	.list-news__news-card {
-		flex:0 0 100%;
-	}
-
-	.b-banner {
-		display: none;
-	}
-}
