@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/style1.css">
 	<link rel="stylesheet" href="css/slyle_480.css" media="screen and (max-width: 480px)">
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
@@ -37,10 +37,11 @@
 	</div>
 	<div class="container">
 	<nav class="main-menu">
+		<a href="#" class="m-menu-icon" onclick="showSideMenu()"><i class="fa fa-bars" aria-hidden="true"></i></a>
 		<ul class="m-menu">
 			<li class="m-menu-el"><a href="#">Новости</a></li>
 			<li class="m-menu-el">
-				<a href="#">Городской округ Фрязино</a>
+				<a href="https://google.com/">Городской округ Фрязино</a>
 				<div class="dropdown">
 				<ul class="dropdown-list">
 					<li class='dropdown-link'><a href="#">Символика</a></li>
@@ -121,7 +122,7 @@
 			</li>
 			<li class="m-menu-el"><a href="#">Пресс-служба</a></li>
 			<li class="m-menu-el"><a href="#">Интернет-приемная</a></li>
-			<li class="m-menu-el"><a href="#" id="searchBtn" onclick="showSearch()"><i class="fa fa-search"></i></a></li>
+			<li class="m-menu-el m-menu-search"><span id="searchBtn" onclick="showSearch()"><i class="fa fa-search"></i></span></li>
 			
 		</ul>
 		<div id="search" style='display:none;'>
@@ -134,6 +135,111 @@
 
 			</div>
 	</nav>
+	<div id="side-menu" class="side-nav">
+		<div>
+		<a href="#" onclick="hideSideMenu()" class="s-menu-close"><i class="fa fa-close" aria-hidden="true"></i></a>
+		<ul class="s-menu">
+			
+			<li class="s-menu-el"><a href="#">Новости</a></li>
+			<li class="s-menu-el">
+				<a href="https://google.com">Городской округ Фрязино</a>
+				<span id='cl1' data-open='0' data-id='1' onclick="showDropMenu(this.id)"><i class="fa fa-caret-down"></i></span>
+				<div id='dr1' class="dropdown">
+				<ul class="dropdown-list">
+					<li class='dropdown-link'><a href="#">Символика</a></li>
+					<li class='dropdown-link'><a href="#">К сведению</a></li>
+					<li class='dropdown-link'><a href="#">Социально-ориентированные некоммерческие организации</a></li>
+					<li class='dropdown-link'><a href="#">Социально-экономическое развитие</a></li>
+					<li class='dropdown-link'><a href="#">Управление и комитеты</a></li>
+					<li class='dropdown-link'><a href="#">Малое предпринимательство</a></li>
+					<li class='dropdown-link'><a href="#">Общественные организации</a></li>
+					<li class='dropdown-link'><a href="#">Общественная палата</a></li>
+					<li class='dropdown-link'><a href="#">Ветеранское движение</a></li>
+					<li class='dropdown-link'><a href="#">Уполномоченный по правам человека</a></li>
+					<li class='dropdown-link'><a href="#">Генеральный план</a></li>
+					<li class='dropdown-link'><a href="#">Города-Побратимы</a></li>
+					<li class='dropdown-link'><a href="#">Жилищно-коммунальное хозяйство</a></li>
+					<li class='dropdown-link'><a href="#">Афиша</a></li>
+					<li class='dropdown-link'><a href="#">Фотоархив</a></li>
+
+				</ul>
+				</div>
+			</li>
+			<li class="s-menu-el">
+				<a href="#">Власть</a>
+				<span id='cl2' data-open='0' data-id='2' onclick="showDropMenu(this.id)"><i class="fa fa-caret-down"></i></span>
+				<div class="dropdown" id='dr2'>
+				<ul class="dropdown-list">
+					<li class='dropdown-link'><a href="#">Глава Городского округа Фрязино</a></li>
+					<li class='dropdown-link'><a href="#">Совет депутатов</a></li>
+					<li class='dropdown-link'><a href="#">Структурные подразделения администрации</a></li>
+					<li class='dropdown-link'><a href="#">Об Администрации</a></li>
+					<li class='dropdown-link'><a href="#">График приёма</a></li>
+					<li class='dropdown-link'><a href="#">Контрольная деятельность</a></li>
+					<li class='dropdown-link'><a href="#">Обращения граждан</a></li>
+					<li class='dropdown-link'><a href="#">Кадровое обеспечение</a></li>
+					<li class='dropdown-link'><a href="#">Противодействие терроризму и его идеологии</a></li>
+					<li class='dropdown-link'><a href="#">Противодействие коррупции</a></li>
+					<li class='dropdown-link'><a href="#">Отчеты</a></li>
+				</ul>
+				</div>
+			</li>
+			<li class="s-menu-el">
+				<a href="#">Документы</a>
+				<span id='cl3' data-open='0' data-id='3' onclick="showDropMenu(this.id)"><i class="fa fa-caret-down"></i></span>
+				<div class="dropdown" id="dr3">
+				<ul class="dropdown-list">
+					<li class='dropdown-link'><a href="#">Нормативные документы</a></li>
+					<li class='dropdown-link'><a href="#">Устав муниципального образования «Городской округ Фрязино Московской
+области»</a></li>
+					<li class='dropdown-link'><a href="#">Государственные услуги</a></li>
+					<li class='dropdown-link'><a href="#">Муниципальные услуги</a></li>
+					<li class='dropdown-link'><a href="#">Муниципальный заказ</a></li>
+					<li class='dropdown-link'><a href="#">Муниципальный контроль</a></li>
+					<li class='dropdown-link'><a href="#">Бюджет</a></li>
+					<li class='dropdown-link'><a href="#">Публичные слушания</a></li>
+				</ul>
+				</div>
+			</li>
+			<li class="s-menu-el">
+				<a href="#">Справочная</a>
+				<span id='cl4' data-open='0' data-id='4' onclick="showDropMenu(this.id)"><i class="fa fa-caret-down"></i></span>
+				<div class="dropdown" id='dr4'>
+				<ul class="dropdown-list">
+					<li class='dropdown-link'><a href="#">Муниципальные учреждения</a></li>
+					<li class='dropdown-link'><a href="#">Автомобильные инспекции</a></li>
+					<li class='dropdown-link'><a href="#">Отдел ЗАГС городского округа Фрязино</a></li>
+					<li class='dropdown-link'><a href="#">Учреждения для детей</a></li>
+					<li class='dropdown-link'><a href="#">Высшие и средние специальные учреждения</a></li>
+					<li class='dropdown-link'><a href="#">Учреждения физической культуры и спорта</a></li>
+					<li class='dropdown-link'><a href="#">Учреждения социальной защиты населения</a></li>
+					<li class='dropdown-link'><a href="#">Музеи и выставочные залы</a></li>
+					<li class='dropdown-link'><a href="#">Ветеранское движение</a></li>
+					<li class='dropdown-link'><a href="#">Кинотеатры и концертные залы</a></li>
+					<li class='dropdown-link'><a href="#">Средства массовой информации</a></li>
+					<li class='dropdown-link'><a href="#">В помощь бизнесу</a></li>
+					<li class='dropdown-link'><a href="#">Молодая семья</a></li>
+					<li class='dropdown-link'><a href="#">Наружная реклама</a></li>
+					<li class='dropdown-link'><a href="#">Управляющие компании</a></li>
+
+				</ul>
+				</div>
+			</li>
+			<li class="s-menu-el"><a href="#">Пресс-служба</a></li>
+			<li class="s-menu-el"><a href="#">Интернет-приемная</a></li>
+		</ul>
+		<div class="social-block">
+			<ul>
+				<li class="vk"><i class="fa fa-vk" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="fb"><i class="fa fa-facebook" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="tw"><i class="fa fa-twitter" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="inst"><i class="fa fa-instagram" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="yt"><i class="fa fa-youtube-play" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="ok"><i class="fa fa-odnoklassniki" aria-hidden="true"><a href="#"></a></i></li>
+			</ul>
+		</div>
+		</div>
+	</div>
 			
 	</div>
 	<div class="container main-news">
@@ -575,7 +681,7 @@
 	</div>
 
 	
-	<div class="container">
+	<!--div class="container">
 		<div class="list-news__h2">
 			<h2>Мы всегда на связи!</h2>
 		</div>
@@ -615,7 +721,7 @@ loadURL(iframe.src);
 				<div class="iphone-bottom"></div>
 			</div>
 		</div>
-	</div>
+	</div-->
 
 
 
@@ -733,6 +839,29 @@ loadURL(iframe.src);
   	loop:true,
   	autoplay:true,
   	margin: 15,
+  	responsive:{
+        0:{
+            items:1,
+            nav:false
+        },
+        460:{
+        	items:2,
+            nav:false
+        },
+        800: {
+        	items:3,
+            nav:false
+        },
+
+        1025: {
+        	items:4,
+            nav:false
+        },
+        1250: {
+        	items:6,
+            nav:false
+        }
+    }
   });
 });
 </script>
@@ -762,6 +891,44 @@ loadURL(iframe.src);
 	};
 
 </script>
+
+<script>
+		function showSideMenu() {
+			document.getElementById('side-menu').style.width = '100%';
+			document.body.style.overflow = 'hidden';
+			
+		}
+		function hideSideMenu() {
+			document.getElementById('side-menu').style.width = '0';
+			document.body.style.overflow = '';
+		}
+
+		function showDropMenu(el) {
+
+			ar = document.getElementById(el);
+
+			if (ar.getAttribute('data-open') == 0) {
+				
+				
+				
+
+				dr = document.getElementById('dr' + ar.getAttribute('data-id'));
+				dr.style.display = 'block';
+				ar.setAttribute('data-open', '1')
+				ar.style.color = 'var(--primary)';
+				ar.style.transform = 'rotate(180deg)';
+			} else {
+				
+				dr = document.getElementById('dr' + ar.getAttribute('data-id'));
+				dr.style.display = 'none';
+				ar.setAttribute('data-open', '0')
+				ar.title = 0;
+				ar.style.color = '';
+				ar.style.transform = 'rotate(0deg)';
+
+			}
+		}
+	</script>
 
 </body>
 </html>
