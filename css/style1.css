@@ -545,7 +545,7 @@ a {
 	display: flex;
 	flex-wrap: wrap;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
 
 .list-news__h2 {
@@ -785,8 +785,15 @@ a {
 
 
 #widgetPos {
-	width: 65%;
+	flex: 2;
 }
+
+
+
+.pos-container-width {
+	flex: 1;
+}
+
 
 
 /* ----------------- Блок верхней чати футера ------------------*/
@@ -974,6 +981,18 @@ a {
 		margin-left: 15px;
 		height: 56px;
 		align-items: center;
+	}
+
+	#widgetPos {
+		flex: initial;
+	    width: 100%;
+	    max-width: initial;
+	}
+
+	.pos-container-width {
+		flex: initial;
+	    width: 100%;
+	    max-width: initial;
 	}
 
 }
