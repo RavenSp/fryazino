@@ -72,8 +72,6 @@ class NewsDetailView(DetailView):
 
 		new = get_object_or_404(News, pk=id, slug=slug)
 
-		print(new.title)
-
 		tag_cloud = self.model.tags.most_common()[:12]
 
 		context = {

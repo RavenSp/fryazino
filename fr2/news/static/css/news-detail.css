@@ -196,6 +196,73 @@
 	color: var(--primary);
 }
 
+
+/*  Категория в новости */
+
+.newsdetail--category {
+	padding-top: 30px;
+	font-size: 22px;
+	display: flex;
+
+}
+
+.newsdetail--category span {
+
+	/*padding-right: 20px;*/
+	width: 115px;
+	font-weight: 900;
+}
+
+.newsdetail--category a {
+	color: gray;
+}
+
+
+.newsdetail--category a:hover {
+	color:var(--primary);
+}
+
+/*  Темы в новости */
+
+.newsdetail--thems {
+	padding-top: 20px;
+	font-size: 22px;
+	display: flex;
+}
+
+.newsdetail--thems span {
+	font-weight: 900;
+	/*padding-right: 20px;*/
+	width: 115px;
+}
+
+.newsdetail--thems ul {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0px;
+	margin: 0px;
+}
+
+.newsdetail--thems li:not(:first-child) {
+	margin-left: 10px;
+}
+
+.newsdetail--thems li:before {
+	content: '#';
+	color: var(--primary);
+	padding-right: 3px;
+}
+
+
+.newsdetail--thems a {
+	color: gray;
+}
+
+.newsdetail--thems a:hover {
+	color: var(--primary);
+}
+
 .newsdetail--more-news-list {
 	list-style: none;
 	display: flex;
@@ -265,4 +332,9 @@
 
 .newsdetail--more-news-el:hover .newsdetail--more-news-title  span {
 	color: white;
+}
+
+.newsdetail--more-news-list-title {
+	margin-top: 30px;
+	font-size: 30px;
 }

@@ -63,6 +63,9 @@
 			<div class="newsdetail--textblock">
 				{{ new.news_text | safe  }}		
 			</div>
+			<div class="newsdetail--banners">
+				
+			</div>
 		</div>
 		
 
@@ -90,11 +93,11 @@
 </div>
 <div class="newsdetail--more-info-new">
 	<div class="newsdetail--category">
-			<span>Категория: <a href="{{ new.category.get_absolute_url }}">{{ new.category }}</a></span>
+			<span>Категория:</span><a href="{{ new.category.get_absolute_url }}">{{ new.category }}</a>
 		</div>
 		<div class="newsdetail--thems">
 			<span>Темы:</span>
-				<ul style="list-style:none; display:flex;">
+				<ul>
 				{% for tag in new.tags.all %}
 					<li><a href="{% url 'tag_path' tag.slug %}">{{ tag.name }}</a></li>
 				{% endfor %}
