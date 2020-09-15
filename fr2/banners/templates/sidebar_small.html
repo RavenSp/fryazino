@@ -1,0 +1,13 @@
+{% load cropping thumbnail static %}
+
+<div class="listnews--sidebar-banners">
+	<ul class="listnews--banners-list">
+		{% for banner in banners %}
+		<li class="listnews--banner">
+			<a href="{{ banner.get_url }}" target="_blank"><img src="{% thumbnail banner.image 500x500 quality=100 %}" alt="{{ banner.title }}"></a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{# {% cropped_thumbnail banner 'cropping' width=340 %}  #}
+{#{% thumbnail banner.image 340x340 quality=100 %} #}

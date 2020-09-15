@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load cropping static banners news %}
+
+{% block title %}{{ new.title }}{% endblock %}
+
+{% block addcss %}
+	
+		<link rel="stylesheet" href="{% static "css/news-detail.css" %}">
+	
+{% endblock %}
+
+{% block keyword%}
+	<meta name="title" content="{{ new.title }}">
+	<meta type='keywords' content="{{ new.keywords }}">
+	<meta name="description" content="{{ new.seo_description }}">
+
+
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="Администрация <br> городского округа <br> Фрязино">
+	<meta property="og:title" content="{{ new.title }}">
+	<meta property="og:url" content="http://{{ request.get_host }}{{ new.get_absolute_url }}">
+	<meta property="og:description" content="{{ new.seo_description }}">
+	{% if new.image %}
+	<meta property="og:image" content="http://{{ request.get_host }}{{ new.image.url }}">
+	{% else %}
+	<meta property="og:image" content="http://{{ request.get_host }}{% static 'img/back.svg' %}">
+	{% endif %}
+	
+
+{% endblock %}
+
+
+{% block main-content %}
+<div class="container ">
+	<div class="newsdetail--header">
+	
+	</div>
+	<div class="newsdetail--title">
+		<h1>{{ new.title }}</h1>
+	</div>
+
+	
+	<div class="newsdetail--main">
+	<div class="newsdetail--new">
+		<div class="newsdetail--news-info">
+			<i class="fa fa-clock-o" aria-hidden="true"></i>  <span>{{new.publisdDate | date:"l, j E Y"}}</span>
+		</div>
+		{% if new.image_in_body and new.image %}
+			<div class="newsdetail--photo">
+			<img src="{% cropped_thumbnail new "top_news_cropping" width=1066 %}" alt="">
+			</div>	
+		{% endif %}
+		<div class="newsdetail--text">
+			<div class="newsdetail--share">
+				<div class="newsdetail--share-stiky">
+				<!-- uSocial -->
+					<script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4" data-script="usocial" charset="utf-8"></script>
+					<div class="uSocial-Share" data-pid="0ca7b04ed6f1397684959412f0e5465c" data-type="share" data-options="round-rect,style1,default,absolute,vertical,size48,eachCounter0,counter0" data-social="vk,fb,twi,ok,telegram,wa,print" data-mobile="sms"></div>
+				<!-- /uSocial -->
+				</div>
+			</div>
+			<div class="newsdetail--textblock">
+				{{ new.news_text | safe  }}		
+			</div>
+		</div>
+		
+
+		
+
+	</div>
+	<div class="newsdetail--sidebar">
+		{% all_small_banners 1 %}
+		{% if tag_cloud %}
+		<h3>Популярные темы:</h3>
+		<div class="newsdetail--tags-cloud">
+			<ul class="newsdetail--cloud">
+				{% for tag in tag_cloud %}
+					<li class="newsdetail--cloud-tag">
+						<a href="{% url 'tag_path' tag.slug %}">{{ tag.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+		
+	</div>
+
+
+</div>
+<div class="newsdetail--more-info-new">
+	<div class="newsdetail--category">
+			<span>Категория: <a href="{{ new.category.get_absolute_url }}">{{ new.category }}</a></span>
+		</div>
+		<div class="newsdetail--thems">
+			<span>Темы:</span>
+				<ul style="list-style:none; display:flex;">
+				{% for tag in new.tags.all %}
+					<li><a href="{% url 'tag_path' tag.slug %}">{{ tag.name }}</a></li>
+				{% endfor %}
+				</ul>
+		</div>
+
+
+		{% similar_news new %}
+</div>
+
+</div>
+
+{% endblock %}

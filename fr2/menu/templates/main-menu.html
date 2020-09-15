@@ -1,0 +1,18 @@
+{% load mptt_tags %}
+<ul class="m-menu">
+	{% recursetree menu %}
+			<li class="m-menu-el"><a href="{{ node.get_url }}">{{ node.title }}</a>
+			{% if not node.is_leaf_node %}
+                <div class="dropdown">
+				<ul class="dropdown-list">
+					{% for child in node.get_children %}
+						<li class='dropdown-link'><a href="{{ child.get_url }}">{{ child.title }}</a></li>
+                    {% endfor%}
+					{# Все происходящее - костыль для того, чтобы из меню выводились первые два уровня. #}
+                </ul>
+				</div>
+            {% endif %}
+            </li>
+            {% endrecursetree %}
+			<li class="m-menu-el m-menu-search"><span id="searchBtn" onclick="showSearch()"><i class="fa fa-search"></i></span></li>
+		</ul>

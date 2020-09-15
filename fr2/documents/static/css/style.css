@@ -1,0 +1,1015 @@
+:root {
+	--primary: #0057c1;
+	--second: #b3b3b3;
+}
+html body {
+	font-family: 'Cuprum';
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+	max-width: 1600px;
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+
+
+.header {
+	display: inline-flex;
+	align-items: center;
+	padding-top: 20px;
+	width: 100%
+	
+}
+
+.header-logo {
+	height: 70px;
+	align-items: center;
+	margin-right: 5vw;
+}
+
+.header-logo img {
+	height: 100%;
+}
+
+.top-menu {
+	display: flex;
+
+}
+
+.top-menu a {
+	margin-right: 2em;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: gray;
+	font-size: 0.8em;
+}
+
+.top-menu a:last-child {
+	margin-right:0;
+}
+
+.top-menu a:hover {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+.social-block {
+	margin-left: auto;
+}
+
+.social-block ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: inline-flex;
+}
+
+.social-block li {
+	padding-left: 20px;
+	font-size: 30px;
+	color: gray;
+}
+
+.social-block a {
+	color: gray;
+	text-decoration: none;
+}
+
+.social-block .vk:hover{
+	color: #43658e;
+}
+
+.social-block .fb:hover{
+	color: #39569a;
+}		
+
+.social-block .tw:hover{
+	color: #139fef;
+}
+
+.social-block .inst:hover{
+	color: #f54e5a;
+}
+
+.social-block .yt:hover{
+	color: #ff0000;
+}
+
+.social-block .ok:hover{
+	color: #f7931e;
+}		
+
+.social-block li:first-child {
+	padding-left: 0;
+}
+
+.main-menu {
+	position: relative;
+	display: flex;
+	margin-bottom: 30px;
+	margin-top: 15px;
+	border-top: 1px solid #d7d5d2;
+	border-bottom: 1px solid #d7d5d2;
+}
+
+.m-menu {
+	list-style: none;
+	display: flex;
+	padding: 0;
+	justify-content: space-around;
+	text-align: center;
+	width: 100%;
+
+}
+
+.m-menu a {
+	text-decoration: none;
+	color: black;
+}
+
+.m-menu a:hover {
+	text-decoration: none;
+	color:  var(--primary);
+}
+
+.m-menu-icon {
+	display: none;
+	width: 36px;
+	height: 24px;
+	padding: 0;
+	font-size: 2em;
+	align-self: center;
+}
+
+.m-menu-icon a {
+	align-self: center;
+	display: flex;
+
+}
+
+.side-nav {
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background: #FFFFFF;
+	width: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.5s;
+}
+
+
+#side-menu {
+	display: none;
+}
+
+.s-menu {
+	list-style: none;
+	margin-top: 60px;
+	width: 83%;
+
+}
+
+.s-menu-el {
+	font-size: 20px;
+	padding: 15px 0px;
+	border-bottom: 1px solid var(--second);
+}
+
+.s-menu-el .dropdown {
+	font-size: 18px;
+	display: none;
+	
+}
+
+.s-menu-el .dropdown-link {
+	padding-bottom: 10px;
+	
+}
+
+.s-menu-el span {
+	position: absolute;
+	right: 10%;
+
+}
+
+.s-menu-close{
+	font-size: 40px;
+	padding: 0 10px 0 0;
+	text-align: right;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+
+.m-menu-el {
+	margin-right: 30px;
+	font-size: 19px;
+	align-items: center;
+  	justify-content: center;
+	display: flex;
+	position: relative;
+}
+
+.m-menu-el:last-child {
+	margin-right: 0;
+}
+
+.m-menu-el .dropdown {
+	position: absolute;
+	top: 100%;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+	margin-top: 20px;
+	z-index: 999;
+	/*padding: 25px 40px 25px;*/
+	opacity: 0;
+	-ms-transform: translateX(-9999px);
+	transform: translateX(-9999px);
+	transition: opacity 0.5s;
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction:column;
+	text-align: left;
+	list-style: none;
+	max-height: 68vh;
+	width: auto;
+	font-size: 16px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+
+}
+
+
+
+.m-menu-el:hover .dropdown {
+	top: 29px;
+	opacity: 1;
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+	left: 0;
+    right: auto;
+	background-color: white;
+	align-content: flex-start;
+	float: left;
+
+}
+
+.dropdown-list {
+	list-style: none;
+	overflow-y: auto;
+	height: 100%;
+	padding: 0 40px;
+	margin: 20px 0;
+	z-index: 10;
+}
+
+.dropdown-list::-webkit-scrollbar {
+		width: 50px;
+}
+
+
+.m-menu-el:hover .dropdown::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 25px;
+    left: 0px;
+   	width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 30px 30px 30px;
+    border-color: transparent transparent #ffffff transparent;
+}
+.m-menu-el:hover .dropdown::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+
+}
+
+.m-menu-el .dropdown .dropdown-link {
+	margin-bottom: 10px;
+	margin-right: 10px;
+	width: 200px;
+}
+
+
+#search {
+	position: absolute;
+	display: inline-flex;
+	z-index: 999;
+	transition: 0.3s;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	
+}
+
+#search span {
+	font-size: 20px;
+	margin-right: 10px;
+	color: var(--second);
+	flex: 0 0;
+	align-items: center;
+	display: flex;
+}
+
+#search form {
+	padding: 15px 0px;
+	display: flex;
+	width: 100%;
+}
+
+#search form input[type='text'] {
+	width: 95%;
+	margin-right: 10px;
+	border: none;
+	
+}
+
+#search form input[type='text']:focus {
+	
+	outline: none;
+}
+
+#search form input[type='submit'] {
+	margin-right: 10px;
+	border: 0;
+	color: white;
+	background-color: var(--second);
+	padding: 6px;
+}
+
+#search form input[type='submit']:hover {
+	background-color: var(--primary);
+}
+
+.searchClose {
+	background-color: var(--second);
+	color: white;
+	border: none;
+	border-radius: 2px;
+}
+
+.searchClose:hover {
+	background-color: var(--primary);
+}
+
+/* ------------------ Блок слайдера ---------------*/
+
+.main-news {
+	margin-bottom: 80px;
+}
+
+
+.single img {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.wrap {
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+.single {
+	width: 50%;
+	margin-right: 40px;
+	
+}
+
+.single-wrap {
+	position: sticky;
+	top: 30px;
+}
+
+.single h2 {
+	font-size: 2.5em;
+	margin-top: 15px;
+	line-height: 50px;
+}
+
+.single h2:hover a{
+	color: var(--primary);
+
+}
+
+.single .date {
+	color: #7e7266;
+	font-size: 0.875em;
+}
+
+
+
+.more {
+	width: 50%;
+	margin-left: 40px;
+}
+
+.more h3 {
+	font-size: 1.5em;
+	margin-bottom: 15px;
+	margin-top: 0;
+	text-transform: uppercase;
+}
+
+.more .news {
+	display: flex;
+	margin-bottom: 40px;
+}
+
+.more .news:last-child {
+	margin-bottom: 0px;
+}
+
+
+.more-img {
+	margin-right: 30px;	
+	width: 220px;
+	height: 160px;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("../img/back.svg");
+}
+
+
+.more-img img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+}
+
+.more-txt {
+	flex: 1;
+	min-width: 165px;
+}
+
+.more-txt span {
+	color: var(--second);
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+.more-title {
+	font-size: 1.25em;
+}
+
+.news:hover .more-title {
+	color: var(--primary);
+}
+
+.single-img {
+	position: relative;
+}
+
+.tags {
+	list-style: none;
+	display: inline-flex;
+	position: absolute;
+	padding: 0;
+	left: 10px;
+	bottom: 10px;
+	z-index: 1;
+}
+
+.tag {
+	color: white;
+	background-color:  var(--primary);
+	padding: 0.3em;
+	margin-right: 0.7em;
+	font-size: 14px;
+	border-radius: 2px;
+	user-select: none;
+}
+
+.tag a {
+	color: white;
+	text-decoration: none;
+}
+
+.tag:hover {
+	color:  var(--primary);
+	background-color: white;
+}
+
+.tag:hover a {
+	color:  var(--primary);
+	text-decoration: none;
+}
+
+/*------------------ Блок баннера ---------------------*/
+
+.b-banner {
+	width: 100%
+	display: flex;
+	justify-content: center;
+	margin-bottom: 80px;
+}
+
+.b-banner img {
+	width: 100%;
+}
+
+/* ---------------- Блок новостей -------------------- */
+.list-news__last-news-main {
+	margin-bottom: 80px;
+}
+
+.list-news__last-news-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.list-news__h2 {
+	font-size: 30px;
+	padding-left: 0.5em;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid var(--second);
+}
+.list-news__last-news-main h2 {
+	
+}
+
+
+/* ---------------- Блок одной новости -------------------- */
+
+.list-news__news-card {
+	flex: 0 0 22%;
+
+	position: relative;
+	margin: 10px 10px;
+	min-width: 250px;
+}
+
+.list-news__news-card:hover {
+	background-color: var(--primary);
+	color: white;
+}
+
+.list-news__news-card:hover a {
+	color: white;
+}
+
+.list-news__news-card-image {
+	width: 100%;
+	position: relative;
+	display: flex;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("../img/back.svg");
+    overflow: hidden;
+}
+
+
+.list-news__news-card-image img {
+	object-fit: cover;
+	display: block;
+	transition: 1s;
+	width: 100%;
+    height: 100%;
+}
+
+.list-news__news-card:hover img {
+	transform: scale(1.2) rotate(2deg);
+}
+
+.list-news__news-card-tags {
+	position: absolute;
+	bottom: 0.3vh;
+	padding: 0;
+
+	list-style: none;
+	display: flex;
+	
+	margin-bottom: 0.3em;
+	margin-left: 0.3em;
+
+}
+
+.list-news__news-card-tags a {
+	color: white;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+
+.list-news__last-news-tag {
+	margin-right: 5px;
+	padding: 0.2em;
+	background-color: var(--primary);
+	color: white;
+	border-radius: 5px;
+}
+
+.list-news__news-card-date {
+	color: var(--second);
+	font-size: 0.875em;
+	margin-top: 5px;
+	padding-left: 10px;
+}
+
+.list-news__news-card:hover .list-news__news-card-date {
+	color: white;
+}
+
+.list-news__news-card-text {
+	padding: 10px;
+}
+
+
+/* ------------------------- Блок руководства города ---------------------------- */
+
+.main-mayor {
+	display: flex;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+}
+
+.main-sovet {
+	display: flex;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+}
+
+.col-photo {
+	flex:1;
+	min-width: 165px;
+
+}
+
+.col-photo img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.col-info {
+	flex:3;
+	padding: 20px;
+}
+
+.col-info span {
+	font-size: 18px;
+}
+
+.col-info h3 {
+	font-size: 32px;
+	min-width: 250px;
+
+}
+
+.col-reception {
+	display: flex;
+	flex:1;
+	border-radius: 10px;
+	background-color: var(--second);
+	background-image: url('../img/mail.svg');
+	background-repeat: no-repeat;
+	background-size: 120%;
+	background-position-x: -50%;
+	/*background-position-y: 170%;*/
+	color: white;
+	font-size: 30px;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+	transition: 0.3s;
+	min-width: 165px;
+}
+
+.col-reception:hover {
+	background-color: var(--primary);
+	background-position-x: -80%;
+	background-position-y: -100%;
+}
+
+.col-reception:hover a {
+	color: white;
+	text-shadow: #a0a0a0 0 0 2px;
+}
+
+.col-reception span {
+	text-align: center;
+}
+ 
+.col-reception a {
+	color: #444;
+	text-decoration: none;
+	text-align: center;
+
+}
+
+
+/* ------------------------- Блок социальных сетей ---------------------------- */
+
+
+.iphone-frame {
+	background-image: url('../img/frame.png');
+	background-repeat: no-repeat;
+	padding: 20px 25px;
+	width: 320px;
+	z-index: 100;
+	/*position: relative;*/
+	height: 700px;
+}
+
+.iphone {
+	position: relative;
+	height: 100%;
+
+}
+
+.tg-body {
+	height: 700px !important;
+}
+
+.iphone-top {
+	background-color: var(--primary);
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	color: white;
+	position: relative;
+	z-index: -99;
+}
+
+
+.iphone-center {
+	height: 100%;
+	overflow: hidden;
+}
+
+/* ---------------- Owl-carusel -------------------------- */
+
+.owl-carousel {
+	margin-bottom: 40px;
+}
+
+/* --------------- Блок госуслуг--------------------------- */
+
+.gosuslugi-bnr {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap-reverse;
+	margin-bottom: 80px;
+}
+
+
+#widgetPos {
+	flex: 2;
+}
+
+
+
+.pos-container-width {
+	flex: 1;
+}
+
+
+
+/* ----------------- Блок верхней чати футера ------------------*/
+
+.footer {
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;	
+	margin-bottom: 80px;
+	flex-wrap: wrap;
+}
+
+.footer__col {
+	flex:1;
+	padding-right: 40px;
+}
+
+.footer__col:last-child {
+	padding-right: 0px;
+}
+
+.footer .mini-menu {
+
+	list-style: none;
+	padding: 0px;
+
+}
+
+.mini-menu__el {
+	padding-bottom: 15px;
+	font-size: 20px;
+	color: var(--second);
+}
+
+.mini-menu__el a {
+	color: var(--second);
+}
+
+.mini-menu__el a:hover {
+	color: var(--primary);
+}
+
+.footer-social {
+	list-style: none;
+	display: flex;
+	padding-left: 0px;
+	font-size: 30px;
+	justify-content: space-between;
+	padding-right: 30px;
+	margin: 16px 0px;
+}
+
+.footer-social-el {
+	margin-right: 15px;
+
+}
+
+.footer-social-el:last-child {
+	margin-right: 0px;
+}
+
+.footer-social-el a {
+	color: var(--second);
+}
+
+.footer-social-el a:hover {
+	color: var(--primary);
+}
+
+.footer-contacts {
+	font-size: 14px;
+	color: var(--second);
+}
+
+.footer-contacts ul {
+	list-style: none;
+	padding: 0px;
+}
+
+
+/* ----------- Нижняя часть футера -------------- */
+
+.footer-copyright {
+	padding: 40px 0px;
+	margin: 0px;
+	background-color: var(--second);
+}
+
+.footer-special {
+	
+}
+
+.footer-special img {
+	width: 100%;
+	max-width: 80px;
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-special a {
+	margin-top: 30px;
+ 	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-special h3 {
+	flex: 5;
+}
+
+@media screen and (max-width: 1024px) {
+	.wrap {
+		flex-wrap: wrap;
+	}
+
+	.single {
+		width: 100%;
+		margin: 0px;
+	
+	}
+
+	
+	.more {
+		width: 100%;
+		margin: 40px 0 0 0px
+	}
+
+	.more h3 {
+		font-size: 1.3em;
+	}
+
+	.top-menu {
+		display: none;
+	}
+
+	.list-news__news-card {
+		flex:0 0 45%;
+	}
+
+	/* --------------- Мобильное меню -------------- */ 
+	.m-menu-el {
+		display: none;
+	}
+
+	.m-menu-search {
+		display: block;
+
+	}
+
+	.m-menu {
+
+		justify-content: flex-end;
+	}
+
+	#search span {
+		display: none;
+	}
+
+	.m-menu-icon {
+		display: block;
+	}
+
+	.s-menu {
+		display: flex;
+		flex-direction: column;
+		width: 88%;
+	}
+
+	.dropdown-list {
+		padding: 0 40px 0px 10px;
+	}
+
+	#side-menu {
+		display: flex;
+		flex-direction: column;
+
+	}
+
+	#side-menu .social-block {
+		margin-left: 40px;
+		margin-top: 40px;
+	}
+
+	.m-menu-icon {
+		display: flex;
+		margin-left: 15px;
+		height: 56px;
+		align-items: center;
+	}
+
+	#widgetPos {
+		flex: initial;
+	    width: 100%;
+	    max-width: initial;
+	}
+
+	.pos-container-width {
+		flex: initial;
+	    width: 100%;
+	    max-width: initial;
+	}
+
+}
+
+@media screen and (max-width: 660px) {
+
+	.social-block {
+		display: none;
+	}
+
+	.header {
+		justify-content: center;
+	}
+
+	.side-nav .social-block {
+		display: block;
+	}
+
+}

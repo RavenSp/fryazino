@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load cropping static banners %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block addcss %}
+	
+		<link rel="stylesheet" href="{% static "css/listnews.css" %}">
+	
+{% endblock %}
+
+{% block keyword%}<meta type='keywords' content="">{% endblock %}
+
+
+{% block main-content %}
+<div class="container ">
+	<div class="listnews--header">
+	<h1>{{ title }}</h1>
+	</div>
+	
+	<div class="listnews--main">
+	<div class="listnews--list-news">
+	{% for new in news %}
+		<div class="listnews--news">
+			<div class="listnews--image">
+				<a href="{{ new.get_absolute_url }}">
+				{% if new.image == '' %}
+					<img src="/static/img/back.svg" alt="{{ new.title }}">
+				{% else %}
+					<img src="{% cropped_thumbnail new 'list_img_cropping' width=315 %}" alt="{{ new.title }}">
+				{% endif %}
+				</a>
+				<ul class="listnews--list-tag">
+					{% for tag in new.tags.all %}
+						<li class="listnews--tag"><a href="{% url 'tag_path'  tag.slug %}">{{ tag.name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="listnews--info">
+				<a href="{{ new.get_absolute_url }}"><h2>{{ new.title }}</h2></a>
+				<div class="listnews--date">{{ new.publisdDate | date:"l, j E Y" }} г.</div>
+				<div class="listnews--text">
+					{{ new.news_text | safe  | truncatewords_html:70 }}
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+	<div class="listnews--sidebar">
+		
+		{% if tag_cloud %}
+		<h3>Популярные темы:</h3>
+		<div class="listnews--tags-cloud">
+			<ul class="listnews--cloud">
+				{% for tag in tag_cloud %}
+					<li class="listnews--cloud-tag">
+						<a href="{% url 'tag_path' tag.slug %}">{{ tag.name }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% endif %}
+		{% all_small_banners 5 %}
+	</div>
+</div>
+
+</div>
+
+{% endblock %}

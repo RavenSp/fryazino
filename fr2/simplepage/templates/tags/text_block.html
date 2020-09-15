@@ -1,0 +1,7 @@
+{% if textblock.title_in_block %}
+    <h2>{{ textblock.title }}</h2>
+{% endif %}
+{# text block #}
+<div {% if textblock.blockclass %}class="{{ textblock.blockclass }}"{% endif %}>
+    {{ textblock.body | safe }}
+</div>

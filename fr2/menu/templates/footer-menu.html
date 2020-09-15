@@ -1,0 +1,6 @@
+
+<ul class="mini-menu">
+    {% for el in menu %}
+    <li class="mini-menu__el"><a href="{{ el.get_url }}">{{ el.title }}</a></li>
+    {% endfor %}
+</ul>

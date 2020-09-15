@@ -1,0 +1,44 @@
+ /*
+
+.listnews--
+
+*/
+
+.listnews--list-tag {
+	list-style: none;
+	list-style: none;
+	display: inline-flex;
+	position: absolute;
+	padding: 0;
+	left: 70px;
+	bottom: 10px;
+	z-index: 1;
+}
+
+.listnews--tag {
+	color: white;
+	padding: 5px 2px;
+	background-color: var(--primary);
+}
+
+.listnews--sidebar-banners {
+
+	width: 100%;
+}
+
+.listnews--banners-list {
+	list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+
+.listnews--banner {
+	width: 100%;
+}
+
+.listnews--banner   img {
+
+	width: 100%;
+}

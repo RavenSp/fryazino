@@ -1,0 +1,17 @@
+{% load cropping %}
+
+<ul class="newsdetail--more-news-list">
+	{% for new in news %}
+		<li>
+			<a class="newsdetail--more-news-el" href="{% url 'NewDetail' new.id new.slug %}">
+				<div class="newsdetail--more-news-img">
+					<img src="{% cropped_thumbnail new "list_img_cropping" width=290 %}" alt="{{ new.title }}">
+				</div>
+				<div class="newsdetail--more-news-title">
+					<span>{{new.publisdDate | date:"l, j E Y"}}</span>
+					<h3>{{ new.title }}</h3>
+				</div>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

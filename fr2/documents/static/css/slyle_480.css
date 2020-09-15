@@ -1,0 +1,134 @@
+@media screen and (max-width: 480px){
+
+	.container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.header {
+		justify-content: center;
+	}
+
+
+/* --------------- Мобильное меню -------------- */ 
+	.m-menu-el {
+		display: none;
+	}
+
+	.m-menu-search {
+		display: block;
+
+	}
+
+	.m-menu {
+
+		justify-content: flex-end;
+	}
+
+	#search span {
+		display: none;
+	}
+
+	.m-menu-icon {
+		display: block;
+	}
+
+	.s-menu {
+		display: flex;
+		flex-direction: column;
+		width: 83%;
+	}
+
+	.dropdown-list {
+		padding: 0 40px 0px 10px;
+	}
+
+	#side-menu {
+		display: flex;
+	}
+
+	.m-menu-icon {
+		display: flex;
+		margin-left: 15px;
+		height: 56px;
+		align-items: center;
+	}
+
+	.social-block {
+
+		display: none;
+	}
+
+
+
+
+/* ------------------ Блок слайдера ---------------*/
+	.single h2 {
+		text-align: center;
+		font-size: 1.5em;
+		line-height: 25px;
+	}
+
+	
+	.more {
+		margin-top: 40px;
+	}
+
+	.more .news {
+		display: flex;
+		flex-direction: column;
+		padding: 10px 0;
+		margin-bottom: 0px;
+		border-bottom: 1px solid var(--second);
+	}
+
+	.more .news:last-child {
+		border: none;
+	}
+	
+
+	.news div {
+		flex: 0 0 100%;
+	}
+
+	.news .more-img {
+		width: 100%;
+	}
+
+	.news .more-title {
+		font-size: 1.125em;
+		text-align: center;
+	}
+
+
+	.list-news__news-card {
+		flex:0 0 100%;
+	}
+
+	.b-banner {
+		display: none;
+	}
+
+
+	.list-news__h2 h2 {
+		font-size: 1.1em;
+	}
+
+	.main-mayor {
+		flex-direction: column;
+		padding-bottom: 40px;
+	}
+
+	.main-sovet {
+		flex-direction: column;
+	}
+
+	#widgetPos {
+		width: 100%;
+	}
+
+
+	.footer{
+		flex-direction: column;
+	}
+}

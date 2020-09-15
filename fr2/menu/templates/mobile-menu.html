@@ -1,0 +1,33 @@
+{% load mptt_tags %}
+<div id="side-menu" class="side-nav">
+		<div>
+		<a href="#" onclick="hideSideMenu()" class="s-menu-close"><i class="fa fa-close" aria-hidden="true"></i></a>
+		<ul class="s-menu">
+		{% recursetree menu %}
+			<li class="s-menu-el"><a href="{{ node.get_url }}">{{ node.title }}</a>
+			{% if not node.is_leaf_node %}
+                <span id='cl{{ node.pk }}' data-open='0' data-id='{{ node.pk }}' onclick="showDropMenu(this.id)"><i class="fa fa-caret-down"></i></span>
+				<div id='dr{{ node.pk }}' class="dropdown">
+				<ul class="dropdown-list">
+					{% for child in node.get_children %}
+						<li class='dropdown-link'><a href="{{ child.get_url }}">{{ child.title }}</a></li>
+                    {% endfor%}
+					{# Все происходящее - костыль для того, чтобы из меню выводились первые два уровня. #}
+                </ul>
+				</div>
+            {% endif %}
+            </li>
+            {% endrecursetree %}
+		</ul>
+	<div class="social-block">
+			<ul>
+				<li class="vk"><i class="fa fa-vk" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="fb"><i class="fa fa-facebook" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="tw"><i class="fa fa-twitter" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="inst"><i class="fa fa-instagram" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="yt"><i class="fa fa-youtube-play" aria-hidden="true"><a href="#"></a></i></li>
+				<li class="ok"><i class="fa fa-odnoklassniki" aria-hidden="true"><a href="#"></a></i></li>
+			</ul>
+		</div>
+		</div>
+	</div>

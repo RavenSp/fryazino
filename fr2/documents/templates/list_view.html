@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Список новостей в категории {{ title }}{% endblock %}
+
+{% block keyword%}<meta type='keywords' content="">{% endblock %}
+
+
+{% block main-content %}
+<div class="container">
+	<h1>Список новостей {{ title }}</h1>
+	<ul>
+	{% for new in news %}
+
+		<li><a href="{{ new.get_absolute_url }}">{{ new.title }}</a></li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}
