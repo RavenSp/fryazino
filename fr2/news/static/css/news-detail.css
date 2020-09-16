@@ -13,11 +13,11 @@
 }
 
 .newsdetail--new {
-	width: 66.66%;
+	width: 75%;
 }
 
 .newsdetail--title {
-	width: 66.66%;
+	width: 75%;
 }
 
 .newsdetail--title h1 {
@@ -132,7 +132,7 @@
 }
 
 .newsdetail--sidebar {
-	width: 33.33%;
+	width: 25%;
 	padding-left: 30px;
 }
 
@@ -195,6 +195,20 @@
 	content: '# ';
 	color: var(--primary);
 }
+
+
+/* Большой баннер внизу текста */
+
+.newsdetail--bootom-banner {
+	display: flex;
+	margin-top: 30px;
+
+}
+
+.newsdetail--bootom-banner img {
+	width: 100%;
+}
+
 
 
 /*  Категория в новости */

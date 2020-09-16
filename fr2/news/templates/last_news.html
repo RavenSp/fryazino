@@ -1,0 +1,25 @@
+{% load cropping static %}
+<h2 class="newsdetail--more-news-list-title">Последние новости:</h2>
+<ul class="newsdetail--more-news-list">
+	{% for new in news %}
+		<li>
+			<a class="newsdetail--more-news-el" href="{% url 'NewDetail' new.id new.slug %}">
+				<div class="newsdetail--more-news-img">
+					{%if new.image %}
+
+					<img src="{% cropped_thumbnail new "list_img_cropping" width=290 %}" alt="{{ new.title }}">
+
+					{% else %}
+
+					<img src="{% static 'img/back.svg' %}" width='290px' alt="{{ new.title }}">
+
+					{% endif %}
+				</div>
+				<div class="newsdetail--more-news-title">
+					<span>{{new.publisdDate | date:"l, j E Y"}}</span>
+					<h3>{{ new.title }}</h3>
+				</div>
+			</a>
+		</li>
+	{% endfor %}
+</ul>

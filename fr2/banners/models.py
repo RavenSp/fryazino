@@ -31,6 +31,14 @@ class bigBanner(models.Model):
 	image_tag.short_description = 'Изображение'
 	image_tag.allow_tags = True
 
+	def get_url(self):
+
+		if self.url:
+			return self.url
+
+		else:
+			return '#'
+
 class mBanner(models.Model):
 
 	title = models.CharField(verbose_name='Название', max_length=50)

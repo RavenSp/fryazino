@@ -63,9 +63,7 @@
 			<div class="newsdetail--textblock">
 				{{ new.news_text | safe  }}		
 			</div>
-			<div class="newsdetail--banners">
-				
-			</div>
+			{% big_banner_news %}
 		</div>
 		
 
@@ -105,7 +103,7 @@
 		</div>
 
 
-		{% similar_news new %}
+		{% last_news %}
 </div>
 
 </div>
