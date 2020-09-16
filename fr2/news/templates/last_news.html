@@ -4,20 +4,20 @@
 	{% for new in news %}
 		<li>
 			<a class="newsdetail--more-news-el" href="{% url 'NewDetail' new.id new.slug %}">
-				<div class="newsdetail--more-news-img">
+				
 					{%if new.image %}
-
-					<img src="{% cropped_thumbnail new "list_img_cropping" width=290 %}" alt="{{ new.title }}">
+					<div class="newsdetail--more-news-img" style="background-image:url('{% cropped_thumbnail new "list_img_cropping" width=290 %}');"></div>
+					
 
 					{% else %}
-
-					<img src="{% static 'img/back.svg' %}" width='290px' alt="{{ new.title }}">
+					<div class="newsdetail--more-news-img" style="background-image:url('{% static 'img/back.svg' %}');"></div>
+					
 
 					{% endif %}
-				</div>
+			
 				<div class="newsdetail--more-news-title">
 					<span>{{new.publisdDate | date:"l, j E Y"}}</span>
-					<h3>{{ new.title }}</h3>
+					<h3>{{ new.title | truncatewords:12 }}</h3>
 				</div>
 			</a>
 		</li>

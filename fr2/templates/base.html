@@ -4,7 +4,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
 	<title>{% block title %}{% endblock %} | Официальный сайт городского округа Фрязино</title>
 	{% compress css %}
@@ -21,6 +21,7 @@
 	{% block addcss %}{% endblock %}
 
 	{% endcompress %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{% block keyword %}{% endblock %}
 	<link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
 

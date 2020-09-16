@@ -46,9 +46,13 @@
 		<div class="newsdetail--news-info">
 			<i class="fa fa-clock-o" aria-hidden="true"></i>  <span>{{new.publisdDate | date:"l, j E Y"}}</span>
 		</div>
-		{% if new.image_in_body and new.image %}
+		{% if new.image_in_body %}
 			<div class="newsdetail--photo">
-			<img src="{% cropped_thumbnail new "top_news_cropping" width=1066 %}" alt="">
+				{% if new.image %}
+					<img src="{% cropped_thumbnail new "top_news_cropping" width=1066 %}" alt="{{ new.title }}">
+				{% else %}
+					<img src="{% static 'img/back.svg' %}" width="1066" alt="{{ new.title }}">
+				{% endif %}
 			</div>	
 		{% endif %}
 		<div class="newsdetail--text">
@@ -85,7 +89,11 @@
 			</ul>
 		</div>
 		{% endif %}
-		{% similar_news new %}
+
+
+		{% if new.image_in_body or new.news_text|length > 1500 %}
+			{% similar_news new %}
+		{% endif %}
 
 		
 	</div>

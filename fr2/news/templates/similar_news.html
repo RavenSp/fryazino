@@ -1,6 +1,9 @@
+
 {% load cropping static compress %}
 {#% compress css %#}
+{% block addcss %}
 <link rel="stylesheet" href="{% static 'css/simnews.css'%}">
+{% endblock %}
 {#% endcompress %#}
 <div class="simnews">
 <h2 class="simnews--title">Похожие новости:</h2>
@@ -11,16 +14,16 @@
 				{% if forloop.first %}
 				<div class="simnews--img">
 					{% if new.image %}
-					<img src="{% cropped_thumbnail new "top_news_cropping" width=400 %}" alt="{{ new.title }}">
+					<img src="{% cropped_thumbnail new "top_news_cropping" width=400 %}" alt="{{ new.title }}" width='100%'>
 					{% else %}
-					<img src="{% static 'img/back.svg' %}" width="400" alt="{{ new.title }}">
+					<img src="{% static 'img/back.svg' %}" width="100%" alt="{{ new.title }}">
 					{% endif %}
 					
 				</div>
 				{% endif %}
 				<div class="simnews--info">
 					<span>{{new.publisdDate | date:"l, j E Y"}}</span>
-					<h3>{{ new.title }}</h3>
+					<h3>{{ new.title | truncatewords:17 }}</h3>
 				</div>
 			</a>
 
