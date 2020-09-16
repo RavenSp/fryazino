@@ -1,0 +1,14 @@
+/* simnews-- */
+
+.simnews {
+	width: 100%;
+	padding-top: 30px;
+	position: sticky;
+
+}
+
+.simnews--list {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}

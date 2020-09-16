@@ -10,7 +10,6 @@
 
 .newsdetail--main {
 	display: flex;
-	align-items: stretch;
 }
 
 .newsdetail--new {
@@ -47,6 +46,7 @@
 .newsdetail--text {
 	display: flex;
 	flex-wrap: wrap;
+	min-height: 100%;
 }
 
 .newsdetail--textblock {

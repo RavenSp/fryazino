@@ -10,6 +10,7 @@ Django==3.0.8
 django-appconf==1.0.4
 django-autocomplete-light==3.5.1
 django-ckeditor==5.9.0
+django-compressor==2.4
 django-extensions==3.0.5
 django-grappelli==2.14.2
 django-image-cropping==1.4.0
@@ -56,6 +57,8 @@ pytz==2020.1
 pyzmq==19.0.2
 qtconsole==4.7.6
 QtPy==1.9.0
+rcssmin==1.0.6
+rjsmin==1.1.0
 Send2Trash==1.5.0
 six==1.15.0
 sqlparse==0.3.1

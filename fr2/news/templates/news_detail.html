@@ -63,17 +63,18 @@
 			<div class="newsdetail--textblock">
 				{{ new.news_text | safe  }}		
 			</div>
-			{% big_banner_news %}
+			
 		</div>
-		
+		{% big_banner_news %}
 
 		
 
 	</div>
 	<div class="newsdetail--sidebar">
-		{% all_small_banners 1 %}
+		{#% all_small_banners 1 %#}
+		
 		{% if tag_cloud %}
-		<h3>Популярные темы:</h3>
+		<h2>Популярные темы:</h2>
 		<div class="newsdetail--tags-cloud">
 			<ul class="newsdetail--cloud">
 				{% for tag in tag_cloud %}
@@ -84,6 +85,8 @@
 			</ul>
 		</div>
 		{% endif %}
+		{% similar_news new %}
+
 		
 	</div>
 

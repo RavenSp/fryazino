@@ -1,22 +1,28 @@
-{% load static menu_mainMenu text_block %}
+{% load static menu_mainMenu text_block compress %}
 
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
 	<title>{% block title %}{% endblock %} | Официальный сайт городского округа Фрязино</title>
+	{% compress css %}
 	<link rel="stylesheet" href="{% static 'css/styles_widget_obrash_grajdan.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
 	<link rel="stylesheet" href="{% static 'css/bvi.min.css' %}" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 	<link rel="stylesheet" href="{% static 'css/slyle_480.css' %}" media="screen and (max-width: 480px)">
-	<link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+	
+
 	{% block addcss %}{% endblock %}
+
+	{% endcompress %}
 	{% block keyword %}{% endblock %}
+	<link href="https://fonts.googleapis.com/css2?family=Cuprum:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
 
 </head>
 <body>

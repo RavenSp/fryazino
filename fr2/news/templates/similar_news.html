@@ -1,17 +1,30 @@
-{% load cropping %}
-<h2 class="newsdetail--more-news-list-title">Последние новости:</h2>
-<ul class="newsdetail--more-news-list">
+{% load cropping static compress %}
+{#% compress css %#}
+<link rel="stylesheet" href="{% static 'css/simnews.css'%}">
+{#% endcompress %#}
+<div class="simnews">
+<h2 class="simnews--title">Похожие новости:</h2>
+<ul class="simnews--list">
 	{% for new in news %}
 		<li>
-			<a class="newsdetail--more-news-el" href="{% url 'NewDetail' new.id new.slug %}">
-				<div class="newsdetail--more-news-img">
-					<img src="{% cropped_thumbnail new "list_img_cropping" width=290 %}" alt="{{ new.title }}">
+			<a class="simnews--link" href="{% url 'NewDetail' new.id new.slug %}">
+				{% if forloop.first %}
+				<div class="simnews--img">
+					{% if new.image %}
+					<img src="{% cropped_thumbnail new "top_news_cropping" width=400 %}" alt="{{ new.title }}">
+					{% else %}
+					<img src="{% static 'img/back.svg' %}" width="400" alt="{{ new.title }}">
+					{% endif %}
+					
 				</div>
-				<div class="newsdetail--more-news-title">
+				{% endif %}
+				<div class="simnews--info">
 					<span>{{new.publisdDate | date:"l, j E Y"}}</span>
 					<h3>{{ new.title }}</h3>
 				</div>
 			</a>
+
 		</li>
 	{% endfor %}
 </ul>
+</div>

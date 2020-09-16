@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'banners.apps.BannersConfig',
     'sovet.apps.SovetConfig',
     'catalog.apps.CatalogConfig',
+    'compressor',
 
 ]
 
@@ -136,6 +137,20 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
+    'compressor.finders.CompressorFinder',
+
+]
+
+COMPRESS_ROOT = os.path.join(BASE_DIR, 'static')
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+COMPRESS_OUTPUT_DIR = 'cache'
 
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
