@@ -30,8 +30,14 @@
 .listnews--image {
 
 	display: block;
-	flex: 2;
+	flex: 1;
 	position: relative;
+}
+
+@media screen and (max-width: 1590px){
+	.listnews--image {
+		flex: 2;
+	}
 }
 
 .listnews--image  img {
@@ -163,3 +169,61 @@
 .newsdetail--bootom-banner img {
 	width: 100%;
 }
+
+
+/* Пагинация */
+
+.listnews--paginate .pagination {
+	list-style: none;
+	display: flex;
+	padding: 0;
+	margin: 40px 0px 50px 0px;
+}
+
+.listnews--paginate .pagination li {
+	padding: 8px;
+	margin: 0px 3px;
+	border: 1px solid var(--primary);
+	border-radius: 3px;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	color: var(--second);
+}
+
+.listnews--paginate .pagination li.disabled {
+	border: 1px solid var(--second);
+}
+
+.listnews--paginate .pagination li.disabled:hover {
+	background-color: var(--second);
+	color: white;
+}
+
+
+
+.listnews--paginate .pagination .active {
+	background-color: var(--primary);
+	color: white;
+}
+
+.listnews--paginate .pagination .active a {
+	color: white;
+}
+
+
+.listnews--paginate .pagination li a {
+	color:  var(--primary);
+}
+
+.listnews--paginate .pagination li:hover {
+	background-color: var(--primary);
+	
+}
+
+.listnews--paginate .pagination li:hover a {
+	color: white;
+	font-weight: 900;
+}
+
+/* Окончание пагинации */

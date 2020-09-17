@@ -3,24 +3,40 @@ from django.views.generic import ListView, DetailView
 from .models import News, Category
 from taggit.models import Tag
 from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 
+
+NUMBER_PAGE = 10
 
 class CategoryNewsListView(ListView):
 
 	model = News
+	
 
 	def get(self, request, cat):
 
 		category = get_object_or_404(Category, slug=cat)
 
-		list = get_list_or_404(self.model.objects.filter(category__title=category, publish=True).order_by('-publisdDate'))
+		listNews = get_list_or_404(self.model.objects.filter(category__title=category, publish=True).order_by('-publisdDate'))
+
+		page = request.GET.get('page', 1)
+
+		paginator = Paginator(listNews, NUMBER_PAGE)
+
+		try:
+			listNews = paginator.page(page)
+		except PageNotAnInteger:
+			listNews = paginator.page(1)
+		except EmptyPage:
+			listNews = paginator.page(paginator.num_pages)
+
 
 		tag_cloud = self.model.tags.most_common()[:10]
 
 
 		context = {
-			'news':list,
+			'news':listNews,
 			'title': category.title,
 			'tag_cloud':tag_cloud,
 		}
@@ -32,12 +48,24 @@ class NewsListView(ListView):
 
 	def get(self, request):
 
-		list = self.model.objects.filter(publish=True, publisdDate__lt=timezone.now()).order_by('-publisdDate')
+		listNews = self.model.objects.filter(publish=True, publisdDate__lt=timezone.now()).order_by('-publisdDate')
+
+		page = request.GET.get('page', 1)
+
+		paginator = Paginator(listNews, NUMBER_PAGE)
+
+		try:
+			listNews = paginator.page(page)
+		except PageNotAnInteger:
+			listNews = paginator.page(1)
+		except EmptyPage:
+			listNews = paginator.page(paginator.num_pages)
+
 
 		tag_cloud = self.model.tags.most_common()[:10]
 
 		context = {
-			'news':list,
+			'news':listNews,
 			'title': 'Последние новости',
 			'tag_cloud':tag_cloud,
 		}
@@ -52,13 +80,25 @@ class TagNewsListView(ListView):
 
 		tag = Tag.objects.get(slug=tag_slug)
 
-		list = get_list_or_404(News.objects.filter(tags__slug__in=[tag_slug], publish=True, publisdDate__lt=timezone.now()).order_by('-publisdDate'))		
+		listNews = get_list_or_404(News.objects.filter(tags__slug__in=[tag_slug], publish=True, publisdDate__lt=timezone.now()).order_by('-publisdDate'))
+
+		page = request.GET.get('page', 1)
+
+		paginator = Paginator(listNews, NUMBER_PAGE)
+
+		try:
+			listNews = paginator.page(page)
+		except PageNotAnInteger:
+			listNews = paginator.page(1)
+		except EmptyPage:
+			listNews = paginator.page(paginator.num_pages)
+		
 
 		tag_cloud = self.model.tags.most_common()[:10]
 
 
 		context = {
-			'news':list,
+			'news':listNews,
 			'title': tag.name,
 			'tag_cloud':tag_cloud,
 		}

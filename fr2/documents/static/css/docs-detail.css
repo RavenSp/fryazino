@@ -1,0 +1,93 @@
+/* .docs-detail-- */
+
+.docs-detail--header {
+	font-size: 1.2em;
+	margin-bottom: 30px;
+}
+
+.docs-detail--description {
+	padding-bottom: 30px;
+	color: gray;
+	font-size: 18px;
+}
+
+.docs-detail--download {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 2.5em;
+	font-size: 18px;
+}
+
+.docs-detail--down-title {
+	
+	font-weight: 900;
+	padding: 10px 0px;
+}
+
+.docs-detail--down-link {
+
+	
+	font-weight: 900;
+	border-radius: 20px;
+	padding: 10px 15px;
+	margin-left: 30px;
+	background-color: var(--primary);
+
+}
+
+.docs-detail--down-link a {
+	color: white;
+}
+
+.docs-detail--info-title {
+	padding: 10px;
+	border-bottom: 1px solid gray;
+	color: var(--primary);
+}
+
+.docs-detail--columns {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+	margin-bottom: 60px;
+
+}
+
+.docs-detail--left-col {
+	width: 70%;
+	padding-right: 30px;
+	font-size: 1.5em;
+}
+
+.docs-detail--right-col {
+	display: block;
+	max-width: 425px;
+	min-height: 1px;
+	vertical-align: top;
+	width: 25%;
+}
+
+.docs-detail--right-col ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.docs-detail--right-col img {
+	width: 100%;
+}
+
+.docs-detail--info {
+	display: flex;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.docs-detail--key {
+	width: 40%;
+	color: gray;
+}
+
+.docs-detail--value {
+	
+}

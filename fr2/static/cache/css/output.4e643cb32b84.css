@@ -1,0 +1,187 @@
+ /*
+
+	.listnews--
+
+*/
+
+.listnews--header {
+	margin-bottom: 20px;
+}
+
+.listnews--main {
+	display: flex;
+}
+
+.listnews--list-news {
+	width: 80%;
+}
+
+.listnews--news {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin-top: 30px;
+}
+
+.listnews--news:first-child {
+	margin-top: 0px;
+}
+
+.listnews--image {
+
+	display: block;
+	flex: 1;
+	position: relative;
+}
+
+@media screen and (max-width: 1590px){
+	.listnews--image {
+		flex: 2;
+	}
+}
+
+.listnews--image  img {
+	width: 100%;
+}
+
+.listnews--list-tag {
+	list-style: none;
+	list-style: none;
+	display: inline-flex;
+	position: absolute;
+	padding: 0;
+	left: 10px;
+	bottom: 0px;
+	z-index: 1;
+}
+
+.listnews--tag {
+	border-radius: 5px;
+	padding: 2px 5px;
+	background-color: var(--primary);
+	margin-right: 5px;
+}
+
+.listnews--tag:last-child {
+	margin-right: 0px;
+}
+
+.listnews--tag:hover {
+	background-color: white;
+}
+
+.listnews--tag a {
+	color: white;
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.listnews--tag:hover a {
+	color: var(--primary);
+}
+
+.listnews--info {
+	flex: 3;
+	padding-left: 30px;
+}
+
+.listnews--info a:hover  {
+	color: var(--primary);
+}
+
+.listnews--date {
+	padding: 10px 0px;
+	color: #7e7266;
+	font-size: 0.875em;
+}
+
+.listnews--sidebar {
+	width: 20%;
+	padding-left: 30px;
+}
+
+
+
+.listnews--sidebar-banners {
+
+	width: 100%;
+}
+
+.listnews--banners-list {
+	list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+
+.listnews--banner {
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+.listnews--banner   img {
+
+	width: 100%;
+}
+
+.listnews--tags-cloud {
+
+	margin-bottom: 30px;
+}
+
+
+.listnews--cloud {
+
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 0px;
+
+}
+
+.listnews--cloud-tag {
+	margin: 5px;
+}
+
+.listnews--cloud-tag a {
+	font-size: 22px;
+}
+
+.listnews--cloud-tag a:hover {
+	color: var(--primary);
+}
+
+.listnews--cloud-tag a:before {
+	content: '# ';
+	color: var(--primary);
+}
+
+/* Большой баннер внизу текста */
+
+.newsdetail--bootom-banner {
+	display: flex;
+	margin-top: 30px;
+
+}
+
+.newsdetail--bootom-banner img {
+	width: 100%;
+}
+
+
+/* Пагинация */
+
+.listnews--paginate .pagination {
+	list-style: none;
+	display: flex;
+	padding: 0;
+}
+
+.listnews--paginate .pagination li {
+
+	padding: 8px;
+	margin: 3px 0px;
+	border: 1px solid var(--primary);
+}
