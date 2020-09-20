@@ -227,3 +227,53 @@
 }
 
 /* Окончание пагинации */
+
+@media screen and (max-width: 1024px){
+
+
+	.listnews--banners-list {
+
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+
+	.listnews--sidebar {
+
+		width: 100%;
+		padding-left: 0px;
+		margin-top: 30px;
+	}
+
+	.listnews--list-news {
+
+		width: 100%;
+
+	}
+
+	.listnews--main {
+		flex-direction: column;
+	}
+
+	.listnews--list-news {
+		width: 100%;
+	}
+
+	.listnews--news {
+		flex-direction: column;
+	}
+
+	.listnews--image {
+		width: 100%;
+	}
+
+	.listnews--info {
+		padding-left: 0px;
+	}
+
+	.listnews--list-tag {
+		left: 5px;
+	}
+}
+
+

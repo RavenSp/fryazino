@@ -30,7 +30,11 @@
 	<div class="container ">
 		<div class="header">
 		<div class="header-logo"><a href="/"><img src="{% static 'img/logo1.png' %}" alt="Администрация городского округа Фрязино"></a></div>
-		{% include  'doplink.html' %}
+		<div class="top-menu">
+			<a href="/all-sites/">Все сайты МО</a>
+			<a href="https://uslugi.mosreg.ru/" target="blank">Портал госуслуг МО</a>
+			<a href="/reception/glava/">Задать вопрос Главе</a>
+		</div>
 		<div class="social-block">
 			<ul>
 				<li class="vk"><i class="fa fa-vk" aria-hidden="true"><a href="#"></a></i></li>
@@ -156,6 +160,8 @@
   });
 });
 </script>
+
+
 
 <script type="text/javascript">
 	function showSearch() {

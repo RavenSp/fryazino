@@ -33,7 +33,7 @@ class DocsAuthor(models.Model):
 
 class DocType(models.Model):
 
-	title = models.CharField(max_length=200, verbose_name='Тип документа')
+	title = models.CharField(max_length=200, verbose_name='Тип документа', help_text='Просьба, указывать значения в множественном числе')
 	slug = models.SlugField(max_length=200, unique=True, verbose_name='URL')
 
 	def get_absolute_url(self):
@@ -87,6 +87,7 @@ class Documents(models.Model):
 
 		verbose_name='Документ'
 		verbose_name_plural='Документы'
+		ordering = ['-publishDate']
 
 	def save(self):
 		super(Documents, self).save()

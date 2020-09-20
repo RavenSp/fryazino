@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'grappelli',
+    #'grappelli',
     'dal',
     'dal_select2',
     'django.contrib.admin',
@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'banners.apps.BannersConfig',
     'sovet.apps.SovetConfig',
     'catalog.apps.CatalogConfig',
+    'structure.apps.StructureConfig',
+
     'compressor',
 
 ]
