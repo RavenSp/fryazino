@@ -5,6 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
+from mptt.models import MPTTModel, TreeOneToOneField
 
 from menu.models import Menu
 
@@ -13,7 +14,7 @@ class Category(models.Model):
 
 	title = models.CharField(max_length=250, verbose_name='Название категории')
 	slug = models.SlugField(verbose_name='URL')
-	menu = models.OneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
+	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 
 
 	def __str__(self):
@@ -60,7 +61,7 @@ class News(models.Model):
 	topNews = models.BooleanField(verbose_name='В главные новости', default=False)
 	tags = TaggableManager(verbose_name='Темы')
 	news_text = RichTextUploadingField(verbose_name='Текст статьи')
-	menu = models.OneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
+	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 	publisdDate = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)
 	publish = models.BooleanField(verbose_name='Опубликовано', default=True)
 

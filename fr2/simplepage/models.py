@@ -3,6 +3,7 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from menu.models import Menu
 from django.utils import timezone
+from mptt.models import MPTTModel, TreeOneToOneField
 # Create your models here.
 
 
@@ -17,7 +18,7 @@ class Page(models.Model):
 
 	body = RichTextUploadingField(verbose_name='Текст страницы')
 
-	menu = models.OneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
+	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 	publisdDate = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)
 	publish = models.BooleanField(verbose_name='Опубликовано', default=True)
 

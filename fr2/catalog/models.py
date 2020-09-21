@@ -1,5 +1,6 @@
 from django.db import models
 from menu.models import Menu
+from mptt.models import MPTTModel, TreeOneToOneField
 # Create your models here.
 
 class TypeMUP(models.Model):
@@ -7,7 +8,7 @@ class TypeMUP(models.Model):
 	title = models.CharField(max_length=50, verbose_name='Название')
 	slug = models.SlugField(max_length=50, verbose_name='URL', unique=True)
 
-	menu = models.OneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
+	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 
 	class Meta:
 

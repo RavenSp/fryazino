@@ -6,6 +6,8 @@ from django.utils import timezone
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
 import os
+from mptt.models import MPTTModel, TreeOneToOneField
+
 
 from menu.models import Menu
 
