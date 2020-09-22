@@ -32,8 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     #'grappelli',
-    'dal',
-    'dal_select2',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'image_cropping',
     'django_extensions',
+    'taggit_autosuggest',
 
     'news.apps.NewsConfig',
     'documents.apps.DocumentsConfig',

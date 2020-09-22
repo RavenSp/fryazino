@@ -26,6 +26,7 @@ class Page(models.Model):
 
 		verbose_name='Страница'
 		verbose_name_plural = 'Страницы'
+		ordering = ['-publisdDate']
 
 	def __str__(self):
 
@@ -33,7 +34,7 @@ class Page(models.Model):
 
 	def get_absolute_url(self):
 
-		return self.slug
+		return '/%s/' % self.slug
 
 class TextBlock(models.Model):
 

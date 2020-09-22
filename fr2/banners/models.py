@@ -1,5 +1,6 @@
 from django.db import models
-from taggit.managers import TaggableManager
+#from taggit.managers import TaggableManager
+from taggit_autosuggest.managers import TaggableManager
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
 

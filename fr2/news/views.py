@@ -9,6 +9,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 NUMBER_PAGE = 10
 
+
+
 class CategoryNewsListView(ListView):
 
 	model = News

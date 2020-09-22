@@ -1,6 +1,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from django.utils.html import format_html
+from menu.models import Menu
 
 # Create your models here.
 class TypeElement(models.Model):

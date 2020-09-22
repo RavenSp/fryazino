@@ -1,5 +1,8 @@
 from django.db import models
-from taggit.managers import TaggableManager
+#from taggit.managers import TaggableManager
+from taggit_autosuggest.managers import TaggableManager
+from taggit.models import TaggedItemBase
+
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
@@ -9,6 +12,9 @@ from mptt.models import MPTTModel, TreeOneToOneField
 
 from menu.models import Menu
 
+
+class TaggedNews(TaggedItemBase):
+    content_object = models.ForeignKey('News', on_delete=models.CASCADE)
 
 class Category(models.Model):
 

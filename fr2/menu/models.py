@@ -23,9 +23,9 @@ class Menu(MPTTModel):
 
 	def get_url(self):
 
-		if hasattr(self, 'simplepage'):
+		if hasattr(self, 'page'):
 
-			return self.simplepage.get_absolute_url()
+			return self.page.get_absolute_url()
 
 		elif hasattr(self, 'category'):
 			return self.category.get_absolute_url()

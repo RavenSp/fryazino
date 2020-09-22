@@ -19,14 +19,14 @@ class NewsAdmin(ImageCroppingMixin, admin.ModelAdmin):
 		(None, {
 			'fields': (('title', 'slug',), ('keywords', 'seo_description',),'image', ('image_in_body', 'topNews'))}),
 		(_('Обрезка изображения'), {
-			'classes':('grp-collapse grp-closed',),
+			'classes':('collapse', 'wide', 'extrapretty'),
 			'fields': (('min_free_cropping','list_img_cropping','top_news_cropping'),)
 			}),
 		(None, {
 			'fields':(('category', 'tags'), ('publish', 'publisdDate'), 'news_text')
 			}),
 		(_('Дополнительные опции'), {
-			'classes':('grp-collapse grp-closed',),
+			'classes':('collapse', 'wide', 'extrapretty'),
 			'fields': ('menu',)
 			})
 
