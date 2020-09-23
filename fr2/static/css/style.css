@@ -526,7 +526,7 @@ a {
 /*------------------ Блок баннера ---------------------*/
 
 .b-banner {
-	width: 100%
+	width: 100%;
 	display: flex;
 	justify-content: center;
 	margin-bottom: 80px;

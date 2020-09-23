@@ -122,3 +122,28 @@ class NewsDetailView(DetailView):
 		}
 
 		return render(request, 'news_detail.html', context)
+
+
+class IndexView(ListView):
+
+	model = News
+
+	def get(self, request):
+
+		topNews = News.objects.filter(publish=True, topNews=True).order_by('-publisdDate')
+
+		OneMainNew = topNews[0]
+
+		topNews = topNews[1:]
+
+		listNews = News.objects.filter(publish=True, topNews=False).order_by('-publisdDate')
+
+		listNews = listNews[:12]
+
+		context = {
+			'MainNew': OneMainNew,
+			'topNews':topNews,
+			'listNews':listNews,
+		}
+
+		return render(request, 'index.html', context)

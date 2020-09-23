@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load cropping static banners %}
+
+
+
+{% block title %}Администрация городского округа Фрязино{% endblock %}
+
+{% block keyword %}
+
+{% endblock %}
+
+{% block main-content %}
+	{% big_banners_index as bbanners%}
+	<div class="container main-news">
+		<div class="wrap">
+			
+			<div class="single">
+				<div class="single-wrap">
+					<div class="single-img">
+						<img src="{% cropped_thumbnail MainNew "top_news_cropping" width=760 %}" alt="">
+						<ul class="tags">
+							{% for tag in MainNew.tags.all %}
+							<li class="tag"><a href="{% url 'tag_path'  tag.slug %}">{{ tag.name }}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+				<div class="date">{{ MainNew.publisdDate | date:"l, j E Y" }}</div>
+				<h2><a href="{{ MainNew.get_absolute_url }}">{{ MainNew.title }}</a></h2>
+			</div></div>
+			<div class="more">
+				<h3>Главные новости</h3>
+				{% for new in topNews %}
+				<a href="{{ new.get_absolute_url }}" class="news">
+					<div class="more-img">
+						{% if new.image %}
+						<img src="{% cropped_thumbnail new "list_img_cropping" width=220 %}" alt="">
+
+						{% endif %}
+					</div>
+					<div class="more-txt">
+						<span>{{ new.publisdDate | date:"l, j E Y" }}</span>
+						<div class="more-title">{{ new.title }}</div>
+					</div>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+		<div class="b-banner">
+			<a href="{{ bbanners.0.get_url }}">
+				<img src="{{ bbanners.0.image.url }}" alt="{{ bbanners.0.title }}"-->
+			</a>
+		</div>
+	</div>
+
+	<div class="container mayor">
+		<div class="list-news__h2">
+			<h2>Руководство городского округа</h2>
+		</div>
+		<div class="main-mayor">
+			<div class="col-photo"><img src="{% static 'img/BocharovKV.jpg' %}" alt=""></div>
+			<div class="col-info">
+				<span>Глава городского округа</span>
+				<h3>Бочаров Константин Васильевич</h3>
+				<div class="mayor-txt">
+					<p>Телефон приёмной: +7(496)554-54-77, +7(496)577-89-99</p>
+					<p>E-mail: <a href="mailto:BocharovKV@fryazino.org">BocharovKV@fryazino.org</a></p>
+					<p>График приема: понедельник с 15.00 до 17.00</p><p>Запись на приём осуществляется в по телефону +7 (496)255-53-25</p>
+				</div>
+			</div> 
+			<div class="col-reception">
+				
+					<span><a href="#">Задать вопрос главе городского окргуга Фрязино</a></span>
+				
+			</div>
+		</div>
+		<div class="main-sovet">
+			<div class="col-photo"><img src="{% static 'img/sovdep.png' %}" alt=""></div>
+			<div class="col-info">
+				<span>Председатель Совета депутатов</span>
+				<h3>Тихонов Константин Романович</h3>
+				<div class="mayor-txt">
+					<p>Телефоны приёмной: +7 (496) 566-90-60, +7 (496) 567-26-74</p>
+					<p>E-mail: <a href="mailto:BocharovKV@fryazino.org">BocharovKV@fryazino.org</a></p>
+					<p>График приема: понедельник с 15.00 до 17.00</p><p>Запись на приём осуществляется в по телефону +7 (496)255-53-25</p>
+				</div>
+			</div> 
+			<div class="col-reception"><a href="#">Обратиться в Совет депутатов городского окргуга Фрязино</a></div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="b-banner">
+			<a href="{{ bbanners.1.get_url }}">
+				<img src="{{ bbanners.1.image.url }}" alt="{{ bbanners.1.title }}"-->
+			</a>
+		</div>
+	</div>
+
+	<div class="container list-news__last-news-main">
+		<div class="list-news__h2">
+			<h2>Последние новости</h2>
+		</div>
+		<div class="list-news__last-news-wrap">
+			{% for lnew in listNews %}
+			<div class="list-news__news-card">
+				<div class="list-news__news-card-image">
+					{% if lnew.image %}
+					<img src="{% cropped_thumbnail lnew "list_img_cropping" width=420 %}" alt="">
+					{% else %}
+					<img src="{% static 'img/back.svg' %}" width="420px" alt="">
+					{% endif %}
+					<ul class="list-news__news-card-tags">
+						
+							{% for tag in lnew.tags.all %}
+							<li class="list-news__last-news-tag">
+							<a href="{% url 'tag_path'  tag.slug %}">{{ tag.name }}</a>
+							</li>
+							{% endfor %}
+						
+						
+					</ul>
+				</div>
+				<div class="list-news__news-card-date">
+					{{ lnew.publisdDate | date:"l, j E Y" }}
+				</div>
+				<div class="list-news__news-card-text">
+					<a href="{{ lnew.get_absolute_url }}">{{ lnew.title|truncatewords:10 }}</a>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+
+	</div>
+
+{% endblock %}

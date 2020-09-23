@@ -6,7 +6,8 @@ from . import views
 
 
 urlpatterns = [
-
+	
+	
 	path('tag<slug:tag_slug>/', views.TagNewsListView.as_view(), name='tag_path'),
 	path('category/<str:cat>/', views.CategoryNewsListView.as_view(), name='CategoryList'),
 	path('category/', RedirectView.as_view(url='/news/')),

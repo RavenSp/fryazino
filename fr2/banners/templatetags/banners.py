@@ -38,3 +38,11 @@ def big_banner_news():
 	banner = random.sample(list(allBanners), 1)
 
 	return {'banner': banner[0]}
+
+
+@register.simple_tag()
+def big_banners_index():
+
+	banners = random.sample(list(bigBanner.objects.filter(active=True)), 2)
+
+	return banners

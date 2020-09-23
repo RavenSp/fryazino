@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from news.views import IndexView
 
 urlpatterns = [
+    path('', IndexView.as_view(), name='index'),
 	path('news/', include('news.urls'), name='news'),
 	path('documents/', include('documents.urls'), name='documents'),
 	path('sovet/', include('sovet.urls'), name='sovet'),
