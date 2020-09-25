@@ -11,6 +11,7 @@
 
 {% block main-content %}
 	{% big_banners_index as bbanners%}
+	{% small_banners_index as mbanners %}
 	<div class="container main-news">
 		<div class="wrap">
 			
@@ -49,7 +50,7 @@
 
 <div class="container">
 		<div class="b-banner">
-			<a href="{{ bbanners.0.get_url }}">
+			<a href="{{ bbanners.0.get_url }}" target="_blank">
 				<img src="{{ bbanners.0.image.url }}" alt="{{ bbanners.0.title }}"-->
 			</a>
 		</div>
@@ -93,7 +94,7 @@
 
 	<div class="container">
 		<div class="b-banner">
-			<a href="{{ bbanners.1.get_url }}">
+			<a href="{{ bbanners.1.get_url }}" target="_blank">
 				<img src="{{ bbanners.1.image.url }}" alt="{{ bbanners.1.title }}"-->
 			</a>
 		</div>
@@ -134,5 +135,38 @@
 		</div>
 
 	</div>
+	<div class="container">
+		<div class="owl-carousel">
+			{% for bnr in mbanners %}
+		  		<a href="{{ bnr.get_url }}" target="_blank"><img src="{% cropped_thumbnail bnr "cropping" width=280 %}" alt="{{ bnr.title }}"></a>
+		  	{% endfor %}
+		</div>
+	</div>
+	<div class="container">
+		<div class="gosuslugi-bnr">
+		<div id="widgetPos">
+				<iframe id="widgetPosId" src="https://pos.gosuslugi.ru/og/widgets/view?type=[20,30,10, 50]&amp;fontFamily=Arial&amp;maxPage=5&amp;maxElement=5&amp;updateFrequency=5000&amp;level=30&amp;municipality_id=46780000&amp;logoColor=2c8ecc&amp;backgroundColor=ffffff&amp;mainUrlColor=2c8ecc&amp;selectColor=2c8ecc&amp;hoverSelectColor=116ca6&amp;itemColor=354052&amp;hoverItemColor=2c8ecc&amp;backgroundItemColor=f9f9fa&amp;paginationColor=354052&amp;backgroundPaginationColor=eaf4fa&amp;hoverPaginationColor=2c8ecc&amp;deviderColor=e3e8ee&amp;logoFs=16&amp;mainUrlFs=16&amp;selectFs=25&amp;itemFs=14&amp;paginationFs=14" style="border:0" width="100%" height="430"></iframe>
+			</div>
+		<div class="pos-container-width">
+		  <div class="pos-container-height">
+		    <div class="pos-banner" id="pos-banner">
+		      <div class="pos-banner-hint-icon"><span>?</span></div>
+		      <div class="pos-banner-hint-message">
+		        Направляемые сообщения не являются обращениями граждан,
+		        рассматриваемыми в порядке, установленном Федеральным
+		        законом от 2 мая 2006 г. № 59-ФЗ «О порядке рассмотрения
+		        обращений граждан Российской Федерации».
+		      </div>
+		      <div class="pos-banner-icon"></div>
+		      <div class="pos-banner-title"><span class="pos-banner-title-item">Расскажите&nbsp;</span><span class="pos-banner-title-item">о проблеме</span></div>
+		      <div class="pos-banner-btn" id="js-show-iframe-wrapper">Написать сообщение</div>
+		      <div><br>Данная форма не предназначена для приема обращений граждан в порядке Федерального закона от 02.05.2006 № 59-ФЗ «О порядке рассмотрения обращений граждан Российской Федерации» и предоставляет возможность направить электронное сообщение в рамках реализации пилотного проекта по внедрению «Единого окна цифровой обратной связи». Ответ на сообщение будет направлен не позднее 8 рабочих дней после дня его регистрации, а по отдельным тематикам – в укороченные сроки.</div>
+		
+		    </div>
+		  </div>
+		</div>
+		</div>
+	</div>
+
 
 {% endblock %}

@@ -49,6 +49,33 @@
 	top: 30px;
 }
 
+.simple--submenu {
+	list-style: none;
+	display: flex;
+	padding: 20px;
+	margin: 0px 0px 20px 0px;
+	background-color: var(--primary);
+	border-radius: 5px;
+
+}
+
+.simple--submenu-el {
+	padding-right: 25px;
+	color: white;
+}
+
+.simple--submenu-el a {
+	color: white;
+	text-transform: uppercase;
+}
+
+.simple--submenu-el:hover a {
+	color: lightblue;
+	transition: 0.5s;
+	border-bottom: 1px solid lightblue;
+
+}
+
 /* баннеры справа */
 
 .listnews--sidebar-banners {

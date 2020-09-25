@@ -86,7 +86,8 @@ class commision(models.Model):
     description = models.TextField(verbose_name='Описание комисси')
     slug = models.SlugField(max_length=255, verbose_name='URL')
     tcom = models.CharField(max_length=2, verbose_name='Тип комиссии', choices=COMTYPE)
-    chairman = models.ForeignKey(deputat, verbose_name='Председатель комиссии', on_delete=models.PROTECT)
+    chairman = models.ForeignKey(deputat, verbose_name='Председатель комиссии', on_delete=models.PROTECT, related_name='depchairman')
+    members = models.ManyToManyField(deputat, verbose_name='Члены комисии', related_name='depmembers')
 
     class Meta:
 
@@ -95,6 +96,18 @@ class commision(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+
+        super(commision, self).save(*args, **kwargs)
+
+        if self.chairman not in self.members.all():
+
+            self.members.add(self.chairman)
+
+            super(commision, self).save(*args, **kwargs)
+
+
 
 
 

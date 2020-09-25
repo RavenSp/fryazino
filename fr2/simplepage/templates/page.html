@@ -13,7 +13,19 @@
 
 {% block main-content %}
 <div class="container">
+	
 <div class="simple--header">
+
+	{% if submenu|length > 0 %}
+	<ul class="simple--submenu">
+		{% for psub in submenu %}
+		<li class="simple--submenu-el"><a href="{{ psub.get_url}} ">{{ psub.title }}</a></li>
+		{% if forloop.first %}
+		<li class="simple--submenu-el">|</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	{% endif %}
 <h1>{{ page.title }}</h1>
 </div>
 

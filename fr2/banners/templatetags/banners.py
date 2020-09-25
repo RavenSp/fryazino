@@ -46,3 +46,12 @@ def big_banners_index():
 	banners = random.sample(list(bigBanner.objects.filter(active=True)), 2)
 
 	return banners
+
+@register.simple_tag()
+def small_banners_index():
+
+	banners = list(mBanner.objects.filter(active=True))
+
+	random.shuffle(banners)
+
+	return banners

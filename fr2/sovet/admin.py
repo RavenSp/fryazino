@@ -4,6 +4,12 @@ from .models import okrug, party, deputat, commision
 # Register your models here.
 
 
+class CommisionMembersInline(admin.TabularInline):
+
+	model = commision.members.through
+	extra = 1
+
+
 @admin.register(okrug)
 class OkrugAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
@@ -20,6 +26,8 @@ class DeputatAdmin(admin.ModelAdmin):
 
 @admin.register(commision)
 class CommisionAdmin(admin.ModelAdmin):
-    pass
+    inlines = [CommisionMembersInline]
+    exclude = ('members',)
+    prepopulated_fields = {'slug':('title',)}
 
 

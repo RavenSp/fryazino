@@ -18,6 +18,7 @@ class DocsAuthor(models.Model):
 
 	title = models.CharField(max_length=250, verbose_name='Наименование органа')
 	slug = models.SlugField(verbose_name='URL')
+	menu = TreeOneToOneField(Menu, verbose_name='Пункт меню', blank=True, null=True, on_delete=models.SET_NULL)
 
 	def __str__(self):
 

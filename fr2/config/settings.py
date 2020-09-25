@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'django_extensions',
     'taggit_autosuggest',
+    
 
     'news.apps.NewsConfig',
     'documents.apps.DocumentsConfig',
@@ -58,10 +59,12 @@ INSTALLED_APPS = [
     'structure.apps.StructureConfig',
 
     'compressor',
+    'debug_toolbar',
 
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,6 +72,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -228,3 +232,5 @@ IMAGE_CROPPING_BACKEND_PARAMS = {}
 IMAGE_CROPPING_JQUERY_URL = 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
 TAGGIT_CASE_INSENSITIVE = True
+
+INTERNAL_IPS = ('127.0.0.1',)
