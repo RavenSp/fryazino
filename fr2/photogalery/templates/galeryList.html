@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static cropping banners %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block addcss %}
+<link rel="stylesheet" href="{% static "css/galeryList.css" %}">
+{% endblock %}
+
+{% block keywords %}
+<meta name="title" content="{{ title }}">
+<meta type='keywords' content="Фотографии, Фрязино, фотоархив">
+<meta name="description" content="Фотоархив городского округа Фрязино">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:url" content="http://{{ request.get_host }}">
+<meta property="og:description" content="Фотоархив городского округа Фрязино">
+<meta property="og:image" content="http://{{ request.get_host }}{% static 'img/back.svg' %}">
+
+
+
+
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+	<div class="galery-list--header">
+		<h1>{{ title }}</h1>
+	</div>
+
+	<div class="galery-list--main">
+		<div class="galery-list--left">
+			<div class="galery-list--list">
+				{% for gal in galery_list %}
+				<div class="galery-list--el">
+					<a href="{{ gal.slug }}">
+						<div class="galery-list--img">
+							<img src="{{ gal.get_first_img.image.url }}" alt="{{ gal.title }}">
+						</div>
+						<div class="galery-list--info">
+							<h2>{{ gal.title }}</h2>
+							<div class="galery-list--desc">
+								{{ gal.description }}
+							</div>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="galery-list--right">
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

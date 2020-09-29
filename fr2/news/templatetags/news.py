@@ -1,6 +1,7 @@
 from django import template
 from news.models import News, Category
 from django.utils import timezone
+import re
 
 register = template.Library()
 
@@ -31,3 +32,9 @@ def last_news(conut=2):
 	news = News.objects.filter(publish=True, publisdDate__lte=timezone.now()).order_by('-publisdDate')
 
 	return {'news':news[:conut]}
+
+
+@register.filter
+def noimg(value):
+
+	return ''.join(re.split(r'<img .* />', value))

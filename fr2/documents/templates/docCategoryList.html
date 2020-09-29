@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static banners %}
+
+
+{% block title %}{{ category.title }}{% endblock %}
+
+{% block addcss %}
+	
+		<link rel="stylesheet" href="{% static "css/docs-list.css" %}">
+	
+{% endblock %}
+
+{% block main-content %}
+
+	<div class="container">
+		<h1>{{ category.title }}</h1>
+		
+		
+		
+		<div class="docCategoryList--main">
+			{% if submenu|length > 0 %}
+			<div class="docCategoryList--submenu">
+				<ul class="simple--submenu">
+					<li class="simple--submenu-el"><a href="/documents/">Нормативные документы</a></li>
+					<br>
+					{% for psub in submenu %}
+					<li class="simple--submenu-el"><a href="{{ psub.get_absolute_url}} ">{{ psub.title }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+
+			<div class="docCategoryList--content">
+				<ul class="docCategoryList--list">
+				{% for doc in docList %}
+					<li class="docCategoryList--list-el">
+						<a href="{{ doc.get_absolute_url }}">{{ doc.title }}</a>
+					</li>
+				{% empty%}
+					<h3>Нет документов в данной категории</h3>
+				{% endfor %}
+				</ul>	 
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

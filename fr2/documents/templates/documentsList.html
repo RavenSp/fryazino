@@ -31,9 +31,15 @@
 <div class="container">
 	<div class="docs-list--header">
 		<h1>{{ title }}</h1>
-		<a href="{% url 'all_documents' %}?typedoc={{ docs.0.TypeDoc.slug }} ">Type doc</a>
-		<a href="{% url 'all_documents' %}?author={{ docs.0.Author.slug }} ">Author</a>
-		<a href="{% url 'all_documents' %}?author={{ docs.0.Author.slug }}&typedoc={{ docs.0.TypeDoc.slug  }} ">Author + Type doc</a>
+		{% if submenu|length > 0 %}
+		<ul class="simple--submenu">
+			<li class="simple--submenu-el"><a href="/documents/">Нормативные документы</a></li>
+			<li class="simple--submenu-el">|</li>
+			{% for psub in submenu %}
+			<li class="simple--submenu-el"><a href="{{ psub.get_absolute_url}} ">{{ psub.title }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endif %}
 	</div>
 
 	<div class="docs-list--list">

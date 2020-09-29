@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static thumbnail banners %}
+
+{% block title %}{{ galery.title }}{% endblock %}
+
+{% block addcss %}
+<link rel="stylesheet" href="{% static "css/galeryDetail.css" %}">
+<meta name="title" content="{{ galery.title }}">
+<meta type='keywords' content="Фотографии, Фрязино, фотоархив">
+<meta name="description" content="{{ galery.description }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ galery.title }}">
+<meta property="og:url" content="http://{{ request.get_host }}">
+<meta property="og:description" content="{{ galery.description }}">
+<meta property="og:image" content="http://{{ request.get_host }}{{ galery.get_first_img }}">
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+{% endblock %}
+
+{% block keywords %}
+
+
+
+
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+	<div class="galery-detail--header">
+		<h1>{{ galery.title }}</h1>
+		<div class="galery-detail--info">
+			{{ galery.description }}
+		</div>
+	</div>
+	<div class="galery-detail--main">
+
+
+
+	{% for image in galery.get_images %}
+
+	<a data-fancybox="gallery" data-caption="{{ image.title }}" data-fancybox="iframe" href="{{ image.image.url }}"><img src="{% thumbnail image.image 400x235 %}"></a>
+
+
+
+		
+	{% endfor %}
+			
+	
+		
+
+</div>
+</div>
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(function(){
+
+			jQuery("#gallery").unitegallery({
+				tiles_type:"nested",
+				tiles_nested_optimal_tile_width: 150
+			});
+
+		});
+		
+	</script>
+
+
+{% endblock %}

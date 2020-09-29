@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'sovet.apps.SovetConfig',
     'catalog.apps.CatalogConfig',
     'structure.apps.StructureConfig',
+    'photogalery.apps.PhotogaleryConfig',
 
     'compressor',
     'debug_toolbar',

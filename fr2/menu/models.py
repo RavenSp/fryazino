@@ -30,6 +30,9 @@ class Menu(MPTTModel):
 		elif hasattr(self, 'category'):
 			return self.category.get_absolute_url()
 
+		elif hasattr(self, 'doccategory'):
+			return self.doccategory.get_absolute_url()
+
 		elif hasattr(self, 'documents'):
 
 			return self.documents.get_absolute_url()

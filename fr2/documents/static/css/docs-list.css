@@ -2,7 +2,7 @@
 
 .docs-list--header {
 
-	font-size: 1.5em;
+	/*font-size: 1.5em;*/
 	margin-bottom: 1.5em;
 }
 
@@ -116,3 +116,36 @@
 }
 
 /* Окончание пагинации */
+
+/* Подменю */
+
+.simple--submenu {
+	list-style: none;
+	display: flex;
+	padding: 20px;
+	margin: 20px 0px 20px 0px;
+	background-color: var(--primary);
+	border-radius: 5px;
+	flex-wrap: wrap;
+	line-height: 30px;
+
+}
+
+.simple--submenu-el {
+	padding-right: 25px;
+
+	color: white;
+}
+
+.simple--submenu-el a {
+	color: white;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.simple--submenu-el:hover a {
+	color: lightblue;
+	transition: 0.5s;
+	border-bottom: 1px solid lightblue;
+
+}

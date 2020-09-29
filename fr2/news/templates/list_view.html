@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load cropping static banners %}
+{% load cropping static banners news %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -40,7 +40,7 @@
 				<a href="{{ new.get_absolute_url }}"><h2>{{ new.title }}</h2></a>
 				<div class="listnews--date">{{ new.publisdDate | date:"l, j E Y" }} г.</div>
 				<div class="listnews--text">
-					{{ new.news_text | safe  | truncatewords_html:50 }}
+					{{ new.news_text | noimg | truncatewords_html:50 | safe }}
 				</div>
 			</div>
 		</div>

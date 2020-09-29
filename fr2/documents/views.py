@@ -3,7 +3,8 @@ from django.views.generic import ListView, DetailView
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Documents, DocsAuthor, DocType
+from .models import Documents, DocsAuthor, DocType, DocCategory
+from menu.models import Menu
 # Create your views here.
 
 ######### Настройка кол-ва документов на странице ############
@@ -48,7 +49,7 @@ class documetns(ListView):
 
 			docs = Documents.objects.filter(publish=True, publishDate__lt=timezone.now()).order_by('-publishDate')
 
-			title = 'Документы'
+			title = 'Нормативные документы'
 
 		page = request.GET.get('page', 1)
 
@@ -61,8 +62,16 @@ class documetns(ListView):
 		except EmptyPage:
 			docs = paginator.page(paginator.num_pages)
 
+		submenu = DocCategory.objects.filter(active=True)
+
+
+
+		
+
+
 		context = {
 			'title': title,
+			'submenu':submenu,
 			'docs':docs,
 		}
 
@@ -112,3 +121,29 @@ class documentsAutorList(ListView):
 		}
 
 		return render(request, 'documentsList.html', context)
+
+
+class documentsCateforyList(ListView):
+
+	model = Documents
+
+	def get(self, request, category):
+
+		cat = get_object_or_404(DocCategory, slug=category, active=True)
+
+		docList = Documents.objects.filter(DocCategory=cat, publish=True, publishDate__lt=timezone.now())
+
+		submenu = DocCategory.objects.filter(active=True)
+
+		context = {
+
+			'category': cat,
+			'submenu':submenu,
+			'docList': docList,
+
+		}
+
+		return render(request, 'docCategoryList.html', context)
+
+
+

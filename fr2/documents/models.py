@@ -6,7 +6,7 @@ from django.utils import timezone
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
 import os
-from mptt.models import MPTTModel, TreeOneToOneField
+from mptt.models import MPTTModel, TreeOneToOneField, TreeForeignKey
 
 
 from menu.models import Menu
@@ -53,7 +53,29 @@ class DocType(models.Model):
 		return self.title
 
 
+class DocCategory(MPTTModel):
 
+	title = models.CharField(max_length=250, verbose_name='Название категории')
+	slug = models.SlugField(max_length=250, verbose_name='URL')
+	menu = TreeOneToOneField(Menu, verbose_name='Пункт меню', on_delete=models.SET_NULL, blank=True, null=True)
+	active = models.BooleanField(verbose_name='Активная', default=True)
+
+	parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children',verbose_name='Родительский элемент')
+
+	class MPTTMeta:
+		order_insertion_by = ['title']
+
+	class Meta:
+		verbose_name='Категория документа'
+		verbose_name_plural='Кагеории докуентов'
+
+	def __str__(self):
+
+		return self.title
+
+	def get_absolute_url(self):
+
+		return "/documents/category/%s/" % self.slug 
 
 
 class Documents(models.Model):
@@ -63,6 +85,7 @@ class Documents(models.Model):
 	
 	number = models.CharField(max_length=20, verbose_name='Номер документа', blank=True, null=True)
 	Author = models.ForeignKey(DocsAuthor, on_delete=models.SET_NULL, verbose_name='Орган, принявший документ', blank=True, null=True)
+	DocCategory = TreeForeignKey(DocCategory, verbose_name='Категория', on_delete=models.CASCADE, default=1)
 	TypeDoc = models.ForeignKey(DocType, on_delete=models.SET_NULL, verbose_name='Тип документа', blank = True, null=True)
 	docDate = models.DateField(verbose_name='Дата подписания документа', default=timezone.now)
 	descrpition = models.TextField(verbose_name='Описание документа', blank=True, null=True)
