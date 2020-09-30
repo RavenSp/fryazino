@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
-{% load static cropping banners %}
+{% load static thumbnail banners %}
+
+
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -36,13 +38,16 @@
 				<div class="galery-list--el">
 					<a href="{{ gal.slug }}">
 						<div class="galery-list--img">
-							<img src="{{ gal.get_first_img.image.url }}" alt="{{ gal.title }}">
+							<img src="{% thumbnail gal.get_first_img.image 200x150 crop="smart" quality=100 %}" alt="{{ gal.title }}">
 						</div>
 						<div class="galery-list--info">
 							<h2>{{ gal.title }}</h2>
 							<div class="galery-list--desc">
 								{{ gal.description }}
 							</div>
+                             <span class="galery-list--count">
+                                    Количество фотографий: {{ gal.get_count }}
+                             </span>
 						</div>
 					</a>
 				</div>
@@ -50,7 +55,15 @@
 			</div>
 		</div>
 		<div class="galery-list--right">
-			
+
+            <div class="galery-list--banners">
+            {% get_small_banners 2 as sbanners %}
+            {% for b in sbanners.sbanners %}
+                <div class="galery-list--banner">
+                    <a href="{{ b.url }}"><img src="{{ b.image.url }}" alt="{{ b.title }}"></a>
+                </div>
+            {% endfor %}
+            </div>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,4 @@
 from django.db import models
-from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
 from os import path
 
@@ -45,7 +44,12 @@ class Galery(models.Model):
 
 			return images[0]
 
+	def get_count(self):
 
+		if self.active:
+			images = Image.objects.filter(galery=self.pk)
+
+			return len(images)
 
 
 

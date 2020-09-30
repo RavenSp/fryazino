@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
-{% load cropping static banners news %}
+{% load cropping static banners news thumbnail %}
 
 {% block title %}{{ new.title }}{% endblock %}
 
 {% block addcss %}
 	
 		<link rel="stylesheet" href="{% static "css/news-detail.css" %}">
+        {% if new.galery %}
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+            <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+         {% endif %}
 	
 {% endblock %}
 
@@ -61,8 +66,20 @@
 				</div>
 			</div>
 			<div class="newsdetail--textblock">
-				{{ new.news_text | safe  }}		
+				{{ new.news_text | safe  }}
+                {% if new.galery %}
+            <div class="newsdetail--galery">
+                <h3>Галерея изображений:</h3>
+                <div class="newsdetail--listimg">
+                    {% for image in new.galery.get_images %}
+                        <a data-fancybox="gallery" data-caption="{{ image.title }}" data-fancybox="iframe" href="{{ image.image.url }}"><img src="{% thumbnail image.image '340x260' crop='smart' quality=100 %}"></a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
 			</div>
+
+
 			
 		</div>
 		{% big_banner_news %}

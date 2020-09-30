@@ -1,0 +1,13 @@
+/* galery-detail-- */
+
+.galery-detail--header {
+    margin-bottom: 25px;
+}
+
+.galery-detail--info {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 18px;
+    font-style: italic;
+    color: gray;
+}

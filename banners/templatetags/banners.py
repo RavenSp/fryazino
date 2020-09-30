@@ -30,6 +30,13 @@ def all_small_banners(count=0):
 
 	return {'banners':banners}
 
+@register.simple_tag()
+def get_small_banners(count = 6):
+
+	banners = all_banners(count)
+
+	return {'sbanners':banners}
+
 @register.inclusion_tag('big_banner_news.html')
 def big_banner_news():
 

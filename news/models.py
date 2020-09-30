@@ -11,7 +11,7 @@ from django.utils.html import escape, format_html
 from mptt.models import MPTTModel, TreeOneToOneField
 
 from menu.models import Menu
-
+from photogalery.models import Galery
 
 class TaggedNews(TaggedItemBase):
     content_object = models.ForeignKey('News', on_delete=models.CASCADE)
@@ -67,6 +67,7 @@ class News(models.Model):
 	topNews = models.BooleanField(verbose_name='В главные новости', default=False)
 	tags = TaggableManager(verbose_name='Темы')
 	news_text = RichTextUploadingField(verbose_name='Текст статьи')
+	galery = models.ForeignKey(Galery, verbose_name='Галерея изображений', blank=True, null=True, on_delete=models.SET_NULL)
 	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 	publisdDate = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)
 	publish = models.BooleanField(verbose_name='Опубликовано', default=True)

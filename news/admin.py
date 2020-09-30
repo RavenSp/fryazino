@@ -23,7 +23,7 @@ class NewsAdmin(ImageCroppingMixin, admin.ModelAdmin):
 			'fields': (('min_free_cropping','list_img_cropping','top_news_cropping'),)
 			}),
 		(None, {
-			'fields':(('category', 'tags'), ('publish', 'publisdDate'), 'news_text')
+			'fields':(('category', 'tags'), ('publish', 'publisdDate'), 'news_text', 'galery')
 			}),
 		(_('Дополнительные опции'), {
 			'classes':('collapse', 'wide', 'extrapretty'),

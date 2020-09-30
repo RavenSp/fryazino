@@ -4,6 +4,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from menu.models import Menu
 from django.utils import timezone
 from mptt.models import MPTTModel, TreeOneToOneField
+from photogalery.models import Galery
 # Create your models here.
 
 
@@ -17,6 +18,7 @@ class Page(models.Model):
 	modifed = models.DateTimeField(auto_now=True)
 
 	body = RichTextUploadingField(verbose_name='Текст страницы')
+	galery = models.ForeignKey(Galery, on_delete=models.SET_NULL, verbose_name='Галерея изображений', blank=True, null=True)
 
 	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 	publisdDate = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)

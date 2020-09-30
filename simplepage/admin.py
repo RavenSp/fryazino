@@ -8,7 +8,7 @@ from .models import Page, TextBlock
 class PageAdmin(admin.ModelAdmin):
 	prepopulated_fields = {"slug": ("title",)}
 	list_display = ['title', 'publisdDate', 'publish']
-	fields = (('title', 'slug'), ('keywords', 'seo_description'), ('publisdDate', 'publish'), 'body', 'menu')
+	fields = (('title', 'slug'), ('keywords', 'seo_description'), ('publisdDate', 'publish'), 'body', 'galery', 'menu')
 
 
 @admin.register(TextBlock)
