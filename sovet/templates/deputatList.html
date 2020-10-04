@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static thumbnail %}
+
+{% block title %}Совет депутатов городского окргуа Фрязино{% endblock %}
+
+{% block addcss %}
+		<link rel="stylesheet" href="{% static "css/deputatList.css" %}">
+{% endblock %}
+
+{% block keyword%}<meta type='keywords' content="Совет депутатов, Фрязино">{% endblock %}
+
+{% block main-content %}
+<div class="container">
+	<div class="deputat-list--header">
+		<h1>Совет депутатов городского округа Фрязино</h1>
+	</div>
+<div class="deputat-list--chairmans">
+	<div class="deputat-list--chairman">
+		<div class="deputat-list--chairman-img">
+			<img src="{% thumbnail chairman.image '450x450' quality=100 %}" alt="{{ chairman.get_fio }}">
+		</div>
+		<div class="deputat-list--chairman-info">
+			<div class="deputat-list--chairman--title">Председатель Совета депутатов</div>
+			<div class="deputat-list--chairman-fio">
+				{{ chairman.first_name }} {{ chairman.last_name }} {{ chairman.middle_name }}
+			</div>
+			<div class="deputat-list--chairman-contacts">
+				<span><b>Телефон:</b> {{ chairman.phones }}</span>
+				<span><b>Email: </b><a href="mailto:{{ chairman.email }}">{{ chairman.email }}</a></span>
+				<span><b>Округ выдвижения: </b><a href="{{ chairman.okrug.get_absolute_url }}">{{ chairman.okrug.title }}</a></span>
+				<span><b>Партия: </b><a href="{{ chairman.party.get_absolute_url }}">{{ chairman.party.title }}</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="deputat-list--chairman">
+		<div class="deputat-list--chairman-img">
+			{% if vicechairman.image %}
+			<img src="{% thumbnail vicechairman.image '450x450' quality=100 %}" alt="{{ vicechairman.get_fio }}">
+			{% else %}
+			<img src="{% static "img/Man.svg" %}" alt="{{ vicechairman.get_fio }}">
+			{% endif %}
+		</div>
+		<div class="deputat-list--chairman-info">
+			<div class="deputat-list--chairman--title">Заместитель председателя Совета депутатов</div>
+			<div class="deputat-list--chairman-fio">
+				{{ vicechairman.first_name }} {{ vicechairman.last_name }} {{ vicechairman.middle_name }}
+			</div>
+			<div class="deputat-list--chairman-contacts">
+				{% if vicechairman.phones %}
+				<span><b>Телефон:</b> {{ vicechairman.phones }}</span>
+				{% endif %}
+				{% if vicechairman.email %}
+				<span><b>Email: </b><a href="mailto:{{ vicechairman.email }}">{{ vicechairman.email }}</a></span>
+				{% endif %}
+				{% if vicechairman.okrug %}
+				<span><b>Округ выдвижения: </b><a href="{{ vicechairman.okrug.get_absolute_url }}">{{ vicechairman.okrug.title }}</a></span>{% endif %}{% if vicechairman.party %}
+				<span><b>Партия: </b><a href="{{ vicechairman.party.get_absolute_url }}">{{ vicechairman.party.title }}</a></span>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+	{% for dep in deps %}
+	{% ifchanged  dep.okrug.title %}
+	<div class="deputat-list--okrug">
+	<h3>{{ dep.okrug.title }}</h3>
+	{% endifchanged %}
+	<div>{{ dep.get_fio }}</div>
+	{% ifchanged dep.okrug.title%}
+	</div>
+	{% endifchanged %}
+	{%endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+/* deputat-list-- */ 
+
+.deputat-list--header {
+	margin-bottom: 30px;
+}
+
+.deputat-list--chairman {
+	border: 1px solid lightgray;
+	padding: 20px;
+	border-radius: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 110px;
+	margin-bottom: 20px;
+}
+
+.deputat-list--chairman-img {
+	flex: 1;
+}
+
+.deputat-list--chairman-img img {
+	width: 100%;
+}
+
+.deputat-list--chairman-info {
+	flex: 4;
+	margin-left: 20px;
+
+}
+
+.deputat-list--chairman-fio {
+	font-size: 30px;
+}
+
+.deputat-list--chairman-contacts {
+	padding: 10px;
+	color: gray;
+	display: flex;
+	flex-direction: column;
+}
+
+.deputat-list--chairman-contacts span {
+	padding-bottom: 5px;
+}
+
+.deputat-list--chairman-links {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.deputat-list--chairman-links a {
+	color: white;
+	background-color: var(--primary);
+	padding: 15px;
+	margin-bottom: 8px;
+	border-radius: 5px;
+	font-size: 18px;
+	text-align: center;
+
+
+}
+
+.deputat-list--chairman-links a:hover {
+
+}
+

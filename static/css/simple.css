@@ -1,0 +1,102 @@
+/* .simple-- */
+
+.simple--header {
+	margin-bottom: 40px;
+}
+
+.simple--header h1 {
+	font-size: 40px;
+	line-height: 30px;
+}
+
+.simple--main {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 18px;
+}
+
+.simple--left {
+	width: 75%;
+	position: relative;
+	display: flex;
+
+}
+
+.simple--social {
+	flex: 1;
+	padding-right: 20px;
+	
+}
+
+.simple--share {
+	position: sticky;
+	top: 30px;
+}
+
+.simple--text {
+	flex: 11;
+}
+
+.simple--right {
+	width: 20%;
+	padding-left: 5%;
+	
+}
+
+.simple--banners {
+	position: sticky;
+	top: 30px;
+}
+
+.simple--submenu {
+	list-style: none;
+	display: flex;
+	padding: 20px;
+	margin: 0px 0px 20px 0px;
+	background-color: var(--primary);
+	border-radius: 5px;
+
+}
+
+.simple--submenu-el {
+	padding-right: 25px;
+	color: white;
+}
+
+.simple--submenu-el a {
+	color: white;
+	text-transform: uppercase;
+}
+
+.simple--submenu-el:hover a {
+	color: lightblue;
+	transition: 0.5s;
+	border-bottom: 1px solid lightblue;
+
+}
+
+/* баннеры справа */
+
+.listnews--sidebar-banners {
+
+	width: 100%;
+}
+
+.listnews--banners-list {
+	list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+
+.listnews--banner {
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+.listnews--banner   img {
+
+	width: 100%;
+}

@@ -4,19 +4,27 @@ from django.views import View
 from .models import party, okrug, deputat, commision
 # Create your views here.
 
-class DeputatsView(ListView):
+class DeputatList(ListView):
 
     model = deputat
 
     def get(self, request, *args, **kwargs):
 
-        deps = self.model.objects.all()
+        deps = self.model.objects.all().order_by('okrug')
 
         title = 'Совет депутатов городского округа Фрязино'
+
+        chairman = deps.filter(chairman=True)
+
+        vicechairman = deps.filter(vicechairman=True)
+
+        print(chairman)
 
         context = {
             'title':title,
             'deps': deps,
+            'chairman': chairman[0],
+            'vicechairman': vicechairman[0],
         }
 
         return render(request, 'deputatList.html', context)
@@ -53,10 +61,30 @@ class OkrugDetail(DetailView):
 
         return render(request, 'Okrug.html', context)
 
-class ComissionList(ListView):
+class CommissionList(ListView):
 
     model = commision
 
     def get(self, request):
 
-        comissions = commision.objects.
+        comms = commision.objects.all()
+
+        context = {
+        	'commisions':comms,
+        }
+
+        return render(request, 'commissionList.html', context)
+
+class CommissionDeatails(DetailView):
+
+	model = commision 
+
+	def get(self, request, slug):
+
+		com = get_object_or_404(commision, slug=slug)
+
+		context = {
+			'comm':comm,
+		}
+
+		return render(request, 'commissionDetails.html', context)

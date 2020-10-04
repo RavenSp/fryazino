@@ -1,5 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.core.exceptions import ValidationError
+
 
 # Create your models here.
 
@@ -13,6 +15,7 @@ class okrug(models.Model):
 
         verbose_name = 'Округ'
         verbose_name_plural = 'Округа'
+        ordering = ['title']
 
     def __str__(self):
         return self.title
@@ -42,14 +45,16 @@ class deputat(models.Model):
     bio = RichTextUploadingField(verbose_name='Биография депутата', blank=True, null=True)
     phones = models.CharField(max_length=256, verbose_name='Контактные телефоны', blank=True, null=True)
     email = models.EmailField(verbose_name='E-mail депутата', default='sovet@fryazino.org')
-    grafic = RichTextUploadingField(verbose_name='График приёма', blank=True, null=True)
+    grafic = RichTextUploadingField(verbose_name='Место и время приёма', blank=True, null=True)
     chairman = models.BooleanField(verbose_name='Председатель Совета', help_text='Председателем может быть только один депутат.', default=False)
+    vicechairman = models.BooleanField(verbose_name='Заместитель председателя Совета', help_text='Заместителем председателя Совета может быть только один депутат.', default=False)
 
 
     class Meta:
 
         verbose_name = 'Депутат'
         verbose_name_plural = 'Депутаты'
+
 
     def __str__(self):
         if self.middle_name:
@@ -58,6 +63,10 @@ class deputat(models.Model):
             fio = "%s %s" % (self.first_name.capitalize(), self.last_name.capitalize())
         if self.chairman:
             fio += ' - председатель Совета'
+
+        if self.vicechairman:
+            fio += ' - зам. председателя Совета'
+
         return fio
 
     def get_fio(self, short=False):
@@ -83,6 +92,10 @@ class deputat(models.Model):
 
     def save(self, *args, **kwargs):
 
+        if self.chairman and self.vicechairman:
+
+            raise ValidationError('Один депутат не может быть заместителем и председателем одновременно!')
+
         if self.chairman:
             try:
                 tmp = deputat.objects.get(chairman=True)
@@ -92,6 +105,16 @@ class deputat(models.Model):
 
             except deputat.DoesNotExist:
                 pass
+        if self.vicechairman:
+            try:
+                tmp = deputat.objects.get(vicechairman=True)
+                if self != tmp:
+                    tmp.vicechairman = False
+                    tmp.save()
+
+            except deputat.DoesNotExist:
+                pass
+
         super(deputat, self).save(*args, **kwargs)
 
 

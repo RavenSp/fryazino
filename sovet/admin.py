@@ -21,7 +21,7 @@ class PartyAdmin(admin.ModelAdmin):
 @admin.register(deputat)
 class DeputatAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'okrug','party','bDate']
-    ordering = ['-chairman', 'first_name']
+    ordering = ['-chairman', '-vicechairman', 'first_name']
 
 
 @admin.register(commision)
