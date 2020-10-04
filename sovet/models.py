@@ -60,6 +60,27 @@ class deputat(models.Model):
             fio += ' - председатель Совета'
         return fio
 
+    def get_fio(self, short=False):
+
+        fname = self.first_name.capitalize()
+        lname = self.last_name.capitalize()
+        if short:
+            lname = lname[:1]+'.'
+
+        if self.middle_name:
+
+            mname = self.middle_name.capitalize()
+
+            if short:
+                mname = mname[:1]+'.'
+
+            fio = "%s %s %s" % (
+            fname, lname, mname)
+        else:
+            fio = "%s %s" % (fname, lname)
+
+        return fio
+
     def save(self, *args, **kwargs):
 
         if self.chairman:
