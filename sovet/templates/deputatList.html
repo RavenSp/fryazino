@@ -17,7 +17,11 @@
 <div class="deputat-list--chairmans">
 	<div class="deputat-list--chairman">
 		<div class="deputat-list--chairman-img">
+			{% if chairman.image %}
 			<img src="{% thumbnail chairman.image '450x450' quality=100 %}" alt="{{ chairman.get_fio }}">
+			{% else %}
+			<img src="{% static "img/Man.svg" %}" alt="{{ chairman.get_fio }}">
+			{% endif %}
 		</div>
 		<div class="deputat-list--chairman-info">
 			<div class="deputat-list--chairman--title">Председатель Совета депутатов</div>
@@ -25,7 +29,9 @@
 				{{ chairman.first_name }} {{ chairman.last_name }} {{ chairman.middle_name }}
 			</div>
 			<div class="deputat-list--chairman-contacts">
+				{% if chairman.phones %}
 				<span><b>Телефон:</b> {{ chairman.phones }}</span>
+				{% endif %}
 				<span><b>Email: </b><a href="mailto:{{ chairman.email }}">{{ chairman.email }}</a></span>
 				<span><b>Округ выдвижения: </b><a href="{{ chairman.okrug.get_absolute_url }}">{{ chairman.okrug.title }}</a></span>
 				<span><b>Партия: </b><a href="{{ chairman.party.get_absolute_url }}">{{ chairman.party.title }}</a></span>
@@ -62,13 +68,34 @@
 </div>
 	{% for dep in deps %}
 	{% ifchanged  dep.okrug.title %}
+	{% if not forloop.first %}
+	</div></div>
+	{% endif %}
 	<div class="deputat-list--okrug">
 	<h3>{{ dep.okrug.title }}</h3>
+	<hr>
+	<div class="deputat-list--okr-list">
 	{% endifchanged %}
-	<div>{{ dep.get_fio }}</div>
-	{% ifchanged dep.okrug.title%}
+	<div class="deputat-list--okr-el">
+		<a href="{{ dep.get_absolute_url }}">
+		<div class="deputat-list--okr-img">
+			{% if dep.image %}
+			<img src="{% thumbnail dep.image '175x230' crop='center' quality=100 %}" alt="{{ dep.get_fio }}">
+			{% else %}
+			<img src="{% static "img/Man.svg" %}" width="175" height="230" alt="{{ dep.get_fio }}">
+			{% endif %}
+		</div>
+		<span class="deputat-list--okr-fio">
+			{{ dep.get_fio }}
+		</span>
+		</a>
+	
 	</div>
-	{% endifchanged %}
+
 	{%endfor %}
-</div>
+	</div></div>
 {% endblock %}
+
+
+
+

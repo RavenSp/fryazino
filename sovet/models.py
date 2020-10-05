@@ -105,6 +105,7 @@ class deputat(models.Model):
 
             except deputat.DoesNotExist:
                 pass
+        
         if self.vicechairman:
             try:
                 tmp = deputat.objects.get(vicechairman=True)
