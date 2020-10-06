@@ -17,16 +17,20 @@
 <div class="deputat-list--chairmans">
 	<div class="deputat-list--chairman">
 		<div class="deputat-list--chairman-img">
+			<a href="{{ chairman.get_absolute_url }}">
 			{% if chairman.image %}
 			<img src="{% thumbnail chairman.image '450x450' quality=100 %}" alt="{{ chairman.get_fio }}">
 			{% else %}
 			<img src="{% static "img/Man.svg" %}" alt="{{ chairman.get_fio }}">
 			{% endif %}
+			</a>
 		</div>
 		<div class="deputat-list--chairman-info">
 			<div class="deputat-list--chairman--title">Председатель Совета депутатов</div>
 			<div class="deputat-list--chairman-fio">
+				<a href="{{ chairman.get_absolute_url }}">
 				{{ chairman.first_name }} {{ chairman.last_name }} {{ chairman.middle_name }}
+				</a>
 			</div>
 			<div class="deputat-list--chairman-contacts">
 				{% if chairman.phones %}
@@ -40,16 +44,20 @@
 	</div>
 	<div class="deputat-list--chairman">
 		<div class="deputat-list--chairman-img">
+			<a href="{{ vicechairman.get_absolute_url }}">
 			{% if vicechairman.image %}
 			<img src="{% thumbnail vicechairman.image '450x450' quality=100 %}" alt="{{ vicechairman.get_fio }}">
 			{% else %}
 			<img src="{% static "img/Man.svg" %}" alt="{{ vicechairman.get_fio }}">
 			{% endif %}
+			</a>
 		</div>
 		<div class="deputat-list--chairman-info">
 			<div class="deputat-list--chairman--title">Заместитель председателя Совета депутатов</div>
 			<div class="deputat-list--chairman-fio">
+				<a href="{{ vicechairman.get_absolute_url }}">
 				{{ vicechairman.first_name }} {{ vicechairman.last_name }} {{ vicechairman.middle_name }}
+				</a>
 			</div>
 			<div class="deputat-list--chairman-contacts">
 				{% if vicechairman.phones %}

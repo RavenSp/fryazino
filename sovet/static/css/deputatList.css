@@ -48,6 +48,10 @@
 	font-size: 30px;
 }
 
+.deputat-list--chairman-fio:hover a {
+	color: var(--primary);
+}
+
 .deputat-list--chairman-contacts {
 	padding: 10px;
 	color: gray;
