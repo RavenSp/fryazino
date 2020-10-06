@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static thumbnail %}
+
+{% block title %}Депутат {{ deputat.get_fio }}{% endblock %}
+
+{% block addcss %}
+		<link rel="stylesheet" href="{% static "css/deputatView.css" %}">
+{% endblock %}
+
+{% block keyword%}
+<meta name="title" content="{{ deputat.get_fio }}">
+<meta type='keywords' content="Совет депутатов, Фрязино, {{ deputat.get_fio }}">
+<meta name="description" content="Личная страница депутата {{ deputat.get_fio }} Совета депутатов городского округа Фрязино">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ deputat.get_fio }}">
+<meta property="og:url" content="http://{{ request.get_host }}{{ deputat.get_absolute_url }}">
+<meta property="og:description" content="Депутат Совета депутатов городского округа Фрязино {{ deputat.get_fio }}. Личная странциа.">
+	{% if deputat.image %}
+<meta property="og:image" content="http://{{ request.get_host }}{{ deputat.image.url }}">
+	{% else %}
+<meta property="og:image" content="http://{{ request.get_host }}{% static 'img/back.svg' %}">
+	{% endif %}
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+	<div class="deputat-view--header">
+	<h1>{{ deputat.get_fio }}</h1>
+	</div>
+	<div class="deputat-view--top">
+		<div class="deputat-view--img">
+			{% if deputat.image %}
+			<img src="{{ deputat.image.url }}" alt="{{ deputat.get_fio }}">
+			{% else %}
+			<img src="{% static 'img/Man.svg' %}" alt="{{ deputat.get_fio }}">
+			{% endif %}
+		</div>
+		<div class="deputat-view--info">
+			
+		</div>
+	</div>
+	{% if deputat.bio %}
+	<div class="deputat-view--bio">
+		<h3>Биография: </h3>
+		{{ deputat.bio | safe  }}
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

@@ -90,6 +90,10 @@ class deputat(models.Model):
 
         return fio
 
+    def get_absolute_url(self):
+
+        return '/sovet/deputat/%s' % self.id
+
     def save(self, *args, **kwargs):
 
         if self.chairman and self.vicechairman:

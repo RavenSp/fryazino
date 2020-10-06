@@ -18,8 +18,6 @@ class DeputatList(ListView):
 
         vicechairman = deps.filter(vicechairman=True)
 
-        print(chairman)
-
         context = {
             'title':title,
             'deps': deps,
