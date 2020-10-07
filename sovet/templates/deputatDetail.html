@@ -25,9 +25,7 @@
 
 {% block main-content %}
 <div class="container">
-	<div class="deputat-view--header">
-	<h1>{{ deputat.get_fio }}</h1>
-	</div>
+	
 	<div class="deputat-view--top">
 		<div class="deputat-view--img">
 			{% if deputat.image %}
@@ -36,26 +34,50 @@
 			<img src="{% static 'img/Man.svg' %}" alt="{{ deputat.get_fio }}">
 			{% endif %}
 		</div>
+
 		<div class="deputat-view--info">
+			<div class="deputat-view--header">
+	<h1>{{ deputat.get_fio }}</h1>
+	</div>
 			{% if deputat.phones %}
-			<span><b>Телефон:</b> {{ deputat.phones }}</span>
+			<div class="deputat-view--info-el">
+				<b>Телефон:</b> {{ deputat.phones }}
+			</div>
 			{% endif %}
 			{% if deputat.email %}
-			<span><b>Email: </b><a href="mailto:{{ deputat.email }}">{{ deputat.email }}</a></span>
+			<div class="deputat-view--info-el">
+				<b>Email: </b><a href="mailto:{{ deputat.email }}">{{ deputat.email }}</a>
+			</div>
 			{% endif %}
 			{% if deputat.okrug %}
-			<span><b>Округ выдвижения: </b><a href="{{ deputat.okrug.get_absolute_url }}">{{ deputat.okrug.title }}</a></span>
+			<div class="deputat-view--info-el">
+				<b>Округ выдвижения: </b><a href="{{ deputat.okrug.get_absolute_url }}">{{ deputat.okrug.title }}</a>
+			</div>
 			{% endif %}
 			{% if deputat.party %}
-			<span><b>Партия: </b><a href="{{ deputat.party.get_absolute_url }}">{{ deputat.party.title }}</a></span>
+			<div class="deputat-view--info-el">
+				<b>Партия: </b><a href="{{ deputat.party.get_absolute_url }}">{{ deputat.party.title }}</a>
+			</div>
 			{% endif %}
+			{% if deputat.bDate %}
+			<div class="deputat-view--info-el">
+				<b>Дата рождения: </b>{{ deputat.bDate }} 
+			</div>
+			{% endif %}
+			{% if deputat.grafic %}
+			<div class="deputat-view--grafic">
+				<h3>График приёма: </h3>
+				{{ deputat.grafic | safe  }}
+			</div>
+			{% endif %}
+			{% if deputat.bio %}
+			<div class="deputat-view--bio">
+			<h3>Биография: </h3>
+			{{ deputat.bio | safe  }}
+			</div>
+	{% endif %}
 		</div>
 	</div>
-	{% if deputat.bio %}
-	<div class="deputat-view--bio">
-		<h3>Биография: </h3>
-		{{ deputat.bio | safe  }}
-	</div>
-	{% endif %}
+	
 </div>
 {% endblock %}
