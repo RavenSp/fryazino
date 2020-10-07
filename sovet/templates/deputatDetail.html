@@ -31,13 +31,24 @@
 	<div class="deputat-view--top">
 		<div class="deputat-view--img">
 			{% if deputat.image %}
-			<img src="{{ deputat.image.url }}" alt="{{ deputat.get_fio }}">
+			<img src="{% thumbnail deputat.image '250x250' quality=100 %}" alt="{{ deputat.get_fio }}">
 			{% else %}
 			<img src="{% static 'img/Man.svg' %}" alt="{{ deputat.get_fio }}">
 			{% endif %}
 		</div>
 		<div class="deputat-view--info">
-			
+			{% if deputat.phones %}
+			<span><b>Телефон:</b> {{ deputat.phones }}</span>
+			{% endif %}
+			{% if deputat.email %}
+			<span><b>Email: </b><a href="mailto:{{ deputat.email }}">{{ deputat.email }}</a></span>
+			{% endif %}
+			{% if deputat.okrug %}
+			<span><b>Округ выдвижения: </b><a href="{{ deputat.okrug.get_absolute_url }}">{{ deputat.okrug.title }}</a></span>
+			{% endif %}
+			{% if deputat.party %}
+			<span><b>Партия: </b><a href="{{ deputat.party.get_absolute_url }}">{{ deputat.party.title }}</a></span>
+			{% endif %}
 		</div>
 	</div>
 	{% if deputat.bio %}

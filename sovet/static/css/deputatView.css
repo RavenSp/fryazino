@@ -1,6 +1,10 @@
 /* .deputat-view-- */
 
 
-.deputat-view--heaer {
-	
+.deputat-view--header {
+	margin-bottom: 30px;	
+}
+
+.deputat-view--top {
+	display: flex;
 }

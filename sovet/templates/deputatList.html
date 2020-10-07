@@ -80,7 +80,7 @@
 	</div></div>
 	{% endif %}
 	<div class="deputat-list--okrug">
-	<h3>{{ dep.okrug.title }}</h3>
+	<h3><a href="{{ dep.okrug.get_absolute_url }}">{{ dep.okrug.title }}</a></h3>
 	<hr>
 	<div class="deputat-list--okr-list">
 	{% endifchanged %}

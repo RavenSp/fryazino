@@ -20,6 +20,10 @@ class okrug(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+
+        return '/sovet/%s' % self.slug
+
 class party(models.Model):
     title = models.CharField(max_length=50, verbose_name='Название субъекта выдвижения')
     slug = models.SlugField(max_length=50, verbose_name='URL')
@@ -30,6 +34,10 @@ class party(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+
+        return '/sovet/party/%s' % self.slug
 
 
 
@@ -157,6 +165,8 @@ class commision(models.Model):
             super(commision, self).save(*args, **kwargs)
 
 
+    def get_absolute_url(self):
 
+        return '/sovet/comission/%s' % self.slug
 
 
