@@ -1,0 +1,51 @@
+/* .deputat-view-- */
+
+
+.deputat-view--header {
+	margin-bottom: 10px;	
+}
+
+.deputat-view--img {
+	padding-right: 20px;
+	flex: 1;
+	width: 100%;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.deputat-view--img img {
+position: sticky;
+top: 30px;
+}
+
+.deputat-view--top {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.deputat-view--info {
+	flex: 12;
+	
+}
+
+.deputat-view--info-el:not(:last-child) {
+	padding-bottom: 10px;
+}
+
+.deputat-view--info-el b {
+	font-size: 20px;
+}
+
+.deputat-view--grafic {
+	border-top: 1px solid gray;
+	padding-top: 10px;
+	margin-top: 10px;
+	text-align: justify;
+}
+
+.deputat-view--bio {
+	border-top: 1px solid gray;
+	padding-top: 10px;
+	margin-top: 10px;
+	text-align: justify;
+}

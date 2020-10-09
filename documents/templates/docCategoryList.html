@@ -33,29 +33,34 @@
 		
 		<div class="docCategoryList--main">
 			{% if submenu|length > 0 %}
-			<div class="docCategoryList--submenu">
-				<ul class="simple--submenu">
-					<li class="simple--submenu-el"><a href="/documents/">Нормативные документы</a></li>
-					<br>
-					{% for psub in submenu %}
-					<li class="simple--submenu-el"><a href="{{ psub.get_absolute_url}} ">{{ psub.title }}</a></li>
-					{% endfor %}
-				</ul>
-			</div>
-			{% endif %}
+		<ul class="simple--submenu">
+			<li class="simple--submenu-el"><a href="/documents/">Нормативные документы</a></li>
+			<li class="simple--submenu-el">|</li>
+			{% for psub in submenu %}
+			<li class="simple--submenu-el"><a href="{{ psub.get_absolute_url}} ">{{ psub.title }}</a></li>
+			{% endfor %}
+		</ul>
+		{% endif %}
 
 			<div class="docCategoryList--content">
 				<ul class="docCategoryList--list">
+			
 				{% for doc in docList %}
-					<li class="docCategoryList--list-el">
-						<a href="{{ doc.get_absolute_url }}">{{ doc.title }}</a>
-					</li>
-				{% empty%}
+			<li class="docs-list--el">
+				<div class="docs-list--link"><a href="{{ doc.get_absolute_url }}">{{ doc.title }}</a></div>
+				{% if doc.Author and doc.TypeDoc %}
+				<div class="docs-list--info">{{ doc.Author }} / {{ doc.TypeDoc }}</div>
+				{% endif %}
+				<div class="docs-list--date">Опубликовано: {{ doc.publishDate | date:"j E Y"}}</div>
+
+			</li>
+			{% empty%}
 					<h3>Нет документов в данной категории</h3>
-				{% endfor %}
+			{% endfor %}
 				</ul>	 
 			</div>
 		</div>
+		{% big_banner_news %}
 	</div>
 
 {% endblock %}

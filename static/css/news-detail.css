@@ -198,6 +198,32 @@
 }
 
 
+/* Галерея */
+
+ .newsdetail--galery {
+	 padding-top: 20px;
+ }
+
+ .newsdetail--galery h3 {
+	 padding: 10px;
+ }
+
+ .newsdetail--listimg {
+	 display: flex;
+	 flex-wrap: wrap;
+	 justify-content: space-evenly;
+ }
+
+ .newsdetail--listimg a{
+	 max-width: 320px;
+	 min-width: 200px;
+	 padding: 5px;
+ }
+
+ .newsdetail--listimg img {
+	 width: 100%;
+ }
+
 /* Большой баннер внизу текста */
 
 .newsdetail--bootom-banner {

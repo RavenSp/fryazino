@@ -1,0 +1,152 @@
+/* deputat-list-- */ 
+
+.deputat-list--header {
+	margin-bottom: 30px;
+}
+
+.deputat-list--chairmans {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.deputat-list--chairman {
+	border: 1px solid lightgray;
+	padding: 20px;
+	border-radius: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	min-width: 110px;
+	margin-bottom: 20px;
+	flex:1;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.deputat-list--chairman:first-child {
+	margin-right: 10px;
+}
+
+.deputat-list--chairman:last-child {
+	margin-left: 10px;
+}
+
+.deputat-list--chairman-img {
+	flex: 1;
+}
+
+.deputat-list--chairman-img img {
+	width: 100%;
+	border-radius: 10px;
+
+}
+
+.deputat-list--chairman-info {
+	flex: 2;
+	margin-left: 20px;
+
+}
+
+.deputat-list--chairman-fio {
+	font-size: 30px;
+}
+
+.deputat-list--chairman-fio:hover a {
+	color: var(--primary);
+}
+
+.deputat-list--chairman-contacts {
+	padding: 10px;
+	color: gray;
+	display: flex;
+	flex-direction: column;
+}
+
+.deputat-list--chairman-contacts span {
+	padding-bottom: 5px;
+}
+
+.deputat-list--chairman-links {
+	flex: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+.deputat-list--chairman-links a {
+	color: white;
+	background-color: var(--primary);
+	padding: 15px;
+	margin-bottom: 8px;
+	border-radius: 5px;
+	font-size: 18px;
+	text-align: center;
+
+
+}
+
+.deputat-list--chairman-links a:hover {
+
+}
+
+.deputat-list--okrug {
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid var(--second);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.deputat-list--okrug:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.deputat-list--okrug h3 {
+	margin-bottom: 10px;
+	font-size: 25px;
+}
+
+.deputat-list--okr-list {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.deputat-list--okr-el {
+	flex: 1;
+	white-space: normal;
+	text-align: center;
+	padding: 15px;
+}
+
+.deputat-list--okr-img img {
+	/*width: 80%;*/
+	border-radius: 10px;
+	max-width: 175px;
+}
+
+.deputat-list--okr-img a {
+	height: 100%;
+}
+
+.deputat-list--okr-fio {
+    font-size: 21px;
+    padding: 10px;
+}
+
+
+@media screen and (max-width: 1024px){
+	.deputat-list--chairmans { 
+		flex-direction: column;
+	}
+
+	.deputat-list--chairman-info {
+		flex: 6;
+	}
+
+	.deputat-list--chairman:last-child, .deputat-list--chairman:first-child {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	.deputat-list--chairman-img {
+		min-width: 150px;
+	}
+}

@@ -86,3 +86,20 @@ class CommissionDeatails(DetailView):
 		}
 
 		return render(request, 'commissionDetails.html', context)
+
+
+class PartyDetail(DetailView):
+
+    def get(self, request, part):
+
+        p = get_object_or_404(party, slug=part)
+
+        deps = get_list_or_404(deputat, party=p)
+
+        context ={
+            'party':p,
+            'deps':deps,
+        }
+
+        
+        return render(request, 'partDetail.html', context)
