@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static thumbnail %}
+{% load static thumbnail banners %}
 
 {% block title %}Депутат {{ deputat.get_fio }}{% endblock %}
 
@@ -78,6 +78,6 @@
 	{% endif %}
 		</div>
 	</div>
-	
+	{% big_banner_news %}
 </div>
 {% endblock %}

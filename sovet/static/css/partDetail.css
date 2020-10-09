@@ -1,0 +1,47 @@
+
+
+.deputat-list--okrug {
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid var(--second);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.deputat-list--okrug:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.deputat-list--okrug h3 {
+	margin-bottom: 10px;
+	font-size: 25px;
+}
+
+.deputat-list--okr-list {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.deputat-list--okr-el {
+	flex: 1;
+	white-space: normal;
+	text-align: center;
+	padding: 15px;
+}
+
+.deputat-list--okr-img img {
+	/*width: 80%;*/
+	border-radius: 10px;
+	max-width: 175px;
+}
+
+.deputat-list--okr-img a {
+	height: 100%;
+}
+
+.deputat-list--okr-fio {
+    font-size: 21px;
+    padding: 10px;
+}

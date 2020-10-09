@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static thumbnail %}
+{% load static thumbnail banners %}
 
 {% block title %}Совет депутатов городского окргуа Фрязино{% endblock %}
 
@@ -112,6 +112,8 @@
 
 	{%endfor %}
 	</div></div>
+{% big_banner_news %}
+</div>
 {% endblock %}
 
 
