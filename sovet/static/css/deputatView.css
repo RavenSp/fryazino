@@ -21,6 +21,7 @@ top: 30px;
 .deputat-view--top {
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom: 30px;
 }
 
 .deputat-view--info {

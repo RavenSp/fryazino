@@ -22,8 +22,12 @@
 {% block main-content %}
 <div class="container">
 	<div class="party-detail--header">
-		<h1>{{ party.title }}</h1>
-		<span>Количество депутатов: {{ deps | length }}</span>
+		{% if party.title == 'Самовыдвижение' %}
+		<h1>Депутаты-самовыдвиженцы</h1>
+		{% else %}
+		<h1>Депутаты, изобранные от партии {{ party.title }}</h1>
+		{% endif %}
+		<div class="party-detail--subheader">Количество депутатов: {{ deps | length }}</div>
 	</div>
 	<div class="party-detail--list">
 		<div class="deputat-list--okrug">
