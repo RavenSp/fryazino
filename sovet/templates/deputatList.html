@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static thumbnail banners %}
+{% load static thumbnail banners text_block %}
 
 {% block title %}Совет депутатов городского окргуа Фрязино{% endblock %}
 
@@ -24,6 +24,15 @@
 	<div class="deputat-list--header">
 		<h1>Совет депутатов городского округа Фрязино</h1>
 	</div>
+<div class="deputat-list--info">
+	{% textblock 'sovet-title' %}
+	<div class="deputat-list--cont">
+		<a href="/documents/category/resheniya-gorodskogo-soveta/" class="deputat-list--btn">Решения Совета депутатов городского округа Фрязино</a>
+		<a href="/sovet/comission/" class="deputat-list--btn">Список комиссий и рабочих групп</a>
+		<a href="/news/category/sovet-deputatov/" class="deputat-list--btn">Новости Совета депутатов</a>
+	</div>
+</div>
+
 <div class="deputat-list--chairmans">
 	<div class="deputat-list--chairman">
 		<div class="deputat-list--chairman-img">

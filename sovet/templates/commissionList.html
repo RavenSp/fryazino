@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static thumbnail banners %}
+
+{% block title %}Список комиссий Совета депутатов городского округа Фрязино{% endblock %}
+
+{% block addcss %}
+		<link rel="stylesheet" href="{% static "css/commissionList.css" %}">
+{% endblock %}
+
+{% block keyword%}
+<meta type='keywords' content="Совет депутатов, Фрязино, комиссии">
+<meta name="title" content="Список комиссий Совета депутатов городского округа Фрязино">
+<meta name="description" content="Список комиссий Совета депутатов городского округа Фрязино">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Список комиссий Совета депутатов городского округа Фрязино">
+<meta property="og:url" content="http://{{ request.get_host }}/comission/">
+<meta property="og:description" content="Все комиссии, рабочие группы и прочие органы, создаваемые Советом депутатов городского округа Фрязино">
+<meta property="og:image" content="http://{{ request.get_host }}{% static 'img/back.svg' %}">
+
+{% endblock %}
+
+{% block main-content %}
+<div class="container">
+	<div class="com-list--header">
+		<h1>Список комиссий Совета депутатов городского округа Фрязино</h1>
+		<div class="com-list--subhead">
+			Количество комиссий и рабочих групп: {{ comms | length }}
+		</div>
+	</div>
+	{% for com in comms %}
+		<div class="com-list--com">
+			<h2><a href="{{ com.get_absolute_url }}">{{ com.title }}</a></h2>
+			<h3>Члены комиссии:</h3>
+			<div class="com-list--memb">
+				{% for memb in com.members.all %}
+					<div class="com-list--mem-el">
+						<div class="com-list--mem-el-img"><img src="{% thumbnail memb.image '100x100' quality=100 crop='smart' %}" alt="{{ memb.get_fio  }}"></div>
+						<div class="com-list--mem-el-info">{{ memb.get_fio  }}</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+	{% empty %}
+	<h2>На данный момент комиссий и рабочих груп не создано!</h2>
+	{% endfor %}
+	
+	
+</div>
+	
+{% endblock %}

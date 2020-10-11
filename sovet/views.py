@@ -68,7 +68,7 @@ class CommissionList(ListView):
         comms = commision.objects.all()
 
         context = {
-        	'commisions':comms,
+        	'comms':comms,
         }
 
         return render(request, 'commissionList.html', context)

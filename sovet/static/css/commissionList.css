@@ -1,0 +1,27 @@
+/* .com-list-- */
+
+.com-list--header {
+	margin-bottom: 30px;
+}
+
+.com-list--com {
+	padding: 20px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.com-list--memb {
+	display: flex;
+
+}
+
+.com-list--mem-el {
+	flex: 1;
+	justify-content: center;
+	align-content: center;
+}
+
+.com-list--mem-el-img img {
+	border-radius: 50%;
+}

@@ -169,4 +169,6 @@ class commision(models.Model):
 
         return '/sovet/comission/%s' % self.slug
 
+    def get_choice(self):
+        return dict(commision.COMTYPE)[self.tcom]
 
