@@ -14,27 +14,36 @@ class PageView(DetailView):
 
 		page = get_object_or_404(Page, slug=pg, publish=True)
 
-		if page.menu.level <= 1:
-
-			if page.menu.get_children():
-
-				menu = list(page.menu.get_children())
-
-				menu.insert(0, page.menu)
-			else:
-
-				menu = []
-
-		else:
-
-			menu = list(page.menu.parent.get_children()) 
-
-			menu.insert(0, page.menu.parent)
-
 		context = {
 			'page':page,
-			'submenu':menu,
+			
 			}
+
+		if page.menu:
+
+			if page.menu.level <= 1:
+
+				if page.menu.get_children():
+
+					menu = list(page.menu.get_children())
+
+					menu.insert(0, page.menu)
+
+					context['submenu'] = menu
+				else:
+
+					menu = []
+					context['submenu'] = menu
+
+			else:
+
+				menu = list(page.menu.parent.get_children()) 
+
+				menu.insert(0, page.menu.parent)
+
+				context['submenu'] = menu
+
+		
 
 		
 

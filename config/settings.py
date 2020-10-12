@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig',
     'structure.apps.StructureConfig',
     'photogalery.apps.PhotogaleryConfig',
+    'reception.apps.ReceptionConfig',
 
     'compressor',
     'debug_toolbar',

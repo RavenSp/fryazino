@@ -26,6 +26,7 @@ urlpatterns = [
 	path('sovet/', include('sovet.urls'), name='sovet'),
     path('catalog/', include('catalog.urls'), name='catalog'),
     path('galery/', include('photogalery.urls'), name='galery'),
+    path('reception/', include('reception.urls'), name='reception'),
 
 
     path('grappelli/', include('grappelli.urls')),

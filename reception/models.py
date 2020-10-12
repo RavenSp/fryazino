@@ -18,7 +18,7 @@ class theme(models.Model):
 
 		verbose_name='Тема обращения'
 		verbose_name_plural = 'Темы обращения'
-		ordering = ['title']
+		ordering = ['id']
 
 
 class recipient(models.Model):
@@ -43,7 +43,7 @@ class recipient(models.Model):
 
 class apperal(models.Model):
 
-	first_name = models.CharField(verbose_name='Фамилия' max_length=200)
+	first_name = models.CharField(verbose_name='Фамилия', max_length=200)
 	last_name = models.CharField(max_length=200, verbose_name='Имя')
 	middle_name = models.CharField(max_length=200, verbose_name='Отчество', blank=True, null=True)
 	post_address = models.CharField(verbose_name='Почтовый адрес',  max_length=500)
@@ -51,14 +51,25 @@ class apperal(models.Model):
 	phone = models.CharField(verbose_name='Телефон',max_length=12, blank=True, null=True)
 	message = models.TextField(verbose_name='Сообщение')
 
-	file = models.FileField(upload_to='/reception/%Y/%m/%d/', verbose_name='Приложенный файл', blank=True)
+	file = models.FileField(upload_to='reception/%Y/%m/%d/', verbose_name='Приложенный файл', blank=True)
 	personal = models.BooleanField(verbose_name='Согласие на обработку персональных данных', default=False)
 
 	theme = models.ForeignKey(theme, on_delete=models.PROTECT, verbose_name='Тема обращения')
+	recipient = models.ForeignKey(recipient, on_delete=models.PROTECT, verbose_name='Адресат обращения')
 
 	created = models.DateTimeField(verbose_name='Дата и время добавления обращения', auto_now_add=True)
 	ipaddres = models.GenericIPAddressField(verbose_name='IP адрес')
 
+	def __str__(self):
+
+		return 'Обращение №%s' % (self.id)
+
+	class Meta:
+
+		verbose_name = 'Обращение гражданина'
+		verbose_name_plural = 'Обращения граждан'
+
+		ordering = ['-created']
 
 
 

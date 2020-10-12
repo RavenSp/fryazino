@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block  title %}Интернет-приемная {{ title }}{% endblock %}
+
+{% block addcss %}
+<link rel="stylesheet" href="{% static "css/reception.css" %}">
+{% endblock %}
+
+{% block  keyword %}
+{% endblock %}
+
+{% block  main-content %}
+	<div class="container">
+		<div class="reception--header">
+			<h1>Интернет-приемная {{ title }}</h1>
+		</div>
+		<div class="reception--form">
+			<form action="">
+			{% csrf_token %} 
+			{{ form.as_p }}
+			<input type="submit" name="submit" value="Отправить сообщение">
+			</form>
+		</div>
+
+	</div>
+	
+{% endblock %}
