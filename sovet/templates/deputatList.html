@@ -29,7 +29,7 @@
 	<div class="deputat-list--cont">
 		<a href="/documents/category/resheniya-gorodskogo-soveta/" class="deputat-list--btn">Решения Совета депутатов городского округа Фрязино</a>
 		<a href="/sovet/comission/" class="deputat-list--btn">Список комиссий и рабочих групп</a>
-		<a href="/news/category/sovet-deputatov/" class="deputat-list--btn">Новости Совета депутатов</a>
+		<a href="/news/tag_sovet-deputatov/" class="deputat-list--btn">Новости Совета депутатов</a>
 	</div>
 </div>
 
@@ -56,7 +56,7 @@
 				<span><b>Телефон:</b> {{ chairman.phones }}</span>
 				{% endif %}
 				<span><b>Email: </b><a href="mailto:{{ chairman.email }}">{{ chairman.email }}</a></span>
-				<span><b>Округ выдвижения: </b><a href="{{ chairman.okrug.get_absolute_url }}">{{ chairman.okrug.title }}</a></span>
+				<span><b>Округ выдвижения: </b><!--a href="{{ chairman.okrug.get_absolute_url }}"-->{{ chairman.okrug.title }}<!--/a--></span>
 				<span><b>Партия: </b><a href="{{ chairman.party.get_absolute_url }}">{{ chairman.party.title }}</a></span>
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 				<span><b>Email: </b><a href="mailto:{{ vicechairman.email }}">{{ vicechairman.email }}</a></span>
 				{% endif %}
 				{% if vicechairman.okrug %}
-				<span><b>Округ выдвижения: </b><a href="{{ vicechairman.okrug.get_absolute_url }}">{{ vicechairman.okrug.title }}</a></span>{% endif %}{% if vicechairman.party %}
+				<span><b>Округ выдвижения: </b><!--a href="{{ vicechairman.okrug.get_absolute_url }}"-->{{ vicechairman.okrug.title }}<!--/a--></span>{% endif %}{% if vicechairman.party %}
 				<span><b>Партия: </b><a href="{{ vicechairman.party.get_absolute_url }}">{{ vicechairman.party.title }}</a></span>
 				{% endif %}
 			</div>
@@ -99,7 +99,7 @@
 	</div></div>
 	{% endif %}
 	<div class="deputat-list--okrug">
-	<h3><a href="{{ dep.okrug.get_absolute_url }}">{{ dep.okrug.title }}</a></h3>
+	<h3><!--a href="{{ dep.okrug.get_absolute_url }}"-->{{ dep.okrug.title }}<!--/a--></h3>
 	<hr>
 	<div class="deputat-list--okr-list">
 	{% endifchanged %}

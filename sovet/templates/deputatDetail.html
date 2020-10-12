@@ -51,7 +51,7 @@
 			{% endif %}
 			{% if deputat.okrug %}
 			<div class="deputat-view--info-el">
-				<b>Округ выдвижения: </b><a href="{{ deputat.okrug.get_absolute_url }}">{{ deputat.okrug.title }}</a>
+				<b>Округ выдвижения: </b><!--a href="{{ deputat.okrug.get_absolute_url }}"-->{{ deputat.okrug.title }}<!--/a-->
 			</div>
 			{% endif %}
 			{% if deputat.party %}
@@ -64,6 +64,14 @@
 				<b>Дата рождения: </b>{{ deputat.bDate }} 
 			</div>
 			{% endif %}
+			{% if coms %}
+			<h3>Депутат является членом комиссий: </h3>
+				<ul>
+				{% for com in coms %}
+					<li>{{ com.title }}</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
 			{% if deputat.grafic %}
 			<div class="deputat-view--grafic">
 				<h3>График приёма: </h3>
@@ -75,7 +83,8 @@
 			<h3>Биография: </h3>
 			{{ deputat.bio | safe  }}
 			</div>
-	{% endif %}
+			{% endif %}
+
 		</div>
 	</div>
 	{% big_banner_news %}

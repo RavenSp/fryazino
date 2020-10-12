@@ -35,8 +35,11 @@ class DeputatView(DetailView):
 
         dep = get_object_or_404(self.model, id=deputat)
 
+        com = commision.objects.filter(members__id=deputat)
+
         context = {
             'deputat':dep,
+            'coms':com,
         }
 
         return render(request, 'deputatDetail.html', context)
@@ -73,19 +76,6 @@ class CommissionList(ListView):
 
         return render(request, 'commissionList.html', context)
 
-class CommissionDeatails(DetailView):
-
-	model = commision 
-
-	def get(self, request, slug):
-
-		com = get_object_or_404(commision, slug=slug)
-
-		context = {
-			'comm':comm,
-		}
-
-		return render(request, 'commissionDetails.html', context)
 
 
 class PartyDetail(DetailView):

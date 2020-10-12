@@ -27,25 +27,50 @@
 			Количество комиссий и рабочих групп: {{ comms | length }}
 		</div>
 	</div>
+	<div class="accordion"> 
 	{% for com in comms %}
-		<div class="com-list--com">
-			<h2><a href="{{ com.get_absolute_url }}">{{ com.title }}</a></h2>
-			<h3>Члены комиссии:</h3>
+		<div class="tab">
+			 <input type="checkbox" id="tab{{ com.id }}" name="tab-group">
+			 <label for="tab{{ com.id }}" class="tab-title">{{ com.title }}<span> | Количество членов: {{ com.members.all | length }}</span></label> 
+		<section class="tab-content"> 
+			<span>Краткое описание деятельности комиссии: </span>
+			<div class="com-list--desc">
+				{{ com.description }}
+			</div>
+
+			<div class="com-list--chair">
+			<b>Председатель комиссии: </b><a href="{{ com.chairman.get_absolute_url }}">{{ com.chairman.get_fio }}</a>
+			</div>
+   		  <h3>Члены комиссии:</h3>
 			<div class="com-list--memb">
 				{% for memb in com.members.all %}
-					<div class="com-list--mem-el">
-						<div class="com-list--mem-el-img"><img src="{% thumbnail memb.image '100x100' quality=100 crop='smart' %}" alt="{{ memb.get_fio  }}"></div>
-						<div class="com-list--mem-el-info">{{ memb.get_fio  }}</div>
-					</div>
+					<div class="com-list--mem-el"><a href="{{ memb.get_absolute_url }}">
+						<div class="com-list--mem-el-img">
+							{% if memb.image %}
+							<img src="{% thumbnail memb.image '175x175' quality=100 %}" alt="{{ memb.get_fio  }}">
+							{% else %}
+							<img src="{% static "img/Man-175.svg" %}" alt="{{ memb.get_fio  }}">
+							{% endif %}
+						</div>
+						<div class="com-list--mem-el-info">{{ memb.first_name }}<br>{{ memb.last_name }} {{ memb.middle_name }}</div>
+					</a></div>
 				{% endfor %}
 			</div>
+  		 </section> 
 		</div>
 		
 	{% empty %}
 	<h2>На данный момент комиссий и рабочих груп не создано!</h2>
 	{% endfor %}
-	
+	</div>
 	
 </div>
 	
 {% endblock %}
+
+
+
+  
+   
+    
+    
