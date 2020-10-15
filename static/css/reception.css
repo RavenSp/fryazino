@@ -1,0 +1,32 @@
+/* .reception-- */
+
+.reception--header {
+
+	margin-bottom: 20px;
+}
+
+.reception--form p {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.reception--form label {
+
+    min-width: 130px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    align-self: center;
+    font-size: 18px;
+}
+
+.reception--form input:not([type="checkbox"]), select, option, textarea {
+    min-width: 270px;
+    width: 40%;
+    font-family: 'Cuprum';
+    font-size: 17px;
+}
+
+.reception--form textarea {
+	padding: 7px 5px;
+}

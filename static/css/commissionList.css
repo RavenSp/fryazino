@@ -1,0 +1,107 @@
+/* .com-list-- */
+
+.com-list--header {
+	margin-bottom: 30px;
+}
+
+.com-list--subhead {
+	color: gray;
+	padding: 20px;
+}
+
+.com-list--com {
+	padding: 20px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.com-list--memb {
+	display: flex;
+	flex-wrap: wrap;
+
+}
+
+.com-list--mem-el {
+	flex: 1;
+	justify-content: center;
+	align-content: center;
+	padding-bottom: 20px;
+}
+
+.com-list--mem-el-img img {
+	border-radius: 5px;
+}
+
+
+.tab input, .tab-content { display: none; }
+
+.tab {
+	
+    border: 1px solid gray; /* Параметры рамки */
+    border-radius: 10px; /* Скругляем уголки */
+    /*color: #848994; /* Цвет текста */
+    margin-bottom: 10px; /* Расстояние между пунктами */
+    transition: 0.4s;
+    font-size: 20px;
+}
+
+.tab-title {
+    padding: 10px; /* Поля вокруг текста */
+    display: block; /* Блочный элемент */
+    text-transform: uppercase; /* Все буквы заглавные */
+    font-weight: bold; /* Жирное начертание */
+    cursor: pointer; /* Вид курсора */
+}
+
+.tab-title span {
+	color: var(--second);
+}
+
+.tab-title::after {
+    content: '+'; /* Выводим плюс */
+    float: right; /* Размещаем по правому краю */
+}
+
+.tab-content {
+    padding: 15px 20px; /* Поля вокруг текста */
+}
+
+.tab-content span {
+	color: var(--second);
+	font-size: 16px;
+}
+
+.tab-content h3	{
+	padding-bottom: 20px;
+}
+
+.tab :checked + .tab-title {
+    background-color: var(--primary); /* Цвет фона */
+    border-radius: 10px 10px 0 0; /* Скругляем уголки */
+    color: #fff; /* Цвет текста */
+}
+
+.tab :checked + .tab-title::after {
+    content: '−'; /* Выводим минус */
+}
+
+.tab :checked ~ .tab-content {
+    display: block; /* Показываем содержимое */
+}
+
+.com-list--desc {
+	padding: 10px 0px;
+}
+
+.com-list--mem-el-img {
+	text-align: center;
+}
+
+.com-list--mem-el-info {
+	text-align: center;
+}
+
+.com-list--chair {
+	padding: 20px 0px;
+}

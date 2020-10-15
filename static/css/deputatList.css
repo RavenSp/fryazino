@@ -132,6 +132,33 @@
 }
 
 
+.deputat-list--info {
+
+	margin-bottom: 30px;
+	font-size: 20px;
+}
+
+
+.deputat-list--info a {
+	color: var(--primary);
+}
+
+.deputat-list--cont {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 0px;
+	text-align: center;
+}
+
+.deputat-list--cont .deputat-list--btn {
+	color: white;
+	padding: 20px;
+	background-color: var(--primary);
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
 @media screen and (max-width: 1024px){
 	.deputat-list--chairmans { 
 		flex-direction: column;

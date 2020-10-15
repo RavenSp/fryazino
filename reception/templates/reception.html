@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static text_block banners %}
+
+{% block title %}Обращение в администрацию городского округа Фрязино{% endblock %}
+
+{% block addcss %}
+<link rel="stylesheet" href="{% static "css/reception.css" %}">
+{% endblock %}
+
+{% block keywords %}
+{% endblock %}
+
+{% block main-content %}
+	<div class="container">
+		<div class="reception--header">
+			<h1>Обращение в администрацию городского округа Фрязино</h1>
+		</div>
+		<div class="reception--main">
+			<div class="reception--text">
+				{% textblock 'reception-long' %}
+				<div class="reception--btns">
+					<div class="reception--btn">
+						<a href="/reception/mayor">Обратиться к главе городского окруа Фрязино</a>
+					</div>
+					<div class="reception--btn">
+						<a href="/reception/sovet">Обратиться в Совет депутатов городского окруа Фрязино</a>
+					</div>
+				</div>
+				{% big_banner_news %}
+			</div>
+			<div class="reception--bnr">
+				{% all_small_banners 3 %}
+			</div>
+			
+
+		</div>
+	</div>
+{% endblock %}

@@ -8,7 +8,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class theme(models.Model):
 
 	title = models.CharField(max_length= 200, verbose_name='Название темы')
-	email = models.EmailField(verbose_name='E-mail рассылки')
+	email = models.EmailField(verbose_name='E-mail рассылки', blank=True, null=True)
 
 	def __str__(self):
 
@@ -24,7 +24,7 @@ class theme(models.Model):
 class recipient(models.Model):
 
 	title = models.CharField(max_length=200, verbose_name='Получатель')
-	email = models.EmailField(verbose_name='Email')
+	email = models.EmailField(verbose_name='Email', blank=True, null=True)
 	slug = models.SlugField(max_length=50, verbose_name='URL')
 
 	def __str__(self):
@@ -54,15 +54,23 @@ class apperal(models.Model):
 	file = models.FileField(upload_to='reception/%Y/%m/%d/', verbose_name='Приложенный файл', blank=True)
 	personal = models.BooleanField(verbose_name='Согласие на обработку персональных данных', default=False)
 
-	theme = models.ForeignKey(theme, on_delete=models.PROTECT, verbose_name='Тема обращения')
+	theme = models.ForeignKey(theme, on_delete=models.PROTECT, verbose_name='Тема обращения', default='1')
 	recipient = models.ForeignKey(recipient, on_delete=models.PROTECT, verbose_name='Адресат обращения')
 
 	created = models.DateTimeField(verbose_name='Дата и время добавления обращения', auto_now_add=True)
 	ipaddres = models.GenericIPAddressField(verbose_name='IP адрес')
 
-	def __str__(self):
+	
 
-		return 'Обращение №%s' % (self.id)
+	def addzero(self, zero=6):
+
+		n = zero - len(str(self.id))
+
+		if n > 0:
+
+			return '0'*n + str(self.id)
+
+		return str(self.id)
 
 	class Meta:
 
@@ -73,3 +81,6 @@ class apperal(models.Model):
 
 
 
+	def __str__(self):
+
+			return 'Обращение №%s' % self.addzero()
