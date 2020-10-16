@@ -60,6 +60,17 @@
 
 }
 
+ul.errorlist {
+    border: 2px solid red;
+    padding: 4px 10px;
+    list-style: none;
+    border-radius: 4px;
+    background-color: #ff3c3c;
+    color: white;
+    max-width: 500px;
+    min-width: 250px;
+}
+
 .reception--done {
     font-size: 22px;
     margin-bottom: 30px;

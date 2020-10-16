@@ -64,6 +64,19 @@ class ReceptionGlava(View):
 
 			return render(request, 'reception_done.html', context)
 
+		else:
+
+			rcpn = get_object_or_404(recipient, slug=rec)
+
+			title = rcpn.title
+
+			context = {
+				'form': form,
+				'title': title,
+			}
+
+			return render(request, 'reception_glava.html', context)
+
 
 class Reception(View):
 
