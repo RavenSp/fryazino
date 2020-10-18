@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'django_extensions',
     'taggit_autosuggest',
+    'captcha',
     
 
     'news.apps.NewsConfig',
@@ -235,3 +236,16 @@ IMAGE_CROPPING_JQUERY_URL = 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/j
 TAGGIT_CASE_INSENSITIVE = True
 
 INTERNAL_IPS = ('127.0.0.1',)
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'fryazino.vds@yandex.ru'
+EMAIL_HOST_PASSWORD = 'xtcakqaozsbeuyhu'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
+CAPTCHA_IMAGE_SIZE = (130, 30)
+CAPTCHA_FONT_SIZE = (22)
+CAPTCHA_BACKGROUND_COLOR = '#cccccc'
+CAPTCHA_FOREGROUND_COLOR = '#001100'
+CAPTCHA_LENGTH = 6

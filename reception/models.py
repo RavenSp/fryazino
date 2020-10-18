@@ -1,6 +1,8 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-
+from django.core.mail import send_mail, EmailMultiAlternatives
+from django.utils import dateformat
+from datetime import datetime
 # Create your models here.
 
 
@@ -24,7 +26,7 @@ class theme(models.Model):
 class recipient(models.Model):
 
 	title = models.CharField(max_length=200, verbose_name='Получатель')
-	email = models.EmailField(verbose_name='Email', blank=True, null=True)
+	email = models.EmailField(verbose_name='Email')
 	slug = models.SlugField(max_length=50, verbose_name='URL')
 
 	def __str__(self):
@@ -84,3 +86,71 @@ class apperal(models.Model):
 	def __str__(self):
 
 			return 'Обращение №%s' % self.addzero()
+
+	def send_email_after(self):
+
+		mail_list = []
+
+		mail_list.append(self.recipient.email)
+		if self.theme.email:
+			mail_list.append(self.theme.email)
+		subject = 'Обращение в приёмную %s №%s по теме %s' % (self.recipient.title, self.addzero() ,self.theme.title)
+
+		autor = '%s %s' % (self.first_name, self.last_name)
+
+		if self.middle_name:
+			autor +=  ' %s' % self.middle_name  
+		if self.phone:
+			phone = self.phone
+		else:
+			phone = 'Номер телефона не указан'
+
+		message = '''
+		ТЕКСТ ОБРАЩЕНИЯ:
+		%s
+
+		Номер обращения: %s
+		Дата и время обращения: %s
+		Тема обращения: %s
+		Автор: %s
+		Email: %s
+		Телефон: %s
+		''' % (self.message, self.addzero(), dateformat.format(datetime.now(), 'd E Y H:i'), self.theme.title, autor, self.email, phone)
+		from_email = ''
+
+		msg = EmailMultiAlternatives(subject, message, 'fryazino.vds@yandex.ru', mail_list)
+
+		if self.file:
+
+			msg.attach_file(self.file.path)
+
+		msg.send()
+
+	def sendback(self):
+
+		autor = self.last_name
+		if self.middle_name:
+			autor += ' %s' % self.middle_name
+
+		subject = 'Ваше обращение принято!'
+		message = '''
+		Уважаемый(ая) %s,
+		Ваше обращение принято в работу!
+
+		Текст обращения:
+		%s
+
+		Номер обращения: %s
+		Дата обращения: %s
+
+		Спасибо Вам за неравнодушную позицию и участие в общественной жизни городского округа Фрязино!
+		''' % (autor, self.message, self.addzero(), dateformat.format(datetime.now(), 'd E Y'))
+
+		
+		msg = EmailMultiAlternatives(subject, message, 'fryazino.vds@yandex.ru', [self.email])
+
+		if self.file:
+
+			msg.attach_file(self.file.path)
+
+		msg.send()

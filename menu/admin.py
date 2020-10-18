@@ -1,6 +1,6 @@
 from django.contrib import admin
 from mptt.admin import DraggableMPTTAdmin, MPTTModelAdmin
-from .models import Menu, footerMenu, socialLinks
+from .models import Menu, footerMenu, socialLinks, allSitesMenu
 # Register your models here.
 
 @admin.register(Menu)
@@ -21,3 +21,9 @@ class SociallinksAdmin(admin.ModelAdmin):
 	list_display_links = ['title', ]
 	list_editable = ['weight']
 	ordering = ['weight', 'title']
+
+@admin.register(allSitesMenu)
+class AllSitesMenuAdmin(admin.ModelAdmin):
+
+	list_display = ['title', 'typeSite', 'url', 'active']
+	ordering = ['id']

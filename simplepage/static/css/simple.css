@@ -66,6 +66,9 @@
 .simple--submenu-el {
 	padding-right: 25px;
 	color: white;
+	padding-bottom: 8px;
+	padding-top: 8px;
+
 }
 
 .simple--submenu-el a {
@@ -103,4 +106,33 @@
 .listnews--banner   img {
 
 	width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+
+	.simple--social {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.simple--left {
+		width: 100%;
+		text-align: justify;
+		min-width: 280px;
+	}
+
+	.simple--text {
+		flex: inherit;
+		width: 100%;
+	}
+
+	.simple--right {
+		width: 80%;
+		justify-self: center;
+	}
+
+	.newsdetail--listimg {
+		text-align: center;
+	}
 }

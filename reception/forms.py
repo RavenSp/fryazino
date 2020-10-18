@@ -1,8 +1,10 @@
 from django.forms import ModelForm, Form, ValidationError
+from captcha.fields import CaptchaField
 
 from .models import apperal
 
 class ApperalForm(ModelForm):
+	captcha = CaptchaField(label='Введите символы с картинки')
 
 	class Meta:
 
@@ -19,3 +21,5 @@ class ApperalForm(ModelForm):
 			raise ValidationError('Согласие на обработку персональных данных обязательно!')
 
 		return personal
+
+	

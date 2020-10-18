@@ -60,6 +60,11 @@
 
 }
 
+#id_captcha_1 {
+    width: 275px;
+    margin-left: 10px; 
+}
+
 ul.errorlist {
     border: 2px solid red;
     padding: 4px 10px;

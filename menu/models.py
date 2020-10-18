@@ -119,3 +119,29 @@ class socialLinks(models.Model):
 
 	get_icon.short_description = 'Пример иконки'
 	get_link.short_description = 'URL'
+
+
+
+class allSitesMenu(models.Model):
+
+	TYPES = [
+		('Органы власти', 'Вкладка органы власти'),
+		('Полезные ресурсы', 'Вкладка полезные ресурсы'),
+		('Информационные агенства', 'Вкладка информационные агенства'),
+		('Сайты муниципальных образований', 'Вкладка сайты муниципальных образований'),
+	]
+
+	title = models.CharField(verbose_name='Название сайта', max_length=300)
+	url = models.CharField(verbose_name='URL', max_length=300)
+	typeSite = models.CharField(verbose_name='Тип сайта', max_length=50, choices=TYPES)
+	active = models.BooleanField(verbose_name='Активная', default=True)
+
+	class Meta:
+
+		verbose_name='Полезный сайт'
+		verbose_name_plural = 'Полезные сайты'
+
+
+	def __str__(self):
+
+		return self.title

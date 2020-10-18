@@ -56,6 +56,10 @@ class ReceptionGlava(View):
 
 			app.save()
 
+			app.send_email_after()
+
+			app.sendback()
+
 			context = {
 				'number': app.addzero,
 				'numdate':app.created,
