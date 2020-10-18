@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from news.views import IndexView
+from menu.views import allSitesList
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -27,6 +28,7 @@ urlpatterns = [
     path('catalog/', include('catalog.urls'), name='catalog'),
     path('galery/', include('photogalery.urls'), name='galery'),
     path('reception/', include('reception.urls'), name='reception'),
+    path('all-sites/', allSitesList, name='all_sites'),
 
 
     path('grappelli/', include('grappelli.urls')),
