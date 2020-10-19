@@ -7,6 +7,8 @@ from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
 import os
 from mptt.models import MPTTModel, TreeOneToOneField, TreeForeignKey
+from django.db.models import Q
+
 
 
 from menu.models import Menu
@@ -108,6 +110,22 @@ class Documents(models.Model):
 	def extension(self):
 		extension = os.path.splitext(self.file.name)[-1][1:]
 		return extension
+
+	def search(que):
+
+		if que:
+
+			or_lookup = (Q(title__icontains=que) | Q(number__icontains=que) | Q(descrpition__icontains=que))
+
+			qs = Documents.objects.filter(or_lookup, publish=True, publishDate__lt=timezone.now())
+
+			return qs
+
+		return None
+
+	def pub_date(self):
+
+		return self.publishDate
 
 	class Meta:
 

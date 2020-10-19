@@ -25,10 +25,11 @@ class ESearchView(View):
 			query_sets = []
 
 			query_sets.append(News.search(q))
+			query_sets.append(Documents.search(q))
 
 			final_set = list(chain(*query_sets))
 
-			final_set.sort(key=lambda x: x.publisdDate, reverse=True)
+			final_set.sort(key=lambda x: x.pub_date(), reverse=True)
 
 			context['last_question'] = '?q=%s' % q
 			context['object_list'] = final_set

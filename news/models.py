@@ -103,6 +103,9 @@ class News(models.Model):
 
 		return None
 
+	def pub_date(self):
+
+		return self.publisdDate
 
 
 	class Meta:

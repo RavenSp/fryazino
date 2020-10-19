@@ -7,15 +7,18 @@
 <div class="container">
 	<h1>Результаты поиска:</h1>
 	<br>
-<ul>
-	{% for result in object_list %}
 
-	<li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
+	{% if object_list %}
+		<ul>
+		{% for result in object_list %}
 
-	{% empty %}
+		<li> {{ result }} <a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
+		
+		{% endfor %}
+		</ul>
+	{% else %}
 	<h2>К сожалению ничего не нашлось.</h2>
-	{% endfor %}
-	</ul>
+	{% endif %}
 </div>
 
 {% endblock %}
