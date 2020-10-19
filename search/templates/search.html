@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block  title %}Результаты поиска{% endblock %}
+
+
+{% block main-content %}
+<div class="container">
+	<h1>Результаты поиска:</h1>
+	<br>
+<ul>
+	{% for result in object_list %}
+
+	<li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
+
+	{% empty %}
+	<h2>К сожалению ничего не нашлось.</h2>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from news.views import IndexView
 from menu.views import allSitesList
+from search.views import ESearchView 
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -29,6 +30,7 @@ urlpatterns = [
     path('galery/', include('photogalery.urls'), name='galery'),
     path('reception/', include('reception.urls'), name='reception'),
     path('all-sites/', allSitesList, name='all_sites'),
+    path('search/', ESearchView.as_view(), name='search'),
 
 
     path('grappelli/', include('grappelli.urls')),

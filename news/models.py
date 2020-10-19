@@ -9,6 +9,7 @@ from django.utils import timezone
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.html import escape, format_html
 from mptt.models import MPTTModel, TreeOneToOneField
+from django.db.models import Q
 
 from menu.models import Menu
 from photogalery.models import Galery
@@ -89,6 +90,20 @@ class News(models.Model):
 	def get_absolute_url(self):
 
 		return "/news/%s-%s/" % (self.id, self.slug)
+
+	def search(que):
+
+		if que:
+
+			or_lookup = (Q(title__icontains=que) | Q(news_text__icontains=que))
+
+			qs = News.objects.filter(or_lookup, publish=True, publisdDate__lt=timezone.now())
+
+			return qs
+
+		return None
+
+
 
 	class Meta:
 

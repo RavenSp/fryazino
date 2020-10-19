@@ -81,7 +81,7 @@ class DocCategory(MPTTModel):
 class Documents(models.Model):
 
 	title = models.CharField(max_length=700, verbose_name='Название')
-	slug = models.SlugField(max_length=200, verbose_name='URL', unique=True)
+	slug = models.SlugField(max_length=700, verbose_name='URL', unique=True)
 	
 	number = models.CharField(max_length=20, verbose_name='Номер документа', blank=True, null=True)
 	Author = models.ForeignKey(DocsAuthor, on_delete=models.SET_NULL, verbose_name='Орган, принявший документ', blank=True, null=True)

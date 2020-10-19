@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'structure.apps.StructureConfig',
     'photogalery.apps.PhotogaleryConfig',
     'reception.apps.ReceptionConfig',
+    'search.apps.SearchConfig',
 
     'compressor',
     'debug_toolbar',
