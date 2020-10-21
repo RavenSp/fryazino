@@ -8,7 +8,7 @@ from menu.models import Menu
 # Create your views here.
 
 ######### Настройка кол-ва документов на странице ############
-NUMBER_PAGE = 20
+NUMBER_PAGE = 50
 ##############################################################
 
 class documetns(ListView):
