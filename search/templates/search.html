@@ -1,24 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block  title %}Результаты поиска{% endblock %}
+{% block  title %}Результаты поиска по запросу: {{ title }}{% endblock %}
 
+{% block addcss %}<link rel="stylesheet" type="text/css" href="{% static "css/search.css" %}">{% endblock %}
+
+{% block keywords %}
+
+{% endblock %}
 
 {% block main-content %}
 <div class="container">
-	<h1>Результаты поиска:</h1>
-	<br>
+
+	<div class="search--header">
+	<h1>Результаты поиска по запросу: {{ title }}</h1>
+	</div>
+
+	<div class="search--result">
 
 	{% if object_list %}
-		<ul>
+		<div class="search--list">
 		{% for result in object_list %}
 
-		<li> {{ result }} <a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
+		<div class="search--el">
+			<div class="search--info">
+				<div class="search--date">{{ result.pub_date | date:"j.m.Y" }}</div>
+				<div class="search--type">{{ result.searchType }}</div>
+			</div>
+
+			<div class="search--url"><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></div>
+		</div>
 		
 		{% endfor %}
-		</ul>
+		</div>
 	{% else %}
 	<h2>К сожалению ничего не нашлось.</h2>
+	<p>Попробуйте изменить поисковую фразу или перейдите <a href="{% url 'index' %}">на главную</a></p>
 	{% endif %}
+	</div>
 </div>
 
 {% endblock %}

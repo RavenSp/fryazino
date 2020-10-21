@@ -7,7 +7,7 @@ from django.views import View
 from documents.models import Documents
 from news.models import News
 from simplepage.models import Page
-from sovet.models import deputat, party, commision
+from sovet.models import deputat, party
 
 
 class ESearchView(View):
@@ -26,6 +26,9 @@ class ESearchView(View):
 
 			query_sets.append(News.search(q))
 			query_sets.append(Documents.search(q))
+			query_sets.append(Page.search(q))
+			query_sets.append(deputat.search(q))
+			query_sets.append(party.search(q))
 
 			final_set = list(chain(*query_sets))
 
@@ -33,5 +36,6 @@ class ESearchView(View):
 
 			context['last_question'] = '?q=%s' % q
 			context['object_list'] = final_set
+			context['title'] = q
 
 		return render(request=request, template_name=self.template_name, context=context)

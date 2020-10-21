@@ -367,6 +367,10 @@ a {
 	background-color: var(--primary);
 }
 
+#search button {
+	height: 30px;
+}
+
 .searchClose {
 	background-color: var(--second);
 	color: white;

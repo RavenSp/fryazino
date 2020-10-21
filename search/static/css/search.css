@@ -1,0 +1,46 @@
+/* .search-- */
+
+.search--header {
+	margin: 20px 0px;
+}
+
+.search--list {
+
+}
+
+.search--el {
+	display: flex;
+	padding: 15px 0px;
+	align-items: center;
+}
+
+.search--info {
+	display: flex;
+	flex-direction: column;
+	padding-right: 25px;
+	align-items: center;
+	text-align: center;
+}
+
+.search--date {
+	font-size: 18px;
+
+}
+
+.search--type {
+	color: var(--second);
+}
+
+.search--url {
+	
+	font-size: 22px;
+	
+}	
+
+.search--url a {
+	color: gray;
+}
+
+.search--el:hover .search--url a {
+	color: var(--primary);
+}

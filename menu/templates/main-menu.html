@@ -4,7 +4,7 @@
 			<li class="m-menu-el"><a href="{{ node.get_url }}">{{ node.title }}</a>
 			{% if not node.is_leaf_node %}
                 <div class="dropdown">
-				<ul class="dropdown-list">
+				<ul class="dropdown-list{% if node.get_children|length > 11 %} dropdown-2col{% endif %}">
 					{% for child in node.get_children %}
 						<li class='dropdown-link'><a href="{{ child.get_url }}">{{ child.title }}</a></li>
                     {% endfor%}

@@ -5,6 +5,7 @@ from menu.models import Menu
 from django.utils import timezone
 from mptt.models import MPTTModel, TreeOneToOneField
 from photogalery.models import Galery
+from django.db.models import Q
 # Create your models here.
 
 
@@ -37,6 +38,27 @@ class Page(models.Model):
 	def get_absolute_url(self):
 
 		return '/%s/' % self.slug
+
+	def search(que):
+
+		if que:
+
+			or_lookup = (Q(title__icontains=que) | Q(body__icontains=que))
+
+			qs = Page.objects.filter(or_lookup, publish=True, publisdDate__lte=timezone.now())
+
+			return qs
+
+		return None
+
+	def pub_date(self):
+
+		return self.publisdDate
+		
+
+	def searchType(self):
+
+		return 'Страница'
 
 class TextBlock(models.Model):
 

@@ -127,6 +127,10 @@ class Documents(models.Model):
 
 		return self.publishDate
 
+	def searchType(self):
+
+		return 'Документ'
+
 	class Meta:
 
 		verbose_name='Документ'

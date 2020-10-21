@@ -97,7 +97,7 @@ class News(models.Model):
 
 			or_lookup = (Q(title__icontains=que) | Q(news_text__icontains=que))
 
-			qs = News.objects.filter(or_lookup, publish=True, publisdDate__lt=timezone.now())
+			qs = News.objects.filter(or_lookup, publish=True, publisdDate__lte=timezone.now())
 
 			return qs
 
@@ -106,6 +106,11 @@ class News(models.Model):
 	def pub_date(self):
 
 		return self.publisdDate
+		
+
+	def searchType(self):
+
+		return 'Новость'
 
 
 	class Meta:

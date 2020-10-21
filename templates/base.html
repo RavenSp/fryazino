@@ -55,7 +55,7 @@
 		<a href="#" class="m-menu-icon" onclick="showSideMenu()"><i class="fa fa-bars" aria-hidden="true"></i></a>
 		{% main_menu %}
 		<div id="search" style='display:none;'>
-				<form action="/search">
+				<form action="{% url 'search' %}">
 					<span><i class="fa fa-search"></i></span>
 					<input type="text" name="q" placeholder="Начните вводить слово">
 					<input type="submit" value="Поиск">

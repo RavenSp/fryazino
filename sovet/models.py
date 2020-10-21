@@ -1,7 +1,9 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.core.exceptions import ValidationError
-
+from django.db.models import Q
+from django.utils import timezone
+import pytz
 
 # Create your models here.
 
@@ -38,6 +40,28 @@ class party(models.Model):
     def get_absolute_url(self):
 
         return '/sovet/party/%s' % self.slug
+
+    def search(que):
+
+        if que:
+
+            or_lookup = (Q(title__icontains=que))
+
+            qs = party.objects.filter(or_lookup)
+
+            return qs
+
+        return None
+
+    def pub_date(self):
+
+        return timezone.datetime(2020, 9, 16, 0, 0).replace(tzinfo=pytz.utc)
+        
+
+    def searchType(self):
+
+        return 'Партия'
+
 
 
 
@@ -101,6 +125,30 @@ class deputat(models.Model):
     def get_absolute_url(self):
 
         return '/sovet/deputat/%s' % self.id
+
+    def search(que):
+
+        if que:
+
+            or_lookup = (Q(first_name__icontains=que) | Q(last_name__icontains=que) | Q(bio__icontains=que))
+
+            qs = deputat.objects.filter(or_lookup)
+
+            return qs
+
+        return None
+
+    def pub_date(self):
+
+        return timezone.datetime(2020, 9, 16, 0, 0).replace(tzinfo=pytz.utc)
+        
+
+    def searchType(self):
+
+        return 'Депутат'
+
+    def title(self):
+        return 'Депутат Совета депутатов городского округа Фрязино ' + self.get_fio()
 
     def save(self, *args, **kwargs):
 
