@@ -5,8 +5,8 @@ from mptt.models import MPTTModel, TreeOneToOneField
 
 class TypeMUP(models.Model):
 
-	title = models.CharField(max_length=50, verbose_name='Название')
-	slug = models.SlugField(max_length=50, verbose_name='URL', unique=True)
+	title = models.CharField(max_length=500, verbose_name='Название')
+	slug = models.SlugField(max_length=500, verbose_name='URL', unique=True)
 
 	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 
@@ -27,8 +27,8 @@ class TypeMUP(models.Model):
 class ListMUP(models.Model):
 
 	type_mup = models.ForeignKey(TypeMUP, on_delete=models.CASCADE, verbose_name='Тип МУПа')
-	title = models.CharField(max_length=150, verbose_name='Официальное полное название', unique=True)
-	shortTitle = models.CharField(max_length=40, verbose_name='Сокращенное назвение', unique=True)
+	title = models.CharField(max_length=500, verbose_name='Официальное полное название', unique=True)
+	shortTitle = models.CharField(max_length=500, verbose_name='Сокращенное назвение', unique=True)
 	boss = models.CharField(max_length=512, verbose_name='ФИО руководителя')
 	bossPhone = models.CharField(max_length=20, verbose_name='Телефон руководителя', help_text='Если телефонов несколько, введите их через запятую')
 	zam = models.CharField(max_length=512, verbose_name='ФИО заместителя руководителя', blank=True, null=True)
