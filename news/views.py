@@ -4,6 +4,8 @@ from .models import News, Category
 from taggit.models import Tag
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from sovet.models import deputat
 # Create your views here.
 
 
@@ -70,6 +72,7 @@ class NewsListView(ListView):
 			'news':listNews,
 			'title': 'Последние новости',
 			'tag_cloud':tag_cloud,
+			'paginator': paginator,
 		}
 		return render(request, 'list_view.html', context)
 
@@ -140,10 +143,13 @@ class IndexView(ListView):
 
 		listNews = listNews[:12]
 
+		chairman = deputat.objects.get(chairman=True)
+
 		context = {
 			'MainNew': OneMainNew,
 			'topNews':topNews,
 			'listNews':listNews,
+			'chairman':chairman,
 		}
 
 		return render(request, 'index.html', context)

@@ -57,8 +57,9 @@
 		</ul>
 
 	</div>
-	
-	{% if docs.has_other_pages %}
+
+
+		{% if docs.has_other_pages %}
 		<div class="listnews--paginate">
 			<ul class="pagination">
 			{% if docs.has_previous %}
@@ -66,13 +67,48 @@
 			{% else %}
 				<li class="disabled"><span>&laquo;</span></li>
 			{% endif %}
-			{% for i in docs.paginator.page_range %}
-			{% if docs.number == i %}
-				<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-			{% else %}
-				<li><a href="?page={{ i }}">{{ i }}</a></li>
+
+			{% if docs.number|add:'-4' > 0 %}
+			{% if docs.number|add:'-5' > 0 %}
+			<li><a href="?page=1">1</a></li>
 			{% endif %}
-			{% endfor %}
+			<li class="disabled"><span>...</span></li>
+			{% endif %}
+
+			{% if docs.number|add:'-3' > 0 %}
+			<li><a href="?page={{ docs.number|add:'-3' }}">{{ docs.number|add:'-3' }}</a></li>
+			{% endif %}
+
+			{% if docs.number|add:'-2' > 0 %}
+			<li><a href="?page={{ docs.number|add:'-2' }}">{{ docs.number|add:'-2' }}</a></li>
+			{% endif %}
+
+			{% if docs.number|add:'-1' > 0 %}
+			<li><a href="?page={{ docs.number|add:'-1' }}">{{ docs.number|add:'-1' }}</a></li>
+			{% endif %}
+
+			<li class="active"><span>{{ docs.number }} <span class="sr-only">(current)</span></span></li>
+
+			{% if docs.number|add:'1' <= docs.paginator.num_pages %}
+			<li><a href="?page={{ docs.number|add:'1' }}">{{ docs.number|add:'1' }}</a></li>
+			{% endif %}
+
+			{% if docs.number|add:'2' <= docs.paginator.num_pages %}
+			<li><a href="?page={{ docs.number|add:'2' }}">{{ docs.number|add:'2' }}</a></li>
+			{% endif %}
+
+			{% if docs.number|add:'3' <= docs.paginator.num_pages %}
+			<li><a href="?page={{ docs.number|add:'3' }}">{{ docs.number|add:'3' }}</a></li>
+			{% endif %}
+	
+
+			{% if docs.number|add:'4' <= docs.paginator.num_pages %}
+			<li class="disabled"><span>...</span></li>
+			{% if docs.number|add:'5' <= docs.paginator.num_pages %}
+			<li><a href="?page={{ docs.paginator.num_pages }}">{{ docs.paginator.num_pages }}</a></li>
+			{% endif %}
+			{% endif %}
+
 			{% if docs.has_next %}
 				<li><a href="?page={{ docs.next_page_number }}">&raquo;</a></li>
 			{% else %}
@@ -80,7 +116,9 @@
 			{% endif %}
 			</ul>
 		</div>
-	{% endif %}
+		{% endif %}
+	
+	
 	{% big_banner_news %}
 </div>
 

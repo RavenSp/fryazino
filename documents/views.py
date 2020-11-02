@@ -131,7 +131,20 @@ class documentsCateforyList(ListView):
 
 		cat = get_object_or_404(DocCategory, slug=category, active=True)
 
-		docList = Documents.objects.filter(DocCategory=cat, publish=True, publishDate__lt=timezone.now())
+		docs = Documents.objects.filter(DocCategory=cat, publish=True, publishDate__lt=timezone.now())
+
+		submenu = DocCategory.objects.filter(active=True)
+
+		page = request.GET.get('page', 1)
+
+		paginator = Paginator(docs, NUMBER_PAGE)
+
+		try:
+			docs = paginator.page(page)
+		except PageNotAnInteger:
+			docs = paginator.page(1)
+		except EmptyPage:
+			docs = paginator.page(paginator.num_pages)
 
 		submenu = DocCategory.objects.filter(active=True)
 
@@ -139,7 +152,7 @@ class documentsCateforyList(ListView):
 
 			'category': cat,
 			'submenu':submenu,
-			'docList': docList,
+			'docList': docs,
 
 		}
 

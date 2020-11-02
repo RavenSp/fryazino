@@ -37,4 +37,4 @@ def last_news(conut=2):
 @register.filter
 def noimg(value):
 
-	return ''.join(re.split(r'<img .* />', value))
+	return ''.join(re.split(r'<img.*>', value))

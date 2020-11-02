@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load cropping static banners %}
+{% load cropping static banners thumbnail %}
 
 
 
@@ -81,22 +81,33 @@
 			</div> 
 			<div class="col-reception">
 				
-					<span><a href="#">Задать вопрос главе городского окргуга Фрязино</a></span>
+					<span><a href="/reception/mayor">Задать вопрос главе городского окргуга Фрязино</a></span>
 				
 			</div>
 		</div>
 		<div class="main-sovet">
-			<div class="col-photo"><img src="{% static 'img/sovdep.png' %}" alt=""></div>
+			<div class="col-photo">
+				{% if chairman.image %}
+				<img src="{% thumbnail chairman.image '450x450' quality=100 %}" alt="{{ chairman.get_fio }}">
+				{% else%}
+				<img src="{% static "img/Man.svg" %}" alt="{{ chairman.get_fio }}" style="width: 100%;">
+				{% endif %}
+				
+			</div>
 			<div class="col-info">
 				<span>Председатель Совета депутатов</span>
-				<h3>Тихонов Константин Романович</h3>
+				<h3>{{ chairman.get_fio }}</h3>
 				<div class="mayor-txt">
-					<p>Телефоны приёмной: +7 (496) 566-90-60, +7 (496) 567-26-74</p>
-					<p>E-mail: <a href="mailto:BocharovKV@fryazino.org">BocharovKV@fryazino.org</a></p>
-					<p>График приема: понедельник с 15.00 до 17.00</p><p>Запись на приём осуществляется в по телефону +7 (496)255-53-25</p>
+					{% if chairman.phones %}
+					<p>Телефоны приёмной: {{ chairman.phones }}</p>
+					{% endif %}
+					<p>E-mail: <a href="mailto:{{ chairman.email }}">{{ chairman.email }}</a></p>
+					{% if chairman.grafic %}
+					<p>Телефоны приёмной: {{ chairman.grafic | safe }}</p>
+					{% endif %}
 				</div>
 			</div> 
-			<div class="col-reception"><a href="#">Обратиться в Совет депутатов городского окргуга Фрязино</a></div>
+			<div class="col-reception"><a href="/reception/sovet">Обратиться в Совет депутатов городского окргуга Фрязино</a></div>
 		</div>
 	</div>
 
