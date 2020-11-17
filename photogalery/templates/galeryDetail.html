@@ -45,7 +45,7 @@
 
 	{% for image in galery.get_images %}
 
-	<a data-fancybox="gallery" data-caption="{{ image.title }}" data-fancybox="iframe" href="{{ image.image.url }}"><img src="{% thumbnail image.image '380x235' crop='smart' quality=100 %}"></a>
+	<a data-fancybox="gallery" data-caption="{{ image.title }}" data-fancybox="iframe" href="{{ image.image.url }}"><img src="{% thumbnail image.image '380x235'  quality=100 %}"></a>
 
 
 

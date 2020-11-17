@@ -50,7 +50,7 @@ class ReceptionGlava(View):
 
 			app = form.save(commit=False)
 
-			app.ipaddres = request.META.get("REMOTE_ADDR")
+			app.ipaddres = request.META.get("HTTP_X_REAL_IP")
 
 			app.recipient = recipient.objects.get(slug=rec)
 

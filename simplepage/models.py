@@ -5,6 +5,7 @@ from menu.models import Menu
 from django.utils import timezone
 from mptt.models import MPTTModel, TreeOneToOneField
 from photogalery.models import Galery
+from documents.models import Documents
 from django.db.models import Q
 # Create your models here.
 
@@ -20,6 +21,7 @@ class Page(models.Model):
 
 	body = RichTextUploadingField(verbose_name='Текст страницы')
 	galery = models.ForeignKey(Galery, on_delete=models.SET_NULL, verbose_name='Галерея изображений', blank=True, null=True)
+	docs = models.ManyToManyField(Documents, verbose_name='Документы', blank=True)
 
 	menu = TreeOneToOneField(Menu, on_delete=models.SET_NULL, verbose_name='Пункт меню', blank=True, null=True)
 	publisdDate = models.DateTimeField(verbose_name='Дата публикации', default=timezone.now)
@@ -59,6 +61,8 @@ class Page(models.Model):
 	def searchType(self):
 
 		return 'Страница'
+
+	
 
 class TextBlock(models.Model):
 

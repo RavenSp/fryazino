@@ -3,6 +3,7 @@ from .models import DocsAuthor, Documents, DocType, DocCategory
 from image_cropping import ImageCroppingMixin
 from mptt.admin import DraggableMPTTAdmin, MPTTModelAdmin
 from django.utils.translation import gettext_lazy as _
+from dal_admin_filters import AutocompleteFilter
 # Register your models here.
 
 

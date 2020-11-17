@@ -12,7 +12,7 @@ def similar_news(obj, conut=3):
 
 	news = []
 
-	for new in reversed(obj_news):
+	for new in obj_news:
 
 		if type(new) == News:
 			

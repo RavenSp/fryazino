@@ -41,7 +41,13 @@
 		</ul>
 		{% endif %}
 	</div>
-
+	<div class="docs-list-filter">
+		<h4>Фильтр</h4>
+		<form  method="GET">
+			{{ form.as_p }}
+			<button type="submit">фильит</button>
+		</form>
+	</div>
 	<div class="docs-list--list">
 		<ul>
 			{% for doc in docs %}

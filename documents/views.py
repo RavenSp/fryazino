@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Documents, DocsAuthor, DocType, DocCategory
+from .forms import DocFilter
 from menu.models import Menu
 # Create your views here.
 
@@ -22,7 +23,7 @@ class documetns(ListView):
 			author = request.GET.get('author', '')
 			typedoc = request.GET.get('typedoc', '')
 
-			docs = get_list_or_404(Documents.objects.filter(publish=True, publishDate__lt=timezone.now(), Author__slug = author, TypeDoc__slug = typedoc).order_by('-publishDate'))
+			docs = get_list_or_404(Documents.objects.filter(publish=True, publishDate__lt=timezone.now(), Author__id = author, TypeDoc__id = typedoc).order_by('-publishDate'))
 
 			title = '%s | %s' % (docs[0].TypeDoc.title, docs[0].Author.title)
 
@@ -32,7 +33,7 @@ class documetns(ListView):
 
 			author = request.GET.get('author', '')
 
-			docs = get_list_or_404(Documents.objects.filter(publish=True, publishDate__lt=timezone.now(), Author__slug = author).order_by('-publishDate'))
+			docs = get_list_or_404(Documents.objects.filter(publish=True, publishDate__lt=timezone.now(), Author__id = author).order_by('-publishDate'))
 
 			title = 'Документы | %s' % docs[0].Author.title
 
@@ -41,7 +42,7 @@ class documetns(ListView):
 
 			typedoc = request.GET.get('typedoc', '')
 
-			docs = get_list_or_404(Documents.objects.filter(publish=True, publishDate__lt=timezone.now(), TypeDoc__slug = typedoc).order_by('-publishDate'))
+			docs = get_list_or_404(Documents.objects.filter(publish=True, publishDate__lt=timezone.now(), TypeDoc__id = typedoc).order_by('-publishDate'))
 
 			title = '%s' % docs[0].TypeDoc.title
 
@@ -64,16 +65,19 @@ class documetns(ListView):
 
 		submenu = DocCategory.objects.filter(active=True)
 
-
-
-		
+		form = DocFilter()		
 
 
 		context = {
 			'title': title,
 			'submenu':submenu,
 			'docs':docs,
+			'form':form,
 		}
+
+		for i in request.GET:
+
+			print(i, request.GET[i])
 
 		return render(request, 'documentsList.html', context)
 

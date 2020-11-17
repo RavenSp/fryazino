@@ -137,7 +137,7 @@ class IndexView(ListView):
 
 		OneMainNew = topNews[0]
 
-		topNews = topNews[1:]
+		topNews = topNews[1:11]
 
 		listNews = News.objects.filter(publish=True, topNews=False).order_by('-publisdDate')
 

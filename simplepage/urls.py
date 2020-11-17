@@ -5,5 +5,7 @@ from . import views
 
 
 urlpatterns = [
+	path('doc-autocomplete/', views.DocumentsAutocompile.as_view(), name='doc-autocomplete'),
 	path('<slug:pg>/', views.PageView.as_view(), name='simplePage'),
+	
 	]

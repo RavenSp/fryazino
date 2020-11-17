@@ -56,6 +56,7 @@
 .simple--submenu {
 	list-style: none;
 	display: flex;
+	flex-wrap:wrap;
 	padding: 20px;
 	margin: 0px 0px 20px 0px;
 	background-color: var(--primary);

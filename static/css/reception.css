@@ -5,6 +5,16 @@
 	margin-bottom: 20px;
 }
 
+.reception--preinfo {
+    padding: 0px 10px 10px 20px;
+    color: darkgray;
+    text-align: justify;
+}
+
+.reception--preinfo hr {
+    border: 1px solid lightgray;
+}
+
 .reception--form p {
 	display: flex;
 	flex-wrap: wrap;
@@ -29,4 +39,122 @@
 
 .reception--form textarea {
 	padding: 7px 5px;
+}
+
+.reception--form input[type='submit'] {
+
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: var(--second);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    max-width: 200px;
+}
+
+.reception--form input[type='submit']:hover {
+
+    background-color: var(--primary);
+    text-shadow: #a0a0a0 0 0 2px;
+
+}
+
+#id_captcha_1 {
+    width: 275px;
+    margin-left: 10px; 
+}
+
+ul.errorlist {
+    border: 2px solid red;
+    padding: 4px 10px;
+    list-style: none;
+    border-radius: 4px;
+    background-color: #ff3c3c;
+    color: white;
+    max-width: 500px;
+    min-width: 250px;
+}
+
+.reception--done {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.reception--done a {
+    color: var(--primary);
+}
+
+/*---------- main reception -------------- */ 
+
+.reception--main {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.reception--text {
+    width: calc(100% - 350px);
+    margin-right: 30px;
+}
+
+.reception--bnr {
+    width: 300px;
+
+}
+
+.reception--bnr img {
+    width: 100%;
+}
+
+.reception--bnr .listnews--banners-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.reception--bnr .listnews--sidebar-banners {
+    position: sticky;
+    top: 30px;
+}
+
+
+.reception--btns {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    align-content: center;
+    justify-content: center;
+}
+
+.reception--btn {
+
+    padding: 10px 20px;
+    margin: 20px;
+    color: white;
+    background-color: var(--primary);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.reception--btn:hover  {
+    text-shadow: #a0a0a0 0 0 2px;
+}
+
+.reception--btn a {
+    color: white;
+}
+
+
+@media screen and (max-width: 1024px){
+    .reception--text {
+        width: 100%;
+        margin-right: 0px
+    }
+
+    .reception--bnr {
+        display: none;
+    }
 }

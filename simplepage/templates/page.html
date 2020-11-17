@@ -46,12 +46,20 @@
 		</div>
 		<div class="simple--text">
 			{{page.body|safe }}
+			{% if page.docs.all %}
+			<h3>Документы:</h3>
+			<div class="simple--doclist">
+				{% for doc in page.docs.all %}
+				<p><a href="{{ doc.get_absolute_url }}">{{ doc.title }}</a></p>
+				{% endfor %}
+			</div>
+			{%endif%}
             {% if page.galery %}
             <div class="newsdetail--galery">
                 <h3>Галерея изображений:</h3>
                 <div class="newsdetail--listimg">
                     {% for image in page.galery.get_images %}
-                        <a data-fancybox="gallery" data-caption="{{ image.title }}" data-fancybox="iframe" href="{{ image.image.url }}"><img src="{% thumbnail image.image '340x260' crop='smart' quality=100 %}"></a>
+                        <a data-fancybox="gallery" data-caption="{{ image.title }}" data-fancybox="iframe" href="{{ image.image.url }}"><img src="{% thumbnail image.image '340x260' quality=100 %}"></a>
                     {% endfor %}
                 </div>
             </div>
