@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'taggit_autosuggest',
     'captcha',
+    'spurl',
     
 
     'news.apps.NewsConfig',

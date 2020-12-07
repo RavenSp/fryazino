@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static banners %}
+{% load spurl %}
 
 
 {% block title %}{{ title }}{%endblock%}
@@ -45,7 +46,7 @@
 		<h4>Фильтр</h4>
 		<form  method="GET">
 			{{ form.as_p }}
-			<button type="submit">фильит</button>
+			<button type="submit">Фильтр</button>
 		</form>
 	</div>
 	<div class="docs-list--list">
@@ -69,7 +70,7 @@
 		<div class="listnews--paginate">
 			<ul class="pagination">
 			{% if docs.has_previous %}
-				<li><a href="?page={{ docs.previous_page_number }}">&laquo;</a></li>
+				<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.previous_page_number }}" %}">&laquo;</a></li>
 			{% else %}
 				<li class="disabled"><span>&laquo;</span></li>
 			{% endif %}
@@ -82,29 +83,30 @@
 			{% endif %}
 
 			{% if docs.number|add:'-3' > 0 %}
-			<li><a href="?page={{ docs.number|add:'-3' }}">{{ docs.number|add:'-3' }}</a></li>
+			<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'-3' }}" %}">{{ docs.number|add:'-3' }}</a></li>
 			{% endif %}
 
 			{% if docs.number|add:'-2' > 0 %}
-			<li><a href="?page={{ docs.number|add:'-2' }}">{{ docs.number|add:'-2' }}</a></li>
+			<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'-2' }}" %}">{{ docs.number|add:'-2' }}</a></li>
 			{% endif %}
 
 			{% if docs.number|add:'-1' > 0 %}
-			<li><a href="?page={{ docs.number|add:'-1' }}">{{ docs.number|add:'-1' }}</a></li>
+			<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'-1' }}" %}">{{ docs.number|add:'-1' }}</a></li>
 			{% endif %}
 
-			<li class="active"><span>{{ docs.number }} <span class="sr-only">(current)</span></span></li>
+			<li class="active"><span>{{ docs.number }} <span class="sr-only">(current)</s<a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'3' }}" %}">pan></span></li>
 
 			{% if docs.number|add:'1' <= docs.paginator.num_pages %}
-			<li><a href="?page={{ docs.number|add:'1' }}">{{ docs.number|add:'1' }}</a></li>
+			<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'1' }}" %}">{{ docs.number|add:'1' }}</a></li>
 			{% endif %}
 
 			{% if docs.number|add:'2' <= docs.paginator.num_pages %}
-			<li><a href="?page={{ docs.number|add:'2' }}">{{ docs.number|add:'2' }}</a></li>
+			<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'2' }}" %}">{{ docs.number|add:'2' }}</a></li>
 			{% endif %}
 
 			{% if docs.number|add:'3' <= docs.paginator.num_pages %}
-			<li><a href="?page={{ docs.number|add:'3' }}">{{ docs.number|add:'3' }}</a></li>
+			<li><a href="{% spurl path=request.get_full_path query=request.GET set_query="page={{ docs.number|add:'3' }}" %}">{{ docs.number|add:'3' }}</a></li>
+
 			{% endif %}
 	
 

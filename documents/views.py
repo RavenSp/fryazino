@@ -81,6 +81,36 @@ class documetns(ListView):
 
 		return render(request, 'documentsList.html', context)
 
+	def post(self, request):
+
+		form = DocFilter(request.POST)
+
+		docs = Documents.objects.filter(publish=True, publishDate__lt=timezone.now()).order_by('-publishDate')
+
+		if form.is_valid():
+			
+			if form.cleaned_data['number']:
+
+				docs = docs.filter(number=form.cleaned_data['number'])
+
+
+
+
+		else:
+			print('not valid')
+
+		title = 'Нормативные документы'
+		submenu = DocCategory.objects.filter(active=True)
+
+		context = {
+			'title': title,
+			'submenu':submenu,
+			'docs':docs,
+			'form':form,
+		}
+
+		return render(request, 'documentsList.html', context)
+
 class documentsDetail(DetailView):
 
 	model = Documents
