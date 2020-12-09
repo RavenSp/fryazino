@@ -8,6 +8,7 @@
 {% block addcss %}
 	
 		<link rel="stylesheet" href="{% static "css/docs-list.css" %}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
 	
 {% endblock %}
 
@@ -44,7 +45,8 @@
 	</div>
 	<div class="docs-list-filter">
 		<h4>Фильтр</h4>
-		<form  method="GET">
+		<form  method="POST">
+			{% csrf_token %}
 			{{ form.as_p }}
 			<button type="submit">Фильтр</button>
 		</form>
@@ -129,5 +131,22 @@
 	
 	{% big_banner_news %}
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0.3/dist/js/locales/ru.js"></script>
 
+<script>
+	const elemstart = document.querySelector('input[name="dateStart"]');
+	const datepickerstart = new Datepicker(elemstart, {
+  		autohide: true,
+  		format: "dd.mm.yyyy",
+  		language:'ru'
+	}); 
+
+	const elemend = document.querySelector('input[name="dateEnd"]');
+	const datepickerend = new Datepicker(elemend, {
+  		autohide: true,
+  		format: "dd.mm.yyyy",
+  		language:'ru'
+	}); 
+</script>	
 {% endblock %}

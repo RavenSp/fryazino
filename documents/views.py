@@ -18,6 +18,8 @@ class documetns(ListView):
 
 	def get(self, request):
 
+
+
 		if request.GET.get('author', '') and request.GET.get('typedoc', ''):
 
 			author = request.GET.get('author', '')
@@ -92,6 +94,23 @@ class documetns(ListView):
 			if form.cleaned_data['number']:
 
 				docs = docs.filter(number=form.cleaned_data['number'])
+
+			if form.cleaned_data['author']:
+
+				docs = docs.filter(Author=form.cleaned_data['author'])
+
+			if form.cleaned_data['category']:
+
+				docs = docs.filter(DocCategory=form.cleaned_data['category'])
+
+			if form.cleaned_data['dateStart']:
+
+				docs = docs.filter(docDate__gte=form.cleaned_data['dateStart'])
+
+			if form.cleaned_data['dateEnd']:
+
+				docs = docs.filter(docDate__lte=form.cleaned_data['dateEnd'])
+			
 
 
 
