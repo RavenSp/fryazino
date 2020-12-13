@@ -111,6 +111,9 @@ class documetns(ListView):
 
 				docs = docs.filter(docDate__lte=form.cleaned_data['dateEnd'])
 			
+			if form.cleaned_data['search']:
+
+				docs = docs.filter(title__icontains=form.cleaned_data['search'])
 
 
 
