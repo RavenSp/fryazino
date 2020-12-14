@@ -41,7 +41,20 @@
 	<div class="docs-detail--download">
 		<div class="docs-detail--down-title">Скачать: </div>
 		<div class="docs-detail--down-link"><a href="{{ doc.file.url }}" class="docs-detail--{{ doc.extension }}">{{ doc.file.size|filesizeformat }} {{ doc.extension|upper }}</a></div>
+
 	</div>
+
+	{% if doc.adddocs_set.all %}
+	<div class="dosc-detail--add-docs">
+		<h2>Дополнительные файлы:</h2>
+
+		<ul class="docs-detail--add-docs-files">
+			{% for d in doc.adddocs_set.all%}
+			<li><a href="{{ d.doc.url }}">{{ d.title }} - {{ d.doc.file.size|filesizeformat }} {{ d.extension }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
 
 	<h2 class="docs-detail--info-title">Информация о документе:</h2>
 

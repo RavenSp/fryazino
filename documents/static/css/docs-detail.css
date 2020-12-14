@@ -39,6 +39,19 @@
 	color: white;
 }
 
+.dosc-detail--add-docs a {
+	color: var(--primary);
+}
+
+.docs-detail--add-docs-files {
+	list-style: none;
+	padding: 0px 0px 0px 10px;
+}
+
+.docs-detail--add-docs-files li {
+	margin-bottom: 8px;
+}
+
 .docs-detail--info-title {
 	padding: 10px;
 	border-bottom: 1px solid gray;

@@ -43,14 +43,20 @@
 		</ul>
 		{% endif %}
 	</div>
-	<div class="docs-list-filter">
-		<h4>Фильтр</h4>
+	<div class="tab">
+			 <input type="checkbox" id="tab1" name="tab-group">
+			 <label for="tab1" class="tab-title">Фильтр</label> 
+		<section class="tab-content"> 
+			<div class="docs-list-filter">
 		<form  method="POST">
 			{% csrf_token %}
 			{{ form.as_p }}
 			<button type="submit">Фильтр</button>
 		</form>
 	</div>
+  		 </section> 
+		</div>
+	
 	<div class="docs-list--list">
 		<ul>
 			{% for doc in docs %}

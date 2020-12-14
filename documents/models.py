@@ -80,6 +80,7 @@ class DocCategory(MPTTModel):
 		return "/documents/category/%s/" % self.slug 
 
 
+
 class Documents(models.Model):
 
 	title = models.CharField(max_length=700, verbose_name='Название')
@@ -142,3 +143,23 @@ class Documents(models.Model):
 		if not self.slug.endswith('-' + str(self.id)):
 			self.slug += '-' + str(self.id)
 			super(Documents, self).save()
+
+
+class AddDocs(models.Model):
+
+	title = models.CharField(max_length=200, verbose_name='Название')
+	doc = models.FileField(upload_to='uploads/%Y/%m/%d/documents', verbose_name='Документ')
+	parent = models.ForeignKey(Documents, verbose_name='Родительский документ', on_delete=models.CASCADE)
+
+	def __str__(self):
+
+		return self.title
+
+	class Meta:
+
+		verbose_name='Дополнительный документ'
+		verbose_name_plural = 'Дополнительные документы'
+
+	def extension(self):
+		extension = os.path.splitext(self.doc.name)[-1][1:]
+		return extension
